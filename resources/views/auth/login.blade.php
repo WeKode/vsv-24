@@ -47,9 +47,18 @@
                     </a>
                 @endif
 
+                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('socialite.redirect','facebook') }}">
+                        {{ __('labels.login.facebook') }}
+                    </a>
+
+                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('socialite.redirect','google') }}">
+                        {{ __('labels.login.google') }}
+                    </a>
+
                 <x-button class="ml-3">
                     {{ __('Log in') }}
                 </x-button>
+
             </div>
         </form>
     </x-auth-card>

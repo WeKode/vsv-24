@@ -12,6 +12,8 @@ return [
         'login'           => 'Sign In',
         'send-reset-link' => 'Send reset link',
         'reset-password'  => 'Set New Password',
+        'facebook'  => 'Login with facebook',
+        'google'  => 'Login with google',
     ],
     'password'          => 'Password',
     'list'              => 'List Of :name',
