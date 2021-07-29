@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Web\Admin;
+namespace App\Http\Controllers\Admin;
 
 use App\Contracts\AdminContract;
 use App\Http\Controllers\Controller;
