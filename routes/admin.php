@@ -14,8 +14,8 @@ Route::post('forgot/password',[\App\Http\Controllers\Admin\Auth\ForgotPasswordCo
 
 
 Route::middleware('auth:admin')->group(function (){
-    Route::any('logout',[\App\Http\Controllers\Web\Admin\Auth\AdminLoginController::class,'logout'])->name('logout');
-    Route::get('dashboard',[\App\Http\Controllers\Web\Admin\DashboardController::class,'index'])->name('dashboard');
+    Route::any('logout',[\App\Http\Controllers\Admin\Auth\AdminLoginController::class,'logout'])->name('logout');
+    Route::get('dashboard',[\App\Http\Controllers\Admin\DashboardController::class,'index'])->name('dashboard');
 
     Route::resource('admins',\App\Http\Controllers\Admin\AdminController::class);
 });

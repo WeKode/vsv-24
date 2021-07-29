@@ -20,7 +20,7 @@
     <!-- /.login-logo -->
     <div class="card card-outline card-primary">
         <div class="card-header text-center">
-            <a href="javascript:void(0)" class="h1"><b>Fish</b>Tender</a>
+            <a href="javascript:void(0)" class="h1"><b>VSV</b>24</a>
         </div>
         @yield('content')
         <!-- /.card-body -->

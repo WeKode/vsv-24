@@ -22,7 +22,7 @@ class AdminController extends Controller
      */
     public function index(): Renderable
     {
-        $admins = $this->admin->findByFilter(['roles']);
+        $admins = $this->admin->findByFilter();
         return view('admin.admins.index',compact('admins'));
     }
 
@@ -67,7 +67,7 @@ class AdminController extends Controller
      */
     public function edit($id): Renderable
     {
-        $admin = $this->admin->findOneById($id,['roles']);
+        $admin = $this->admin->findOneById($id);
         return view('admin.admins.edit',compact('admin'));
     }
 

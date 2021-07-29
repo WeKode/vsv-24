@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title',trans_choice('labels.category',3))
+@section('title',trans_choice('labels.admin',3))
 
 @push('css')
 
@@ -56,7 +56,7 @@
                                         <th>{{trans_choice('labels.image',1)}}</th>
                                         <th>{{__('labels.name')}}</th>
                                         <th>{{__('labels.email')}}</th>
-                                        <th>{{trans_choice('labels.role',3)}}</th>
+                                        <th>{{__('labels.created_at')}}</th>
                                         <th>{{__('actions.actions')}}</th>
                                     </tr>
                                     </thead>
@@ -65,29 +65,17 @@
                                     <tr>
                                         <td>{{$key + 1 }}</td>
                                         <td>
-                                            <img src="{{$a->image_url}}" width="60" height="60" class="img-circle elevation-1" alt="User Image">
+                                            <img src="{{$a->pic_url}}" width="60" height="60" class="img-circle elevation-1" alt="User Image">
                                         </td>
                                         <td>{{$a->name}}</td>
                                         <td>{{$a->email}}</td>
-                                        <td style="width: 20%">
-                                            @foreach($a->roles as $role)
-                                                <span class="badge badge-success">
-                                                    {{$role->name}}
-                                                </span>
-                                            @endforeach
-                                        </td>
-
                                         <td>
-                                            @can('edit-admin')
-                                                <a href="{{route('admin.admins.edit',$a->id)}}" class="btn btn-sm btn-warning">
-                                                    <i class="fas fa-edit"></i>
-                                                </a>
-                                            @endcan
-                                            @can('delete-admin')
-                                                <button type="button" onclick="deleteItem({{$a->id}})" class="btn btn-sm btn-warning">
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
-                                            @endcan
+                                            <a href="{{route('admin.admins.edit',$a->id)}}" class="btn btn-sm btn-warning">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <button type="button" onclick="deleteItem({{$a->id}})" class="btn btn-sm btn-warning">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
                                         </td>
                                     </tr>
                                     @endforeach

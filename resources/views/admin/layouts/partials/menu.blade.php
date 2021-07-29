@@ -11,7 +11,7 @@
                 </p>
             </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item @if(request()->is(['admin/admins*','admin/users*'])) menu-is-opening menu-open @endif">
             <a href="#" class="nav-link">
                 <i class="fas fa-user-circle"></i>
                 <p>
@@ -22,7 +22,7 @@
             <ul class="nav nav-treeview">
                 <li class="nav-item">
                     <a href="{{route('admin.admins.index')}}"
-                       class="nav-link {{request()->routeIs('admin.admins*') ? 'admin' : ''}}"
+                       class="nav-link {{request()->routeIs('admin.admins*') ? 'active' : ''}}"
                        data-link="/admin/admins">
                         <i class="fas fa-users-cog"></i>
                         <p>{{trans_choice('labels.admin',3)}}</p>

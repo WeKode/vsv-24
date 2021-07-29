@@ -32,7 +32,6 @@ return [
     'category'              => '{1}Category|[2,*]Categories',
     'product'              => '{1}Product|[2,*]Products',
     'admin'             => '{1}Admin|[2,*]Admins',
-    'fisher'              => '{1}Fisher|[2,*]Fishers',
     'client'         => '{1}Client|[2,*]Clients',
     'order'             => '{1}Order|[2,*]Orders',
     'payment'           => '{1}Payment|[2,*]Payments',

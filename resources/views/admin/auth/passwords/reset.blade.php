@@ -32,11 +32,15 @@
                 </div>
             </div>
         </div>
-
+        <div class="row">
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary btn-block">{{__('labels.login.reset-password')}}</button>
+            </div>
+        </div>
     </form>
     <!-- /.social-auth-links -->
 
-    <p class="mb-1">
+    <p class="mt-3 mb-1">
         <a href="{{route('admin.login')}}">{{__('labels.login.login')}}</a>
     </p>
 

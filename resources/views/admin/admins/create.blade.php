@@ -64,16 +64,7 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group">
-                                <label for="role">{{trans_choice('labels.role',3)}}</label>
-                                <select name="roles[]" multiple class="select2 form-control @error('roles') is-invalid @enderror"
-                                        id="role">
 
-                                </select>
-                                @error('roles')
-                                <div class="text-danger">{{$message}}</div>
-                                @enderror
-                            </div>
 
                             <div class="form-group">
                                 <label for="password">{{__('labels.password')}}</label>

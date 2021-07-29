@@ -179,7 +179,7 @@ class ResetPasswordController extends Controller
      */
     protected function guard(): StatefulGuard
     {
-        return auth()->guard('admins');
+        return auth()->guard('admin');
     }
 
     /**
