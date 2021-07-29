@@ -41,7 +41,6 @@ class AdminRepository extends BaseRepositories implements AdminContract
         }
         $data['password'] = bcrypt($data['password']);
         $admin = Admin::create($data);
-        $admin->assignRole($data['roles']);
         return $admin;
     }
 
@@ -57,7 +56,6 @@ class AdminRepository extends BaseRepositories implements AdminContract
             $data['pic'] = $this->uploadOne($data['pic'],'admin/img');
         }
         $admin->update($data);
-        $admin->syncRole($data['roles']);
         return $admin;
     }
 

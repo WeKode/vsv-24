@@ -88,28 +88,28 @@
     <script src="{{asset('assets/plugins/select2/js/select2.full.min.js')}}"></script>
 
     <!-- Select2 -->
-    <script>
-        //Initialize Select2 Elements
-        $('.select2').select2({
-            minimumInputLength:0,
-            cache:true,
-            ajax: {
-                delay: 250,
-                url: '{{route('admin.roles.index')}}',
-                dataType: 'json',
-                processResults: function ({roles}, params) {
-                    let fData = $.map(roles, function (obj) {
-                        obj.text = obj.name; // replace name with the property used for the text
-                        return obj;
-                    });
+{{--    <script>--}}
+{{--        //Initialize Select2 Elements--}}
+{{--        $('.select2').select2({--}}
+{{--            minimumInputLength:0,--}}
+{{--            cache:true,--}}
+{{--            ajax: {--}}
+{{--                delay: 250,--}}
+{{--                url: '{{route('admin.roles.index')}}',--}}
+{{--                dataType: 'json',--}}
+{{--                processResults: function ({roles}, params) {--}}
+{{--                    let fData = $.map(roles, function (obj) {--}}
+{{--                        obj.text = obj.name; // replace name with the property used for the text--}}
+{{--                        return obj;--}}
+{{--                    });--}}
 
-                    return {
-                        results: fData,
-                    };
-                }
-            }
-        })
+{{--                    return {--}}
+{{--                        results: fData,--}}
+{{--                    };--}}
+{{--                }--}}
+{{--            }--}}
+{{--        })--}}
 
 
-    </script>
+{{--    </script>--}}
 @endpush

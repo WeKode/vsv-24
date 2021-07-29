@@ -42,13 +42,11 @@
 
                             <!-- /.card-header -->
                             <div class="card-body">
-                                @can('create-admin')
                                     <div class="card-tools">
                                         <a class="btn btn-sm btn-info" href="{{route('admin.admins.create')}}">
                                             <i class="fas fa-plus"></i>
                                         </a>
                                     </div>
-                                @endcan
                                 <table id="datatable" class="table table-bordered table-hover">
                                     <thead>
                                     <tr>
@@ -69,11 +67,12 @@
                                         </td>
                                         <td>{{$a->name}}</td>
                                         <td>{{$a->email}}</td>
+                                        <td>{{$a->created_at->format('m-d-Y')}}</td>
                                         <td>
                                             <a href="{{route('admin.admins.edit',$a->id)}}" class="btn btn-sm btn-warning">
                                                 <i class="fas fa-edit"></i>
                                             </a>
-                                            <button type="button" onclick="deleteItem({{$a->id}})" class="btn btn-sm btn-warning">
+                                            <button type="button" onclick="deleteItem({{$a->id}})" class="btn btn-sm btn-danger">
                                                 <i class="fas fa-trash"></i>
                                             </button>
                                         </td>
