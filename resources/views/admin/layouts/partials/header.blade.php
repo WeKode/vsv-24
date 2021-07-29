@@ -127,14 +127,7 @@
                 <i class="fas fa-expand-arrows-alt"></i>
             </a>
         </li>
-        @can('view-settings')
-        <li class="nav-item">
-            <a class="nav-link {{request()->routeIs('admin.setting*') ? 'active' : ''}} "
-               href="{{route('admin.setting.index')}}">
-                <i class="fas fa-cog"></i>
-            </a>
-        </li>
-        @endcan
+     
         <li class="nav-item">
             <a class="nav-link" data-slide="true" href="{{route('admin.logout')}}" role="button">
                 <i class="fas fa-sign-out-alt"></i>
