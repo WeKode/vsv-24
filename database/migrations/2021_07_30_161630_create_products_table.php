@@ -18,6 +18,9 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->decimal('price',14,2);
             $table->text('meta')->nullable();
+            $table->foreignId('brand_id')
+                ->references('id')
+                ->on('brands')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

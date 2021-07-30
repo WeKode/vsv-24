@@ -73,6 +73,19 @@
                                 @enderror
                             </div>
 
+                            <div class="form-group">
+                                <label>{{__('brand')}}</label>
+                                <select required class="select2 form-control @error('brand_id') is-invalid @enderror"
+                                        name="brand_id" data-placeholder="{{__('brand')}}"
+                                        style="width: 100%;">
+                                    <option value="{{$product->brand->id}}" selected> {{$product->brand->name}} </option>
+
+                                </select>
+                                @error('brand_id')
+                                <div class="invalid-feedback">{{$message}}</div>
+                                @enderror
+                            </div>
+
                             <div class="tab-pane text-left fade show " id="vert-tabs-images" role="tabpanel" aria-labelledby="vert-tabs-images-tab">
                                 <div class="tab-pane" id="images">
                                     <div class="tile">
@@ -222,5 +235,48 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
+    </script>
+
+    <!-- Select2 -->
+    <script>
+        //Initialize Select2 Elements
+        $('.select2').select2({
+            minimumInputLength:2,
+            cache:true,
+            ajax: {
+                delay: 250,
+                url: '{{route('admin.brands.list.index')}}',
+                dataType: 'json',
+                data: function (params) {
+
+                    // Query parameters will be ?search=[term]&page=[page]
+                    if (params.term && params.term.length > 3)
+                    {
+                        return {
+                            search: params.term,
+                            page: params.page || 1
+                        };
+                    }
+
+                },
+                processResults: function ({brands}, params) {
+                    params.page = params.page || 1;
+
+                    let fData = $.map(brands.data, function (obj) {
+                        obj.text = obj.name; // replace name with the property used for the text
+                        return obj;
+                    });
+
+                    return {
+                        results: fData,
+                        pagination: {
+                            more: (params.page * 10) < brands.total
+                        }
+                    };
+                }
+            }
+        })
+
+
     </script>
 @endpush

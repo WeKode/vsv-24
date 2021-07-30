@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Product extends Model
@@ -13,7 +14,8 @@ class Product extends Model
     protected $fillable = [
         'name',
         'meta',
-        'price'
+        'price',
+        'brand_id'
     ];
 
     public function getImgUrlAttribute()
@@ -24,5 +26,10 @@ class Product extends Model
     public function images():HasMany
     {
         return $this->hasMany(Image::class);
+    }
+
+    public function brand():BelongsTo
+    {
+        return $this->belongsTo(Brand::class);
     }
 }
