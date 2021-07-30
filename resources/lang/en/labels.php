@@ -43,6 +43,7 @@ return [
     'unit'              => '{1}Unit|[2,*]Units',
     'service'              => '{1}Service|[2,*]Services',
     'dashboard'         => 'Dashboard',
+    'price'         => 'Price',
     'accounts'          => 'Accounts',
     'error'          => 'Error!',
     'success'          => 'Success!',

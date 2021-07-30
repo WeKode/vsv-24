@@ -37,7 +37,7 @@ class ProductRepository extends BaseRepositories implements \App\Contracts\Produ
     {
         $product = Product::create($data);
 
-        if (array_key_exists('link',$data) && $data['link'] instanceof UploadedFile)
+        if (array_key_exists('images',$data))
         {
             foreach ($data['images'] as $image)
             {
@@ -61,6 +61,30 @@ class ProductRepository extends BaseRepositories implements \App\Contracts\Produ
     {
         $product = $this->findOneById($id);
         $product->update($data);
+
+        if (array_key_exists('images',$data))
+        {
+            foreach ($product->images as $i)
+            {
+                if ($i->link)
+                {
+                    $this->deleteOne($i->link);
+                }
+                $i->delete();
+            }
+
+            foreach ($data['images'] as $image)
+            {
+                if ($image instanceof UploadedFile)
+                {
+                    $link = $this->uploadOne($image, 'products');
+                    $product->images()->create([
+                        'link' => $link
+                    ]);
+                }
+            }
+        }
+
         return $product;
     }
 
@@ -69,7 +93,16 @@ class ProductRepository extends BaseRepositories implements \App\Contracts\Produ
      */
     public function destroy($id)
     {
-        return Product::destroy($id);
+        $product = $this->findOneById($id);
+        foreach ($product->images as $i)
+        {
+            if ($i->link)
+            {
+                $this->deleteOne($i->link);
+            }
+            $i->delete();
+        }
+        return $product->delete();
     }
 
     public function findOneBy(array $params, array $relations = [],array $counts = [], array $columns = ['*'], array $scopes = [])

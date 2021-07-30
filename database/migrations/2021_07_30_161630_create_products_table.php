@@ -17,7 +17,7 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('name');
             $table->decimal('price',14,2);
-            $table->text('meta');
+            $table->text('meta')->nullable();
             $table->timestamps();
         });
     }

@@ -19,4 +19,7 @@ Route::middleware('auth:admin')->group(function (){
 
     Route::resource('admins',\App\Http\Controllers\Admin\AdminController::class);
     Route::resource('brands',\App\Http\Controllers\Admin\BrandController::class);
+
+    Route::resource('products',\App\Http\Controllers\Admin\ProductController::class);
+
 });

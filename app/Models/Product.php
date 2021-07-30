@@ -16,6 +16,11 @@ class Product extends Model
         'price'
     ];
 
+    public function getImgUrlAttribute()
+    {
+        return $this->images()->first() ? 'storage/'.$this->images()->first()->link : 'default';
+    }
+
     public function images():HasMany
     {
         return $this->hasMany(Image::class);
