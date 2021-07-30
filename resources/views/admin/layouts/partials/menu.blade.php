@@ -11,6 +11,37 @@
                 </p>
             </a>
         </li>
+
+        <li class="nav-item ">
+            <a href="{{route('admin.brands.index')}}" data-link="/admin/brands"
+               class="nav-link {{request()->routeIs('admin.brands*') ? 'active' : ''}}">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>
+                    {{trans_choice('brand', 3)}}
+                </p>
+            </a>
+        </li>
+
+        <li class="nav-item ">
+            <a href="{{route('admin.attributes.index')}}" data-link="/admin/attributes"
+               class="nav-link {{request()->routeIs('admin.attributes*') ? 'active' : ''}}">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>
+                    {{trans_choice('attribute', 3)}}
+                </p>
+            </a>
+        </li>
+
+        <li class="nav-item ">
+            <a href="{{route('admin.products.index')}}" data-link="/admin/products"
+               class="nav-link {{request()->routeIs('admin.products*') ? 'active' : ''}}">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>
+                    {{trans_choice('product', 3)}}
+                </p>
+            </a>
+        </li>
+
         <li class="nav-item @if(request()->is(['admin/admins*','admin/users*'])) menu-is-opening menu-open @endif">
             <a href="#" class="nav-link">
                 <i class="fas fa-user-circle"></i>
@@ -37,6 +68,7 @@
                 </li>
             </ul>
         </li>
+
 
         {{--        <li class="nav-header">EXAMPLES</li>--}}
 
