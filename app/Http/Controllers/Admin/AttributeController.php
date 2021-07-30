@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Contracts\AdminContract;
 use App\Contracts\AttributeContract;
-use App\Contracts\BrandContract;
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\RedirectResponse;
@@ -19,12 +17,21 @@ class AttributeController extends Controller
         $this->attribute = $attribute;
     }
 
-    /**
-     * @return Renderable
-     */
-    public function index(): Renderable
+
+    public function index(Request $request)
     {
         $attributes = $this->attribute->findByFilter();
+
+        if ($request->wantsJson())
+        {
+            return response()->json(
+                [
+                    'success' => true,
+                    'attributes' => $attributes
+                ]
+            );
+        }
+
         return view('admin.attributes.index',compact('attributes'));
     }
 

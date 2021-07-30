@@ -2,10 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Contracts\AdminContract;
-use App\Contracts\AttributeContract;
 use App\Contracts\AttributeValueContract;
-use App\Contracts\BrandContract;
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\RedirectResponse;
@@ -40,8 +37,8 @@ class AttributeValueController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $data = $request->validate([
-            'name'      => 'required|string|max:100|unique:attribute_values,name',
-            'description'      => 'sometimes|nullable|string|max:200',
+            'name'              => 'required|string|max:100|unique:attribute_values,name',
+            'attribute_id'      => 'required|integer|exists:attributes',
         ]);
 
         $this->attribute_value->new($data);
@@ -74,7 +71,7 @@ class AttributeValueController extends Controller
     {
         $data = $request->validate([
             'name'      => 'required|string|max:100|unique:attribute_values,name,'.$id,
-            'description'      => 'sometimes|nullable|string|max:200',
+            'attribute_id'      => 'required|integer|exists:attributes',
         ]);
         $this->attribute_value->update($id,$data);
 
