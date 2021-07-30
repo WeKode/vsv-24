@@ -11,7 +11,8 @@ class Image extends Model
     use HasFactory;
 
     protected $fillable = [
-        'link'
+        'path',
+        'original_name'
     ];
 
     public function product():BelongsTo

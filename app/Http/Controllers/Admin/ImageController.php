@@ -28,10 +28,12 @@ class ImageController extends Controller
         $product = $this->product->findOneById($request->product_id);
         if ($request->has('image')) {
 
-            $image = $this->uploadOne($request->image, 'product');
+            $path = $this->uploadOne($request->image, 'product');
 
             $productImage = [
-                'link'      =>  $image,
+                'path'      =>  $path,
+                'original_name' => $request->image->getClientOriginalName()
+
             ];
             $product->images()->create($productImage);
         }
@@ -48,8 +50,8 @@ class ImageController extends Controller
     {
         $image = Image::findOrFail($id);
         try {
-            if ($image->link !== '') {
-                $this->deleteOne($image->link);
+            if ($image->path !== '') {
+                $this->deleteOne($image->path);
             }
             $image->delete();
             session()->flash('success',__('messages.delete'));

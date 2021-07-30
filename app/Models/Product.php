@@ -18,7 +18,7 @@ class Product extends Model
 
     public function getImgUrlAttribute()
     {
-        return $this->images()->first() ? 'storage/'.$this->images()->first()->link : 'default';
+        return $this->images()->first() ? 'storage/'.$this->images()->first()->path : 'default';
     }
 
     public function images():HasMany
