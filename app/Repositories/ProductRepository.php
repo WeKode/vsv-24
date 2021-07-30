@@ -43,9 +43,10 @@ class ProductRepository extends BaseRepositories implements \App\Contracts\Produ
             {
                 if ($image instanceof UploadedFile)
                 {
-                    $link = $this->uploadOne($image, 'products');
+                    $path = $this->uploadOne($image, 'products');
                     $product->images()->create([
-                        'link' => $link
+                        'path' => $path,
+                        'original_name' => $image->getClientOriginalName()
                     ]);
                 }
             }
@@ -62,29 +63,6 @@ class ProductRepository extends BaseRepositories implements \App\Contracts\Produ
         $product = $this->findOneById($id);
         $product->update($data);
 
-        if (array_key_exists('images',$data))
-        {
-            foreach ($product->images as $i)
-            {
-                if ($i->link)
-                {
-                    $this->deleteOne($i->link);
-                }
-                $i->delete();
-            }
-
-            foreach ($data['images'] as $image)
-            {
-                if ($image instanceof UploadedFile)
-                {
-                    $link = $this->uploadOne($image, 'products');
-                    $product->images()->create([
-                        'link' => $link
-                    ]);
-                }
-            }
-        }
-
         return $product;
     }
 
@@ -96,9 +74,9 @@ class ProductRepository extends BaseRepositories implements \App\Contracts\Produ
         $product = $this->findOneById($id);
         foreach ($product->images as $i)
         {
-            if ($i->link)
+            if ($i->path)
             {
-                $this->deleteOne($i->link);
+                $this->deleteOne($i->path);
             }
             $i->delete();
         }

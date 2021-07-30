@@ -100,7 +100,7 @@
                                                     <div class="col-md-3">
                                                         <div class="card">
                                                             <div class="card-body">
-                                                                <img src="{{ asset('storage/'.$image->link) }}"
+                                                                <img src="{{ asset('storage/'.$image->path) }}"
                                                                      id="brandLogo"
                                                                      class="img-thumbnail"
 
