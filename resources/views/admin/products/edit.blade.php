@@ -9,9 +9,9 @@
 
 
 @push('css')
-    <link rel="stylesheet" href="{{asset("assets/plugins/dropZone/dropzone.css")}}">
+    <link rel="stylesheet" href="{{asset("assets/plugins/dropzone/dropzone.css")}}">
 
-    <script src="{{asset("assets/plugins/dropZone/dropzone.js")}}"></script>
+    <script src="{{asset("assets/plugins/dropzone/dropzone.js")}}"></script>
 @endpush
 
 @section('content')
