@@ -15,6 +15,9 @@ class CreateAttributeValuesTable extends Migration
     {
         Schema::create('attribute_values', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->foreignId('attribute_id')->constrained()->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->timestamps();
         });
     }
@@ -26,6 +29,9 @@ class CreateAttributeValuesTable extends Migration
      */
     public function down()
     {
+        Schema::table('attribute_values', function (Blueprint $table) {
+            $table->dropForeign('attribute_values_attribute_id_foreign');
+        });
         Schema::dropIfExists('attribute_values');
     }
 }

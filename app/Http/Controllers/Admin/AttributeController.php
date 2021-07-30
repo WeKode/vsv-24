@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Contracts\AdminContract;
+use App\Contracts\AttributeContract;
 use App\Contracts\BrandContract;
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Support\Renderable;
@@ -13,7 +14,7 @@ class AttributeController extends Controller
 {
     protected $attribute;
 
-    public function __construct( $attribute)
+    public function __construct(AttributeContract $attribute)
     {
         $this->attribute = $attribute;
     }
