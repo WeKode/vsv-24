@@ -40,6 +40,7 @@ return [
     'city'              => '{1}City|[2,*]Cities',
     'account'              => '{1}Account|[2,*]accounts',
     'attribute'              => '{1}Attribute|[2,*]attributes',
+    'value'              => '{1}Value|[2,*]Values',
     'image'              => '{1}Image|[2,*]Images',
     'unit'              => '{1}Unit|[2,*]Units',
     'service'              => '{1}Service|[2,*]Services',

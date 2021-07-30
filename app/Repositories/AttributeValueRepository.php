@@ -4,10 +4,10 @@
 namespace App\Repositories;
 
 
-use App\Contracts\BrandContract;
-use App\Models\Brand;
+use App\Contracts\AttributeValueContract;
+use App\Models\AttributeValue;
 
-class BrandRepository extends BaseRepositories implements BrandContract
+class AttributeValueRepository extends BaseRepositories implements AttributeValueContract
 {
 
     public function __construct($per_page = 10, array $filters = [
@@ -19,12 +19,12 @@ class BrandRepository extends BaseRepositories implements BrandContract
 
     public function findOneById($id, array $relations = [], array $counts = [], array $columns = ['*'], array $scopes = [])
     {
-        return Brand::with($relations)->withCount($counts)->select($columns)->scopes($scopes)->findOrFail($id);
+        return AttributeValue::with($relations)->withCount($counts)->select($columns)->scopes($scopes)->findOrFail($id);
     }
 
     public function findOneBy(array $params, array $relations = [], array $counts = [], array $columns = ['*'], array $scopes = [])
     {
-        return Brand::with($relations)
+        return AttributeValue::with($relations)
             ->withCount($counts)
             ->select($columns)
             ->scopes($scopes)
@@ -34,7 +34,7 @@ class BrandRepository extends BaseRepositories implements BrandContract
 
     public function findBy(array $params, array $relations = [], array $counts = [], array $columns = ['*'], array $scopes = [])
     {
-        $q = Brand::with($relations)
+        $q = AttributeValue::with($relations)
             ->withCount($counts)
             ->select($columns)
             ->scopes($scopes)
@@ -45,7 +45,7 @@ class BrandRepository extends BaseRepositories implements BrandContract
 
     public function findByFilter(array $relations = [], array $counts = [], array $columns = ['*'], array $scopes = [])
     {
-        $q = Brand::with($relations)
+        $q = AttributeValue::with($relations)
             ->withCount($counts)
             ->select($columns)
             ->scopes($scopes)
@@ -55,7 +55,7 @@ class BrandRepository extends BaseRepositories implements BrandContract
 
     public function new(array $data)
     {
-        return Brand::create($data);
+        return AttributeValue::create($data);
     }
 
     public function update($id, array $data)
@@ -67,6 +67,6 @@ class BrandRepository extends BaseRepositories implements BrandContract
 
     public function destroy($id)
     {
-        return Brand::destroy($id);
+        return AttributeValue::destroy($id);
     }
 }
