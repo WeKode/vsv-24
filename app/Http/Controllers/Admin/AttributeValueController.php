@@ -22,7 +22,7 @@ class AttributeValueController extends Controller
      */
     public function index(): Renderable
     {
-        $attribute_values = $this->attribute_value->findByFilter();
+        $attribute_values = $this->attribute_value->findByFilter(['attribute']);
         return view('admin.attribute-values.index',compact('attribute_values'));
     }
 
@@ -38,7 +38,7 @@ class AttributeValueController extends Controller
     {
         $data = $request->validate([
             'name'              => 'required|string|max:100|unique:attribute_values,name',
-            'attribute_id'      => 'required|integer|exists:attributes',
+            'attribute_id'      => 'required|integer|exists:attributes,id',
         ]);
 
         $this->attribute_value->new($data);
@@ -63,7 +63,7 @@ class AttributeValueController extends Controller
      */
     public function edit($id): Renderable
     {
-        $attribute_value = $this->attribute_value->findOneById($id);
+        $attribute_value = $this->attribute_value->findOneById($id,['attribute']);
         return view('admin.attribute-values.edit',compact('attribute_value'));
     }
 
@@ -71,7 +71,7 @@ class AttributeValueController extends Controller
     {
         $data = $request->validate([
             'name'      => 'required|string|max:100|unique:attribute_values,name,'.$id,
-            'attribute_id'      => 'required|integer|exists:attributes',
+            'attribute_id'      => 'required|integer|exists:attributes,id',
         ]);
         $this->attribute_value->update($id,$data);
 

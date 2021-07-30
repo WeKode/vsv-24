@@ -57,9 +57,9 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="attributes">{{trans_choice('labels.attributes',1)}}</label>
+                                        <label for="attributes">{{trans_choice('labels.attribute',1)}}</label>
                                         <select name="attribute_id"
-                                                class="form-control select2 @error('attribute') is-invalid @enderror"
+                                                class="form-control select2 @error('attribute_id') is-invalid @enderror"
                                                 id="attributes"></select>
                                         @error('attribute_id')
                                         <div class="text-danger">{{$message}}</div>
@@ -188,13 +188,13 @@
                 data: function (params) {
 
                     // Query parameters will be ?search=[term]&page=[page]
-                    if (params.term && params.term.length > 3)
-                    {
+                    // if (params.term && params.term.length > 3)
+                    // {
                         return {
                             search: params.term,
                             page: params.page || 1
                         };
-                    }
+                    // }
 
                 },
                 processResults: function ({attributes}, params) {

@@ -10,6 +10,13 @@ use App\Models\Attribute;
 class AttributeRepository extends BaseRepositories implements AttributeContract
 {
 
+    public function __construct($per_page = 10, array $filters = [
+        \App\QueryFilter\Search::class
+    ])
+    {
+        parent::__construct($per_page, $filters);
+    }
+
     public function findOneById($id, array $relations = [], array $counts = [], array $columns = ['*'], array $scopes = [])
     {
         return Attribute::with($relations)->withCount($counts)->select($columns)->scopes($scopes)->findOrFail($id);
