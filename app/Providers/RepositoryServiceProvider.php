@@ -9,6 +9,7 @@ class RepositoryServiceProvider extends ServiceProvider
     protected $repos = [
         \App\Contracts\UserContract::class => \App\Repositories\UserRepository::class,
         \App\Contracts\AdminContract::class => \App\Repositories\AdminRepository::class,
+        \App\Contracts\ProductContract::class => \App\Repositories\ProductRepository::class,
 
     ];
 
