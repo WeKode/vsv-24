@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Contracts\AdminContract;
+use App\Contracts\BrandContract;
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\RedirectResponse;
@@ -12,7 +13,7 @@ class BrandController extends Controller
 {
     protected $brand;
 
-    public function __construct(AdminContract $brand)
+    public function __construct(BrandContract $brand)
     {
         $this->brand = $brand;
     }
@@ -23,7 +24,7 @@ class BrandController extends Controller
     public function index(): Renderable
     {
         $brands = $this->brand->findByFilter();
-        return view('brand.brands.index',compact('brands'));
+        return view('admin.brands.index',compact('brands'));
     }
 
     /**
@@ -31,7 +32,7 @@ class BrandController extends Controller
      */
     public function create() : Renderable
     {
-        return view('brand.brands.create');
+        return view('admin.brands.create');
     }
 
     public function store(Request $request): RedirectResponse
@@ -43,7 +44,7 @@ class BrandController extends Controller
         $this->brand->new($data);
 
         session()->flash('success',__('messages.create'));
-        return redirect()->route('brand.brands.index');
+        return redirect()->route('admin.brands.index');
     }
 
     /**
@@ -53,7 +54,7 @@ class BrandController extends Controller
     public function show($id): Renderable
     {
         $brand = $this->brand->findOneById($id);
-        return view('brand.brands.show',compact('brand'));
+        return view('admin.brands.show',compact('brand'));
     }
 
     /**
@@ -63,7 +64,7 @@ class BrandController extends Controller
     public function edit($id): Renderable
     {
         $brand = $this->brand->findOneById($id);
-        return view('brand.brands.edit',compact('brand'));
+        return view('admin.brands.edit',compact('brand'));
     }
 
     public function update($id,Request $request)
@@ -74,7 +75,7 @@ class BrandController extends Controller
         $this->brand->update($id,$data);
 
         session()->flash('success',__('messages.update'));
-        return redirect()->route('brand.brands.show',$id);
+        return redirect()->route('admin.brands.index');
     }
 
 
@@ -86,7 +87,7 @@ class BrandController extends Controller
     {
         $this->brand->destroy($id);
         session()->flash('success',__('messages.delete'));
-        return redirect()->route('brand.brands.index');
+        return redirect()->route('admin.brands.index');
     }
 
 }
