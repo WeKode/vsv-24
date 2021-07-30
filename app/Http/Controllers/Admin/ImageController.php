@@ -52,9 +52,11 @@ class ImageController extends Controller
                 $this->deleteOne($image->link);
             }
             $image->delete();
-            session()->flash("success","image has been deleted successfully");
+            session()->flash('success',__('messages.delete'));
+
         }catch(\Exception $exception){
-            session()->flash("error","Oops!!! something Wrong ");
+            session()->flash('success',__('messages.fail'));
+
         }
 
         return redirect()->back();

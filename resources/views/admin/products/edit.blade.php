@@ -76,23 +76,21 @@
                             <div class="tab-pane text-left fade show " id="vert-tabs-images" role="tabpanel" aria-labelledby="vert-tabs-images-tab">
                                 <div class="tab-pane" id="images">
                                     <div class="tile">
-                                        <h3 class="tile-title">Ajouter des images</h3>
+                                        <h3 class="tile-title">{{__("actions.add-new",['name' => trans_choice('labels.image',3)])}}</h3>
                                         <hr>
                                         <div class="tile-body">
                                             <div class="row">
                                                 {{--                                        style="border: 2px dashed rgba(0,0,0,0.3)"--}}
                                                 <div class="col-md-12">
                                                     <div class="dropzone" id="productImagesDropZone" >
-                                                        <input type="hidden" name="product_id"
-                                                            {{--                                                               value="{{ $p->id }}"--}}
-                                                        >
+                                                        <input type="hidden" name="product_id"  value="{{ $product->id }}">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row d-print-none mt-2">
                                                 <div class="col-12 text-right">
                                                     <button class="btn btn-success" type="button" id="uploadButton">
-                                                        <i class="fa fa-fw fa-lg fa-upload"></i>Ajouter
+                                                        <i class="fa fa-fw fa-lg fa-upload"></i>{{__('labels.upload')}}
                                                     </button>
                                                 </div>
                                             </div>
@@ -118,7 +116,7 @@
                                                 @empty
                                                     <div class="col d-flex justify-content-center">
                                                         <div class="alert  alert-default-info">
-                                                            Aucune image pour ce produit
+                                                            {{__('labels.no-images')}}
                                                         </div>
                                                     </div>
 

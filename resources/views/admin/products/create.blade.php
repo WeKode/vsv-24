@@ -71,7 +71,7 @@
 
 
                             <div class="form-group">
-                                <label for="images">{{__('labels.images')}}</label>
+                                <label for="images">{{trans_choice('labels.image',3)}}</label>
                                 <div class="input-group">
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input @error('images') is-invalid @enderror"
