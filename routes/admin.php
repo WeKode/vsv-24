@@ -18,8 +18,8 @@ Route::middleware('auth:admin')->group(function (){
     Route::get('dashboard',[\App\Http\Controllers\Admin\DashboardController::class,'index'])->name('dashboard');
 
     Route::resource('admins',\App\Http\Controllers\Admin\AdminController::class);
-    Route::resource('brands',\App\Http\Controllers\Admin\BrandController::class);
-    Route::resource('attributes',\App\Http\Controllers\Admin\AttributeController::class);
+    Route::resource('brands',\App\Http\Controllers\Admin\BrandController::class)->except('show');
+    Route::resource('attributes',\App\Http\Controllers\Admin\AttributeController::class)->except(['show','create']);
 
     Route::resource('attribute-values',\App\Http\Controllers\Admin\AttributeValueController::class);
     Route::post('products/image/upload',[App\Http\Controllers\Admin\ImageController::class,'store'])->name('products.images.upload');
