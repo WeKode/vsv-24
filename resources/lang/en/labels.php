@@ -30,7 +30,7 @@ return [
     'last_name'         => 'Last Name',
     'user'              => '{1}User|[2,*]Users',
     'permission'              => '{1}Permission|[2,*]Permissions',
-    'role'              => '{1}Role|[2,*]Roles',
+    'brand'              => '{1}Brand|[2,*]Brands',
     'category'              => '{1}Category|[2,*]Categories',
     'product'              => '{1}Product|[2,*]Products',
     'admin'             => '{1}Admin|[2,*]Admins',

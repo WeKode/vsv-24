@@ -8,6 +8,7 @@ use App\Models\SocialAccount;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use GuzzleHttp\Exception\ClientException;
+use http\Env\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -140,5 +141,28 @@ class SocialiteController extends Controller
     }
 
 
+    public function emailView()
+    {
+        return view('auth.socialite.email');
+    }
+
+    public function register(Request $request)
+    {
+
+        $data = $request->validate([
+            'email' => 'required|string|email|unique:users,email'
+        ]);
+
+        if (($user = session()->get('user')) && ($provider = session('provider')))
+        {
+            $this->createNewUser($user);
+            SocialAccount::create([
+                'provider' => $provider,
+                'provider_user_id' => $user->id,
+                'user_id' => $user->id
+            ]);
+        }
+
+    }
 
 }

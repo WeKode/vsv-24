@@ -10,6 +10,7 @@ class RepositoryServiceProvider extends ServiceProvider
         \App\Contracts\UserContract::class => \App\Repositories\UserRepository::class,
         \App\Contracts\AdminContract::class => \App\Repositories\AdminRepository::class,
         \App\Contracts\ProductContract::class => \App\Repositories\ProductRepository::class,
+        \App\Contracts\BrandContract::class => \App\Repositories\BrandRepository::class,
 
     ];
 

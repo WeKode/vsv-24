@@ -10,11 +10,13 @@ use Throwable;
 class SocialiteEmailNotFoundException extends Exception
 {
     protected $user;
+    protected $provider;
 
-    public function __construct($user,$message = "", $code = 0, Throwable $previous = null)
+    public function __construct($user,$provider,$message = "", $code = 0, Throwable $previous = null)
     {
         parent::__construct($message, $code, $previous);
         $this->user = $user;
+        $this->provider = $provider;
     }
 
     /**
@@ -26,6 +28,7 @@ class SocialiteEmailNotFoundException extends Exception
     public function render(Request $request)
     {
         session()->put('user',$this->user);
-        return redirect()->route('auth.email',['id' => $this->user->id]);
+        session()->put('provider',$this->provider);
+        return redirect()->route('auth.socialite.email',['id' => $this->user->id,'provider' => $this->provider]);
     }
 }
