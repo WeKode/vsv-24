@@ -48,6 +48,7 @@ return [
     'price'         => 'Price',
     'accounts'          => 'Accounts',
     'error'          => 'Error!',
+    'upload'          => 'Upload',
     'success'          => 'Success!',
     'profile'          => 'Profile',
     'settings'          => 'Settings',
@@ -120,5 +121,5 @@ return [
     'social_linkedin' => 'LinkedIn Profile',
     'disabled' => 'Disabled',
     'enable' => 'Enable',
-
+    'no-images'=> 'There is no images for this product',
 ];
