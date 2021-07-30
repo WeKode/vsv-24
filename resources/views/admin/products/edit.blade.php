@@ -1,10 +1,19 @@
 @extends('admin.layouts.app')
 
 @section('title',__('actions.edit-item',['name' => trans_choice('labels.role',1)]))
+
 @push('css')
     <!-- Select2 -->
     <link rel="stylesheet" href="{{asset('assets/plugins/select2/css/select2.min.css')}}">
 @endpush
+
+
+@push('css')
+    <link rel="stylesheet" href="{{asset("assets/plugins/DropZone/dropzone.css")}}">
+
+    <script src="{{asset("assets/plugins/DropZone/dropzone.js")}}"></script>
+@endpush
+
 @section('content')
 
     <div class="content-wrapper">
@@ -64,18 +73,61 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group">
-                                <label for="images">{{__('labels.images')}}</label>
-                                <input type="file"
-                                       class="form-control @error('images') is-invalid @enderror"
-                                       name="images[]"
-                                       id="images" placeholder="{{__('labels.images')}}"
-                                       multiple>
-                                @error('images')
-                                <div class="text-danger">{{$message}}</div>
-                                @enderror
-                            </div>
+                            <div class="tab-pane text-left fade show " id="vert-tabs-images" role="tabpanel" aria-labelledby="vert-tabs-images-tab">
+                                <div class="tab-pane" id="images">
+                                    <div class="tile">
+                                        <h3 class="tile-title">Ajouter des images</h3>
+                                        <hr>
+                                        <div class="tile-body">
+                                            <div class="row">
+                                                {{--                                        style="border: 2px dashed rgba(0,0,0,0.3)"--}}
+                                                <div class="col-md-12">
+                                                    <div class="dropzone" id="productImagesDropZone" >
+                                                        <input type="hidden" name="product_id"
+                                                            {{--                                                               value="{{ $p->id }}"--}}
+                                                        >
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row d-print-none mt-2">
+                                                <div class="col-12 text-right">
+                                                    <button class="btn btn-success" type="button" id="uploadButton">
+                                                        <i class="fa fa-fw fa-lg fa-upload"></i>Ajouter
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="row">
+                                                @forelse($product->images as $image)
+                                                    <div class="col-md-3">
+                                                        <div class="card">
+                                                            <div class="card-body">
+                                                                <img src="{{ asset('storage/'.$image->link) }}"
+                                                                     id="brandLogo"
+                                                                     class="img-thumbnail"
 
+                                                                     alt="img">
+                                                                <a class="card-link float-right text-danger" href="{{ route('admin.products.images.delete', $image->id) }}">
+                                                                    <i class="fa fa-fw fa-lg fa-trash"></i>
+                                                                </a>
+{{--                                                                <input type="checkbox" name="images[]" value="{{$image->id}}">--}}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                @empty
+                                                    <div class="col d-flex justify-content-center">
+                                                        <div class="alert  alert-default-info">
+                                                            Aucune image pour ce produit
+                                                        </div>
+                                                    </div>
+
+                                                @endforelse
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                         </div>
                         <!-- /.card-body -->
@@ -122,4 +174,55 @@
 
 
 {{--    </script>--}}
+
+
+    <script>
+
+        $('document').ready(function () {
+
+            $('#uploadButton').click(function(){
+                if (myDropzone.files.length === 0) {
+                    Toast.fire({
+                        type: 'error',
+                        title: 'Please select files to upload'
+                    });
+                } else {
+                    myDropzone.processQueue();
+                }
+            });
+
+
+            $("#pic").change(function() {
+                readURL(this,'pic_preview');
+            });
+            $("#name").keyup(e=>{
+                $('#slug').val(string_to_slug(e.target.value))
+            });
+        });
+        let myDropzone = new Dropzone("#productImagesDropZone", {
+            paramName: "image",
+            addRemoveLinks: false,
+            maxFilesize: 4,
+            parallelUploads: 10,
+            uploadMultiple: false,
+            url: "{{ route('admin.products.images.upload') }}",
+            autoProcessQueue: false,
+            sending: function(file, xhr, formData) {
+                formData.append("_token", $('[name=_token]').val());
+                formData.append("product_id", {{$product->id}}); // Laravel expect the token post value to be named _token by default
+            },
+        });
+        // preview image function
+        const readURL = (input,id) =>{
+            if (input.files && input.files[0]) {
+                let reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('#'+id).attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
 @endpush

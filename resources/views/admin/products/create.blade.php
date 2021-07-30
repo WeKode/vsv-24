@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{asset('assets/plugins/select2/css/select2.min.css')}}">
 @endpush
 
+
 @section('content')
 
     <div class="content-wrapper">
@@ -36,7 +37,7 @@
         <section class="content">
             <div class="row">
                 <!-- Default box -->
-                <div class="card card-primary col-md-10">
+                <div class="card card-primary col-md-6">
                     <div class="card-header">
                         <h3 class="card-title">{{__('actions.create')}}</h3>
                     </div>
@@ -67,13 +68,18 @@
                                 @enderror
                             </div>
 
+
+
                             <div class="form-group">
                                 <label for="images">{{__('labels.images')}}</label>
-                                <input type="file"
-                                       class="form-control @error('images') is-invalid @enderror"
-                                       required name="images[]"
-                                       id="images" placeholder="{{__('labels.images')}}"
-                                       multiple>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input @error('images') is-invalid @enderror"
+                                               id="images" multiple
+                                               required name="images[]">
+                                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                    </div>
+                                </div>
                                 @error('images')
                                 <div class="text-danger">{{$message}}</div>
                                 @enderror
@@ -83,6 +89,7 @@
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary">{{__('labels.submit')}}</button>
                             </div>
+                        </div>
                     </form>
                 </div>
                 <!-- /.card -->
@@ -97,7 +104,13 @@
 
 @push('js')
     <script src="{{asset('assets/plugins/select2/js/select2.full.min.js')}}"></script>
-
+    <!-- bs-custom-file-input -->
+    <script src="{{asset('assets/plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>
+    <script>
+        $(function () {
+            bsCustomFileInput.init();
+        });
+    </script>
 
     <!-- Select2 -->
     {{--    <script>--}}
@@ -121,5 +134,6 @@
     {{--                }--}}
     {{--            }--}}
     {{--        })--}}
+
 
 @endpush
