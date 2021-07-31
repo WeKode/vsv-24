@@ -21,6 +21,7 @@ class Product extends Model
         'short_description',
         'old_price',
         'description',
+        'brand_id',
         'price'
     ];
 
