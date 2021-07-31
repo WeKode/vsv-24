@@ -43,7 +43,7 @@ class ProductRepository extends BaseRepositories implements \App\Contracts\Produ
             {
                 if ($image instanceof UploadedFile)
                 {
-                    $path = $this->uploadOne($image, 'products');
+                    $path = $this->uploadOne($image, 'product');
                     $product->images()->create([
                         'path' => $path,
                         'original_name' => $image->getClientOriginalName()
