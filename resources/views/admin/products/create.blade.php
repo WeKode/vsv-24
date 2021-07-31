@@ -6,6 +6,8 @@
 @push('css')
     <!-- Select2 -->
     <link rel="stylesheet" href="{{asset('assets/plugins/select2/css/select2.min.css')}}">
+    <!-- summernote -->
+    <link rel="stylesheet" href="{{asset('assets/plugins/summernote/summernote-bs4.min.css')}}">
 @endpush
 
 
@@ -37,7 +39,7 @@
         <section class="content">
             <div class="row">
                 <!-- Default box -->
-                <div class="card card-primary col-md-6">
+                <div class="card card-primary col-md-8">
                     <div class="card-header">
                         <h3 class="card-title">{{__('actions.create')}}</h3>
                     </div>
@@ -53,6 +55,16 @@
                                        required name="name" value="{{old('name')}}"
                                        id="name" placeholder="{{__('labels.name')}}">
                                 @error('name')
+                                <div class="text-danger">{{$message}}</div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label for="short_description">{{__('labels.short_description')}}</label>
+                                <textarea name="short_description"
+                                          class="form-control @error('short_description') is-invalid @enderror"
+                                          id="short_description" rows="4">{{old('short_description')}}</textarea>
+                                @error('short_description')
                                 <div class="text-danger">{{$message}}</div>
                                 @enderror
                             </div>
@@ -96,6 +108,14 @@
                                 @enderror
                             </div>
 
+                            <div class="form-group">
+                                <label for="description">{{__('labels.description')}}</label>
+                                <textarea name="description" id="description" >{{old('short_description')}}</textarea>
+                                @error('description')
+                                <div class="text-danger">{{$message}}</div>
+                                @enderror
+                            </div>
+
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary">{{__('labels.submit')}}</button>
                             </div>
@@ -116,14 +136,34 @@
     <script src="{{asset('assets/plugins/select2/js/select2.full.min.js')}}"></script>
     <!-- bs-custom-file-input -->
     <script src="{{asset('assets/plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>
+    <!-- Summernote -->
+    <script src="{{asset('assets/plugins/summernote/summernote-bs4.min.js')}}"></script>
     <script>
         $(function () {
             bsCustomFileInput.init();
         });
     </script>
 
-    <!-- Select2 -->
     <script>
+        $(function () {
+            // Summernote
+            $('#description').summernote({
+                mode: "htmlmixed",
+                theme: "monokai",
+                placeholder: '{{__('labels.description')}}',
+                height: 120,
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'underline', 'clear']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['table', ['table']],
+                    ['insert', ['link']],
+                    ['view', ['fullscreen', 'help']]
+                ]
+            });
+        })
+
         //Initialize Select2 Elements
         $('.select2').select2({
             minimumInputLength:2,

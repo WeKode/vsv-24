@@ -75,7 +75,6 @@ return [
     'total' => 'Total',
     'payment_method' => 'Payment method',
     'all' => 'All',
-    'value' => 'Value',
     'this_week' => 'This week',
     'last_week' => 'Last week',
     'this_month' => 'This month',
@@ -122,4 +121,7 @@ return [
     'disabled' => 'Disabled',
     'enable' => 'Enable',
     'no-images'=> 'There is no images for this product',
+    'old_price' => 'Old price',
+    'short_description' => 'Short description'
+
 ];
