@@ -25,7 +25,10 @@ class Product extends Model
         'price'
     ];
 
-    public function getImgUrlAttribute()
+    /**
+     * @return string
+     */
+    public function getImgUrlAttribute(): string
     {
         return $this->images()->first() ? 'storage/'.$this->images()->first()->path : 'default';
     }

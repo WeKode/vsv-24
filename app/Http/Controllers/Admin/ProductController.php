@@ -38,7 +38,9 @@ class ProductController extends Controller
     {
         $data = $request->validate([
             'name'      => 'required|string|max:100',
-            'price'     => 'required|numeric|between:0,999999.99',
+            'price'              => 'required|numeric|between:0,999999.99',
+            'description'        => 'sometimes|nullable|string',
+            'short_description'  => 'required|string|max:200',
             'images'    => 'required|array|min:1',
             'images.*'  => 'required|file|image|max:5000',
             'brand_id'  => 'required|exists:brands,id'
@@ -75,6 +77,9 @@ class ProductController extends Controller
         $data = $request->validate([
             'name'      => 'required|string|max:100',
             'price'     => 'required|numeric|between:0,999999.99',
+            'old_price'     => 'sometimes|nullable|numeric|between:0,999999.99',
+            'description'        => 'sometimes|nullable|string',
+            'short_description'  => 'required|string|max:200',
             'images'    => 'nullable|sometimes|array|min:1',
             'images.*'  => 'nullable|sometimes|file|image|max:5000',
             'brand_id'  => 'required|exists:brands,id'
