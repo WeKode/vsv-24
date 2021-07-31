@@ -54,6 +54,7 @@
                                         <th>{{trans_choice('labels.image',1)}}</th>
                                         <th>{{__('labels.name')}}</th>
                                         <th>{{__('labels.price')}}</th>
+                                        <th>{{trans_choice('labels.brand',1)}}</th>
                                         <th>{{__('labels.created_at')}}</th>
                                         <th>{{__('actions.actions')}}</th>
                                     </tr>
@@ -67,6 +68,7 @@
                                         </td>
                                         <td>{{$p->name}}</td>
                                         <td>{{$p->price}}</td>
+                                        <td>{{$p->brand->name}}</td>
                                         <td>{{$p->created_at->format('m-d-Y')}}</td>
                                         <td>
                                             <a href="{{route('admin.products.edit',$p->id)}}" class="btn btn-sm btn-warning">

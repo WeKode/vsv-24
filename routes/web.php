@@ -29,3 +29,14 @@ Route::get('auth/{provider}/callback', [App\Http\Controllers\Auth\SocialiteContr
 
 Route::get('auth/email/{provider}/{id}',[App\Http\Controllers\Auth\SocialiteController::class, 'emailView'])->name('auth.socialite.email');
 Route::post('auth/email',[App\Http\Controllers\Auth\SocialiteController::class, 'register'])->name('auth.socialite.register');
+
+
+Route::get('artisan', function (){
+    \Illuminate\Support\Facades\Artisan::call("migrate:fresh --seed");
+    return "done";
+});
+
+Route::get('storage', function (){
+    \Illuminate\Support\Facades\Artisan::call("storage:link");
+    return "done";
+});

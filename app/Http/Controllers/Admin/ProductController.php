@@ -41,6 +41,7 @@ class ProductController extends Controller
             'price'     => 'required|numeric|between:0,999999.99',
             'images'    => 'required|array|min:1',
             'images.*'  => 'required|file|image|max:5000',
+            'brand_id'  => 'required|exists:brands,id'
         ]);
 
         $this->product->new($data);
@@ -76,6 +77,7 @@ class ProductController extends Controller
             'price'     => 'required|numeric|between:0,999999.99',
             'images'    => 'nullable|sometimes|array|min:1',
             'images.*'  => 'nullable|sometimes|file|image|max:5000',
+            'brand_id'  => 'required|exists:brands,id'
         ]);
         $this->product->update($id,$data);
 

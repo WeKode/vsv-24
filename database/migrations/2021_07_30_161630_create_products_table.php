@@ -21,6 +21,9 @@ class CreateProductsTable extends Migration
             $table->decimal('old_price',14,2)->nullable();
             $table->text('description')->nullable();
             $table->text('meta')->nullable();
+            $table->foreignId('brand_id')
+                ->references('id')
+                ->on('brands')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

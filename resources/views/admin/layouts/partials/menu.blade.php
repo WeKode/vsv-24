@@ -73,6 +73,16 @@
                 </p>
             </a>
         </li>
+
+        <li class="nav-item ">
+            <a href="{{route('admin.products.index')}}" data-link="/admin/products"
+               class="nav-link {{request()->routeIs('admin.products*') ? 'active' : ''}}">
+                <i class="nav-icon fas fa-mobile"></i>
+                <p>
+                    {{trans_choice('labels.product',3)}}
+                </p>
+            </a>
+        </li>
         {{--        <li class="nav-header">EXAMPLES</li>--}}
 
     </ul>

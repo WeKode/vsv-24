@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Contracts\AdminContract;
 use App\Contracts\BrandContract;
 use App\Http\Controllers\Controller;
+use App\Models\Brand;
 use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
@@ -88,6 +90,24 @@ class BrandController extends Controller
         $this->brand->destroy($id);
         session()->flash('success',__('messages.delete'));
         return redirect()->route('admin.brands.index');
+    }
+
+
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function getBrandsList(Request $request): JsonResponse
+    {
+        $brands = Brand::orderBy('name')->select(['id','name'])->newQuery();
+        if ($request->has('search') && !empty($request->get('search')))
+        {
+            $brands->where('name','like','%'.$request->get('search').'%');
+        }
+        return response()->json([
+            'success'       => true,
+            'brands'   => $brands->paginate(10)
+        ]);
     }
 
 }
