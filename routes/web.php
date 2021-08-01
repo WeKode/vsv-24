@@ -21,7 +21,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+//require __DIR__.'/auth.php';
 
 Route::get('auth/{provider}', [App\Http\Controllers\Auth\SocialiteController::class, 'redirectToProvider'])->name('socialite.redirect');
 
@@ -30,9 +30,10 @@ Route::get('auth/{provider}/callback', [App\Http\Controllers\Auth\SocialiteContr
 Route::get('auth/email/{provider}/{id}',[App\Http\Controllers\Auth\SocialiteController::class, 'emailView'])->name('auth.socialite.email');
 Route::post('auth/email',[App\Http\Controllers\Auth\SocialiteController::class, 'register'])->name('auth.socialite.register');
 
-Route::view('smartphones', 'front.smartphones')->name('smartphones');
+Route::view('/smartphones', 'front.smartphones')->name('smartphones');
 Route::view('/', 'front.home')->name('home');
-
+Route::view('/login', 'front.auth.login')->name('login');
+Route::view('/register', 'front.auth.register')->name('register');
 
 
 Route::get('artisan', function (){
