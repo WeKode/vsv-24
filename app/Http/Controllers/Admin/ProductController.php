@@ -118,7 +118,19 @@ class ProductController extends Controller
         $this->product->addAttributeValue($id, $data);
 
         session()->flash('success', __('messages.create'));
-        return redirect()->route('admin.products.index');
+        return back();
+    }
+
+    public function valueDestroy(Request $request, $id): RedirectResponse
+    {
+        $data = $request->validate([
+            'attribute_value_id' => 'required|exists:attribute_values,id'
+        ]);
+
+        $this->product->removeAttributeValue($id, $data);
+
+        session()->flash('success', __('messages.delete'));
+        return back();
     }
 
 }

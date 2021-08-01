@@ -199,9 +199,9 @@
                                             <td>{{$av->attribute->name}}</td>
                                             <td>{{$av->created_at->format('m-d-Y')}}</td>
                                             <td>
-                                                <a href="{{route('admin.attribute-values.edit',$av->id)}}" class="btn btn-sm btn-warning">
-                                                    <i class="fas fa-edit"></i>
-                                                </a>
+{{--                                                <a href="{{route('admin.attribute-values.edit',$av->id)}}" class="btn btn-sm btn-warning">--}}
+{{--                                                    <i class="fas fa-edit"></i>--}}
+{{--                                                </a>--}}
                                                 <button type="button" onclick="deleteItem({{$av->id}})" class="btn btn-sm btn-danger">
                                                     <i class="fas fa-trash"></i>
                                                 </button>
@@ -232,31 +232,12 @@
     <script src="{{asset('assets/plugins/select2/js/select2.full.min.js')}}"></script>
     <script src="{{asset('assets/plugins/summernote/summernote-bs4.min.js')}}"></script>
 
-    <!-- Select2 -->
-{{--    <script>--}}
-{{--        //Initialize Select2 Elements--}}
-{{--        $('.select2').select2({--}}
-{{--            minimumInputLength:0,--}}
-{{--            cache:true,--}}
-{{--            ajax: {--}}
-{{--                delay: 250,--}}
-{{--                url: '{{route('product.roles.index')}}',--}}
-{{--                dataType: 'json',--}}
-{{--                processResults: function ({roles}, params) {--}}
-{{--                    let fData = $.map(roles, function (obj) {--}}
-{{--                        obj.text = obj.name; // replace name with the property used for the text--}}
-{{--                        return obj;--}}
-{{--                    });--}}
 
-{{--                    return {--}}
-{{--                        results: fData,--}}
-{{--                    };--}}
-{{--                }--}}
-{{--            }--}}
-{{--        })--}}
-
-
-{{--    </script>--}}
+    <script src="{{asset('assets/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{asset('assets/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
+    <script src="{{asset('assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
+    <script src="{{asset('assets/plugins/datatables-buttons/js/dataTables.buttons.min.js')}}"></script>
 
 
     <script>
@@ -378,5 +359,77 @@
         }
 
 
+    </script>
+
+    <script>
+        $(function () {
+            $("#datatable").DataTable({
+                "responsive": true,
+                "autoWidth": false,
+                "paging": false,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": false,
+                "info": false,
+                // "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+            });
+
+            // $('#example2').DataTable({
+            //     "paging": true,
+            //     "lengthChange": false,
+            //     "searching": false,
+            //     "ordering": true,
+            //     "info": true,
+            //     "autoWidth": false,
+            //     "responsive": true,
+            // });
+
+        });
+
+        const deleteItem = id => {
+
+            Swal.fire({
+                title: '{{__('actions.delete_confirm_title')}}',
+                text: "{{__('actions.delete_confirm_text')}}",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: '{{__('actions.delete_btn_yes')}}',
+                cancelButtonText: '{{__('actions.delete_btn_cancel')}}'
+            }).then((result) => {
+                if (result.value) {
+                    createForm(id).submit();
+                }
+            });
+        }
+        const createForm = id => {
+            let f = document.createElement("form");
+            f.setAttribute('method',"post");
+            f.setAttribute('action',`/admin/products/{{$product->id}}/attribute-values`);
+
+            let i1 = document.createElement("input"); //input element, text
+            i1.setAttribute('type',"hidden");
+            i1.setAttribute('name','_token');
+            i1.setAttribute('value','{{csrf_token()}}');
+
+
+            let i2 = document.createElement("input"); //input element, text
+            i2.setAttribute('type',"hidden");
+            i2.setAttribute('name','_method');
+            i2.setAttribute('value','DELETE');
+
+            let i3 = document.createElement("input"); //input element, text
+            i3.setAttribute('type',"hidden");
+            i3.setAttribute('name','attribute_value_id');
+            i3.setAttribute('value', id);
+
+            f.appendChild(i3);
+            f.appendChild(i1);
+            f.appendChild(i2);
+
+            document.body.appendChild(f);
+            return f;
+        }
     </script>
 @endpush
