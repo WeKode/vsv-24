@@ -22,10 +22,10 @@
             <ul class="nav nav-treeview">
                 <li class="nav-item">
                     <a href="{{route('admin.admins.index')}}"
-                       class="nav-link {{request()->routeIs('admin.admins*') ? 'active' : ''}}"
+                       class="nav-link {{request()->routeIs('admin.attribute*') ? 'active' : ''}}"
                        data-link="/admin/admins">
                         <i class="fas fa-users-cog"></i>
-                        <p>{{trans_choice('labels.admin',3)}}</p>
+                        <p>{{trans_choice('labels.attribute',3)}}</p>
                     </a>
                 </li>
                 <li class="nav-item">
