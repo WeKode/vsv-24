@@ -29,4 +29,7 @@ Route::middleware('auth:admin')->group(function (){
     Route::get('products/{id}/delete',[App\Http\Controllers\Admin\ImageController::class,'destroy'])->name('products.images.delete');
     Route::resource('products',\App\Http\Controllers\Admin\ProductController::class);
 
+
+    Route::GET("setting",[\App\Http\Controllers\Admin\SettingsController::class,'index'])->name("setting.index");
+    Route::POST("setting",[\App\Http\Controllers\Admin\SettingsController::class,'update'])->name("setting.update");
 });
