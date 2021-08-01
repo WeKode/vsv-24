@@ -20,7 +20,7 @@ class AttributeController extends Controller
 
     public function index(Request $request)
     {
-        $attributes = $this->attribute->findByFilter();
+        $attributes = $this->attribute->findByFilter(['values']);
 
         if ($request->wantsJson())
         {

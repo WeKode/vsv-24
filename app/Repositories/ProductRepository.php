@@ -97,4 +97,12 @@ class ProductRepository extends BaseRepositories implements \App\Contracts\Produ
             ->newQuery();
         return $this->applyFilter($query);
     }
+
+    public function addAttributeValue($id, array $data)
+    {
+        $data['note'] = 'test';
+        $data['price'] = 1234;
+        $product = $this->findOneById($id);
+        $product->attribute_values()->attach($data['attribute_value_id'], $data);
+    }
 }

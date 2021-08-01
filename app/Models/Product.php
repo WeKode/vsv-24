@@ -48,4 +48,9 @@ class Product extends Model
         return $this->belongsToMany(User::class)->using(Cart::class)
             ->withPivot(['qte'])->withTimestamps();
     }
+
+    public function attribute_values(): BelongsToMany
+    {
+        return $this->belongsToMany(AttributeValue::class)->withPivot(['price', 'note'])->withTimestamps();
+    }
 }

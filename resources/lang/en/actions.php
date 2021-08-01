@@ -8,6 +8,8 @@ return  [
     'update-password'       => 'Edit password',
     'delete'                => 'Delete',
     'edit'                => 'Edit',
+    'show'                => 'Show',
+    'show-record'                => 'Show record',
     'delete_confirm_title' => 'Are you sure?',
     'delete_confirm_text' => "You won t be able to revert this!",
     'delete_btn_yes' => 'Yes',
