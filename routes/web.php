@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -29,6 +29,10 @@ Route::get('auth/{provider}/callback', [App\Http\Controllers\Auth\SocialiteContr
 
 Route::get('auth/email/{provider}/{id}',[App\Http\Controllers\Auth\SocialiteController::class, 'emailView'])->name('auth.socialite.email');
 Route::post('auth/email',[App\Http\Controllers\Auth\SocialiteController::class, 'register'])->name('auth.socialite.register');
+
+Route::view('smartphones', 'front.smartphones')->name('smartphones');
+Route::view('/', 'front.home')->name('home');
+
 
 
 Route::get('artisan', function (){

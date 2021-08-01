@@ -1,0 +1,76 @@
+$blue-darken: #043773;
+$blue: #074084;
+$blue-lighten: #0271c2;
+$yellow: #FFBB1B;
+$red: #C82E2C;
+$green: #7ab51d;
+$grey: #F4F4F4;
+$black: #575757;
+$facebook: #3d5c98;
+$google: #ED3739;
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: $grey;
+    color: $black !important;
+}
+
+.image {
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: cover !important;
+}
+
+.bg-blue {
+    background: $blue;
+}
+
+.bg-blue-darken {
+    background: $blue-darken;
+}
+
+.bg-blue-lighten {
+    background: $blue-lighten;
+}
+
+.bg-yellow {
+    background: $yellow;
+}
+
+.bg-grey {
+    background: $grey;
+}
+
+.bg-facebook {
+    background: $facebook;
+}
+
+.bg-google {
+    background: $google;
+}
+
+
+
+
+
+.text-black {
+    color: $black;
+}
+
+.text-blue-lighten {
+    color: $blue-lighten;
+}
+
+
+.accordion-button:focus {
+    box-shadow: none;
+    color: $black;
+}
+
+.accordion-button:not(.collapsed) {
+    color: $black;
+}
+
+.line-through {
+    text-decoration: line-through;
+}

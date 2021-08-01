@@ -1,0 +1,62 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #F4F4F4;
+  color: #575757 !important;
+}
+
+.image {
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: cover !important;
+}
+
+.bg-blue {
+  background: #074084;
+}
+
+.bg-blue-darken {
+  background: #043773;
+}
+
+.bg-blue-lighten {
+  background: #0271c2;
+}
+
+.bg-yellow {
+  background: #FFBB1B;
+}
+
+.bg-grey {
+  background: #F4F4F4;
+}
+
+.bg-facebook {
+  background: #3d5c98;
+}
+
+.bg-google {
+  background: #ED3739;
+}
+
+.text-black {
+  color: #575757;
+}
+
+.text-blue-lighten {
+  color: #0271c2;
+}
+
+.accordion-button:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  color: #575757;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #575757;
+}
+
+.line-through {
+  text-decoration: line-through;
+}
+/*# sourceMappingURL=main.css.map */
