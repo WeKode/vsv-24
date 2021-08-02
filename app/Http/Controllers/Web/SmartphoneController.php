@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Web;
 
+use App\Contracts\AttributeContract;
 use App\Contracts\AttributeValueContract;
+use App\Contracts\BrandContract;
 use App\Contracts\ProductContract;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -11,10 +13,14 @@ class SmartphoneController extends Controller
 {
 
     protected $product;
+    protected $brand;
+    protected $attribute;
 
-    public function __construct(ProductContract $product)
+    public function __construct(ProductContract $product, BrandContract $brand, AttributeContract $attribute)
     {
         $this->product = $product;
+        $this->brand = $brand;
+        $this->attribute = $attribute;
 
     }
     /**
@@ -25,7 +31,10 @@ class SmartphoneController extends Controller
     public function index()
     {
         $products = $this->product->findByFilter();
-        return view('front.smartphones', compact('products'));
+        $brands = $this->brand->setPerPage(0)->findByFilter();
+        $attributes = $this->attribute->setPerPage(0)->findByFilter(['values']);
+
+        return view('front.smartphones', compact('products', 'brands', 'attributes'));
     }
 
     /**
