@@ -29,11 +29,11 @@ Route::post('login',[\App\Http\Controllers\Auth\AuthenticatedSessionController::
 Route::get('register',[\App\Http\Controllers\Auth\RegisteredUserController::class,'create'])->name('register.index');
 Route::post('register',[\App\Http\Controllers\Auth\RegisteredUserController::class,'store'])->name('register');
 
-Route::get('password/reset/{token}',[\App\Http\Controllers\Admin\Auth\ResetPasswordController::class,'showResetForm'])->name('password.reset');
-Route::post('password/reset',[\App\Http\Controllers\Admin\Auth\ResetPasswordController::class,'reset'])->name('reset');
+Route::get('password/reset/{token}',[\App\Http\Controllers\Auth\NewPasswordController::class,'create'])->name('password.reset');
+Route::post('password/reset',[\App\Http\Controllers\Auth\NewPasswordController::class,'store'])->name('reset');
 
-Route::get('forgot/password',[\App\Http\Controllers\Admin\Auth\ForgotPasswordController::class,'showLinkRequestForm'])->name('forgot.password.email');
-Route::post('forgot/password',[\App\Http\Controllers\Admin\Auth\ForgotPasswordController::class,'sendResetLinkEmail'])->name('forgot.password.send');
+Route::get('forgot/password',[\App\Http\Controllers\Auth\PasswordResetLinkController::class,'create'])->name('forgot.password.email');
+Route::post('forgot/password',[\App\Http\Controllers\Auth\PasswordResetLinkController::class,'store'])->name('forgot.password.send');
 
 Route::get('auth/{provider}', [App\Http\Controllers\Auth\SocialiteController::class, 'redirectToProvider'])->name('socialite.redirect');
 

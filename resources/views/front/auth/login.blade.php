@@ -47,7 +47,7 @@
                                     <button type="submit" class="btn bg-blue text-light w-100 py-3 px-5">{{__('actions.login')}}</button>
                                 </div>
                                 <div class="col-12 mt-4 text-center">
-                                    <a href="forgot_password.html" class="text-decoration-none text-blue-lighten"><u>Forgot Password ?</u></a>
+                                    <a href="{{route('forgot.password.email')}}" class="text-decoration-none text-blue-lighten"><u>Forgot Password ?</u></a>
                                 </div>
                             </form>
                             <div class="position-relative text-center my-5">
