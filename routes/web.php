@@ -47,7 +47,7 @@ Route::middleware('auth')->group(function(){
     Route::any('logout',[\App\Http\Controllers\Auth\AuthenticatedSessionController::class,'destroy'])->name('logout');
 });
 
-Route::view('/smartphones', 'front.smartphones')->name('smartphones');
+Route::get('/smartphones', [\App\Http\Controllers\Web\SmartphoneController::class, 'index'])->name('smartphones.index');
 Route::view('/', 'front.home')->name('home');
 //Route::view('/login', 'front.auth.login')->name('login');
 Route::view('/register', 'front.auth.register')->name('register');

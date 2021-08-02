@@ -13,6 +13,15 @@ class ProductRepository extends BaseRepositories implements \App\Contracts\Produ
 
     use UploadAble;
 
+    public function __construct($per_page = 10, array $filters = [
+        \App\QueryFilter\Search::class,
+        \App\QueryFilter\MinPrice::class,
+        \App\QueryFilter\MaxPrice::class,
+    ])
+    {
+        parent::__construct($per_page, $filters);
+    }
+
     /**
      * @inheritDoc
      */

@@ -7,7 +7,7 @@
             <div class="row justify-content-between">
                 <div class="col-auto">
                     <h3 class="mb-0">
-                        Smartphones<span class="mx-3">|</span>733 Results
+                        Smartphones<span class="mx-3">|</span>{{$products->total()}} Results
                     </h3>
                 </div>
                 <div class="col-auto">
@@ -38,12 +38,12 @@
 
                                 <div class="col-6 mb-3">
                                     <label for="from">from</label>
-                                    <input type="text" id="from" class="form-control rounded-0">
+                                    <input type="text" id="from" class="form-control rounded-0" name="min_price" value="{{request()->get('min_price')}}">
                                 </div>
 
                                 <div class="col-6 mb-3">
                                     <label for="to">to</label>
-                                    <input type="text" id="to" class="form-control rounded-0">
+                                    <input type="text" id="to" class="form-control rounded-0" name="max_price" value="{{request()->get('max_price')}}">
                                 </div>
 
                                 <div class="col-12 mb-3">
@@ -236,21 +236,21 @@
 
                 <div class="col-lg-9">
                     <div class="row">
-
+                    @foreach($products as $p)
                         <div class="col-lg-3 mb-4">
                             <a href="javascript:void(0)" class="text-decoration-none">
                                 <div class="card rounded-0">
-                                    <div class="image" style="background: url('https://static.toiimg.com/thumb/msid-71178070,width-1200,height-900,resizemode-4/.jpg');height: 250px;"></div>
+                                    <div class="image" style="background: url('{{asset($p->img_url)}}');height: 250px;"></div>
                                     <div class="card-body">
                                         <div class="card-text">
                                             <div class="text-truncate text-black mb-2">
-                                                Lorem ipsum dolor sit amet dolor sit amet
+                                               {{$p->name}}
                                             </div>
                                             <div class="text-black">
                                                 <span class="bg-danger text-light px-1 py-1 small rounded me-2">-23%</span> <span class="small">33 offers</span>
                                             </div>
                                             <h6 class="text-truncate mt-2">
-                                                <span class="text-black">234 $</span> - <span class="line-through text-secondary fw-normal">234 $</span>
+                                                <span class="text-black">{{$p->price}} $</span> - <span class="line-through text-secondary fw-normal">234 $</span>
                                             </h6>
                                             <div class="text-secondary small">
                                                 Free shipping
@@ -260,151 +260,7 @@
                                 </div>
                             </a>
                         </div>
-
-                        <div class="col-lg-3 mb-4">
-                            <a href="javascript:void(0)" class="text-decoration-none">
-                                <div class="card rounded-0">
-                                    <div class="image" style="background: url('https://static.toiimg.com/thumb/msid-71178070,width-1200,height-900,resizemode-4/.jpg');height: 250px;"></div>
-                                    <div class="card-body">
-                                        <div class="card-text">
-                                            <div class="text-truncate text-black mb-2">
-                                                Lorem ipsum dolor sit amet dolor sit amet
-                                            </div>
-                                            <div class="text-black">
-                                                <span class="bg-danger text-light px-1 py-1 small rounded me-2">-23%</span> <span class="small">33 offers</span>
-                                            </div>
-                                            <h6 class="text-truncate mt-2">
-                                                <span class="text-black">234 $</span> - <span class="line-through text-secondary fw-normal">234 $</span>
-                                            </h6>
-                                            <div class="text-secondary small">
-                                                Free shipping
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="col-lg-3 mb-4">
-                            <a href="javascript:void(0)" class="text-decoration-none">
-                                <div class="card rounded-0">
-                                    <div class="image" style="background: url('https://static.toiimg.com/thumb/msid-71178070,width-1200,height-900,resizemode-4/.jpg');height: 250px;"></div>
-                                    <div class="card-body">
-                                        <div class="card-text">
-                                            <div class="text-truncate text-black mb-2">
-                                                Lorem ipsum dolor sit amet dolor sit amet
-                                            </div>
-                                            <div class="text-black">
-                                                <span class="bg-danger text-light px-1 py-1 small rounded me-2">-23%</span> <span class="small">33 offers</span>
-                                            </div>
-                                            <h6 class="text-truncate mt-2">
-                                                <span class="text-black">234 $</span> - <span class="line-through text-secondary fw-normal">234 $</span>
-                                            </h6>
-                                            <div class="text-secondary small">
-                                                Free shipping
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="col-lg-3 mb-4">
-                            <a href="javascript:void(0)" class="text-decoration-none">
-                                <div class="card rounded-0">
-                                    <div class="image" style="background: url('https://static.toiimg.com/thumb/msid-71178070,width-1200,height-900,resizemode-4/.jpg');height: 250px;"></div>
-                                    <div class="card-body">
-                                        <div class="card-text">
-                                            <div class="text-truncate text-black mb-2">
-                                                Lorem ipsum dolor sit amet dolor sit amet
-                                            </div>
-                                            <div class="text-black">
-                                                <span class="bg-danger text-light px-1 py-1 small rounded me-2">-23%</span> <span class="small">33 offers</span>
-                                            </div>
-                                            <h6 class="text-truncate mt-2">
-                                                <span class="text-black">234 $</span> - <span class="line-through text-secondary fw-normal">234 $</span>
-                                            </h6>
-                                            <div class="text-secondary small">
-                                                Free shipping
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="col-lg-3 mb-4">
-                            <a href="javascript:void(0)" class="text-decoration-none">
-                                <div class="card rounded-0">
-                                    <div class="image" style="background: url('https://static.toiimg.com/thumb/msid-71178070,width-1200,height-900,resizemode-4/.jpg');height: 250px;"></div>
-                                    <div class="card-body">
-                                        <div class="card-text">
-                                            <div class="text-truncate text-black mb-2">
-                                                Lorem ipsum dolor sit amet dolor sit amet
-                                            </div>
-                                            <div class="text-black">
-                                                <span class="bg-danger text-light px-1 py-1 small rounded me-2">-23%</span> <span class="small">33 offers</span>
-                                            </div>
-                                            <h6 class="text-truncate mt-2">
-                                                <span class="text-black">234 $</span> - <span class="line-through text-secondary fw-normal">234 $</span>
-                                            </h6>
-                                            <div class="text-secondary small">
-                                                Free shipping
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="col-lg-3 mb-4">
-                            <a href="javascript:void(0)" class="text-decoration-none">
-                                <div class="card rounded-0">
-                                    <div class="image" style="background: url('https://static.toiimg.com/thumb/msid-71178070,width-1200,height-900,resizemode-4/.jpg');height: 250px;"></div>
-                                    <div class="card-body">
-                                        <div class="card-text">
-                                            <div class="text-truncate text-black mb-2">
-                                                Lorem ipsum dolor sit amet dolor sit amet
-                                            </div>
-                                            <div class="text-black">
-                                                <span class="bg-danger text-light px-1 py-1 small rounded me-2">-23%</span> <span class="small">33 offers</span>
-                                            </div>
-                                            <h6 class="text-truncate mt-2">
-                                                <span class="text-black">234 $</span> - <span class="line-through text-secondary fw-normal">234 $</span>
-                                            </h6>
-                                            <div class="text-secondary small">
-                                                Free shipping
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="col-lg-3 mb-4">
-                            <a href="javascript:void(0)" class="text-decoration-none">
-                                <div class="card rounded-0">
-                                    <div class="image" style="background: url('https://static.toiimg.com/thumb/msid-71178070,width-1200,height-900,resizemode-4/.jpg');height: 250px;"></div>
-                                    <div class="card-body">
-                                        <div class="card-text">
-                                            <div class="text-truncate text-black mb-2">
-                                                Lorem ipsum dolor sit amet dolor sit amet
-                                            </div>
-                                            <div class="text-black">
-                                                <span class="bg-danger text-light px-1 py-1 small rounded me-2">-23%</span> <span class="small">33 offers</span>
-                                            </div>
-                                            <h6 class="text-truncate mt-2">
-                                                <span class="text-black">234 $</span> - <span class="line-through text-secondary fw-normal">234 $</span>
-                                            </h6>
-                                            <div class="text-secondary small">
-                                                Free shipping
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
+                        @endforeach
                     </div>
                 </div>
             </div>
