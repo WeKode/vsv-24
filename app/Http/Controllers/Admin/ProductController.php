@@ -47,7 +47,8 @@ class ProductController extends Controller
             'short_description' => 'required|string|max:200',
             'images' => 'required|array|min:1',
             'images.*' => 'required|file|image|max:5000',
-            'brand_id' => 'required|exists:brands,id'
+            'brand_id' => 'required|exists:brands,id',
+            'type' => 'required|in:1,2,3',
         ]);
 
         $this->product->new($data);

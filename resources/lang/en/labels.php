@@ -125,6 +125,9 @@ return [
     'short_description' => 'Short description',
     'email-address' => 'Email address',
     'new-member' => 'New member',
+    'smartphone' => 'Smartphone',
+    'phone-plan' => 'Phone plan',
+    'energy-plan' => 'Energy plan',
 
 
 ];

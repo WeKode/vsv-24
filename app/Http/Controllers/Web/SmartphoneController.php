@@ -30,7 +30,7 @@ class SmartphoneController extends Controller
      */
     public function index()
     {
-        $products = $this->product->findByFilter();
+        $products = $this->product->findByFilter([],[],['*'],['smartphones']);
         $brands = $this->brand->setPerPage(0)->findByFilter();
         $attributes = $this->attribute->setPerPage(0)->findByFilter(['values']);
 
@@ -46,7 +46,7 @@ class SmartphoneController extends Controller
      */
     public function show($id)
     {
-        $product = $this->product->findOneById($id);
+        $product = $this->product->findOneById($id,[],[],['*'],['smartphones']);
         return view('front.smartphones.show', compact('product'));
 
     }
