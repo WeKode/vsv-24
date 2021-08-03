@@ -48,9 +48,9 @@ Route::middleware('auth')->group(function(){
 });
 
 Route::get('/smartphones', [\App\Http\Controllers\Web\SmartphoneController::class, 'index'])->name('smartphones.index');
+Route::get('/smartphones/{id}', [\App\Http\Controllers\Web\SmartphoneController::class, 'show'])->name('smartphones.show');
 Route::view('/', 'front.home')->name('home');
-//Route::view('/login', 'front.auth.login')->name('login');
-Route::view('/register', 'front.auth.register')->name('register');
+//
 
 
 Route::get('artisan', function (){

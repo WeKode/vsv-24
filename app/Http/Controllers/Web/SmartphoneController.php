@@ -34,29 +34,9 @@ class SmartphoneController extends Controller
         $brands = $this->brand->setPerPage(0)->findByFilter();
         $attributes = $this->attribute->setPerPage(0)->findByFilter(['values']);
 
-        return view('front.smartphones', compact('products', 'brands', 'attributes'));
+        return view('front.smartphones.index', compact('products', 'brands', 'attributes'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
@@ -66,40 +46,9 @@ class SmartphoneController extends Controller
      */
     public function show($id)
     {
-        //
+        $product = $this->product->findOneById($id);
+        return view('front.smartphones.show', compact('product'));
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
