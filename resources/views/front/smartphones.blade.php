@@ -33,8 +33,10 @@
                     <div class="card rounded-0">
                         <div class="card-body">
                             <div class="row">
-                                <form class="row">
+                                <form class="row" action="{{route('smartphones.index')}}">
                                     <div class="fw-bold mb-2">Price range in $</div>
+                                    <input type="hidden" value="{{request()->get('attribute')}}" name="attribute">
+                                    <input type="hidden" value="{{request()->get('brand')}}" name="brand">
 
                                     <div class="col-6 mb-3">
                                         <label for="from">from</label>
@@ -67,11 +69,13 @@
 
                                 <div class="col-12 mb-3">
                                     <div class="fw-bold mb-2">Brands</div>
-                                    <form  id="brandsFilters">
+                                    <form id="brandsFilters">
                                         @foreach($brands as $b)
                                             <div class="form-check">
-                                                <input class="form-check-input set_brand" type="checkbox" value="{{$b->id}}"
-                                                       id="brand1" name="brands[]" {{in_array($b->id, (explode(',', request()->get('brands')))) ? 'checked' : ''}}>
+                                                <input class="form-check-input set_brand" type="checkbox"
+                                                       value="{{$b->id}}"
+                                                       id="brand1"
+                                                       name="brands" {{in_array($b->id, explode('_',request()->get('brand')) ?? []) ? 'checked' : ''}}>
                                                 <label class="form-check-label" for="brand1">
                                                     {{$b->name}}
                                                 </label>
@@ -86,8 +90,10 @@
                                                 <div class="fw-bold mb-2">{{$a->name}}</div>
                                                 @foreach($a->values as $v)
                                                     <div class="form-check">
-                                                        <input class="form-check-input set_filter" type="checkbox" value="{{$v->id}}"
-                                                               id="{{$v->name}}" name="attributes[]" {{in_array($v->id, request()->get('attributes') ?? []) ? 'checked' : ''}}>
+                                                        <input class="form-check-input set_filter" type="checkbox"
+                                                               value="{{$v->id}}"
+                                                               id="{{$v->name}}"
+                                                               name="attributes" {{in_array($v->id, explode('_',request()->get('attribute')) ?? []) ? 'checked' : ''}}>
                                                         <label class="form-check-label" for="android">
                                                             {{$v->name}}
                                                         </label>
@@ -142,13 +148,37 @@
 
 @push('js')
     <script>
+        let yourArray = [];
 
         $(".set_filter").click(function () {
-            $('#filtersForm').submit()
+            var attributes = "";
+            $('.set_filter').each(function () {
+                var attribute = (this.checked ? this.value : null);
+                if (attribute !== null)
+                {
+                    attributes += (attributes === "" ? attribute : "_" + attribute);
+                }
+            });
+            let url = new URL(document.location);
+            let search_params = url.searchParams;
+            search_params.set('attribute', attributes);
+            window.location = url.href
+
         });
 
-        $('.set_brand').click(function() {
-            $('#brandsFilters').submit()
+        $('.set_brand').click(function () {
+            var brands = "";
+            $('.set_brand').each(function () {
+                var brand = (this.checked ? this.value : null);
+                if (brand !== null)
+                {
+                    brands += (brands === "" ? brand : "_" + brand);
+                }
+            });
+            let url = new URL(document.location);
+            let search_params = url.searchParams;
+            search_params.set('brand', brands);
+            window.location = url.href
 
         });
 
