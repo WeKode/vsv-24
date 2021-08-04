@@ -69,7 +69,7 @@ class SocialiteController extends Controller
      */
     private function getUser($getInfo, $provider): User
     {
-        $appUser = $this->checkForUser($getInfo);
+        $appUser = $this->checkForUser($getInfo,$provider);
 
         if (!$appUser){
             $appUser = $this->createNewUser($getInfo);
@@ -96,7 +96,7 @@ class SocialiteController extends Controller
     /**
      * @throws SocialiteEmailNotFoundException
      */
-    private function checkForUser($info)
+    private function checkForUser($info,$provider)
     {
         if ($info->email)
         {
@@ -110,7 +110,7 @@ class SocialiteController extends Controller
             return $this->socialAccount->user;
         }
 
-        throw new SocialiteEmailNotFoundException($info);
+        throw new SocialiteEmailNotFoundException($info,$provider);
     }
 
     /**
@@ -146,14 +146,14 @@ class SocialiteController extends Controller
         return view('auth.socialite.email');
     }
 
-    public function register(Request $request)
+    public function register(Request $request,$provider)
     {
 
         $data = $request->validate([
             'email' => 'required|string|email|unique:users,email'
         ]);
 
-        if (($user = session()->get('user')) && ($provider = session('provider')))
+        if (($user = session()->get('user')) && ($provider === session('provider')))
         {
             $this->createNewUser($user);
             SocialAccount::create([
