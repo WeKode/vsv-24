@@ -59,6 +59,9 @@
                             Compare with similar products
                         </a>
                     </div>
+                    <div class="text-end">
+                        <a href="{{route('cart.add.product', $product->id)}}" class="btn bg-blue text-light px-5 py-3 text-capitalize">add to cart<i class="fas fa-shopping-cart ms-2"></i></a>
+                    </div>
                 </div>
             </div>
 

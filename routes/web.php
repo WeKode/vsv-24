@@ -45,11 +45,20 @@ Route::post('auth/email/{provider}/{id}',[App\Http\Controllers\Auth\SocialiteCon
 
 Route::middleware('auth')->group(function(){
     Route::any('logout',[\App\Http\Controllers\Auth\AuthenticatedSessionController::class,'destroy'])->name('logout');
+
+    Route::get('/cart/{id}/add', [\App\Http\Controllers\Web\CartController::class, 'addProduct'])->name('cart.add.product');
+    Route::get('/cart/{id}/delete', [\App\Http\Controllers\Web\CartController::class, 'delete'])->name('cart.delete.product');
+    Route::post('/cart', [\App\Http\Controllers\Web\CartController::class, 'update'])->name('cart.update');
+    Route::get('/cart', [\App\Http\Controllers\Web\CartController::class, 'index'])->name('cart.index');
+
+    Route::get('/cart-confirmation', [\App\Http\Controllers\Web\CartConfirmationController::class, 'index'])->name('cart-confirmation.index');
+
 });
 
 Route::get('/smartphones', [\App\Http\Controllers\Web\SmartphoneController::class, 'index'])->name('smartphones.index');
 Route::get('/smartphones/{id}', [\App\Http\Controllers\Web\SmartphoneController::class, 'show'])->name('smartphones.show');
 Route::view('/', 'front.home')->name('home');
+
 //
 
 

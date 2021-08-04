@@ -112,7 +112,7 @@
                     <div class="row">
                         @foreach($products as $p)
                             <div class="col-lg-3 mb-4">
-                                <a href="javascript:void(0)" class="text-decoration-none">
+                                <a href="{{route('smartphones.show', $p->id)}}" class="text-decoration-none">
                                     <div class="card rounded-0">
                                         <div class="image"
                                              style="background: url('{{asset($p->img_url)}}');height: 250px;"></div>
