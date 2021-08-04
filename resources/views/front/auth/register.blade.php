@@ -51,10 +51,10 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-6 px-0 pe-lg-2">
-                                    <a href="{{ route('socialite.redirect','facebook') }}" class="btn bg-google text-light w-100 py-3"><i class="fab fa-google me-2"></i>{{ __('labels.login.google') }}</a>
+                                    <a href="{{ route('socialite.redirect','google') }}" class="btn bg-google text-light w-100 py-3"><i class="fab fa-google me-2"></i>{{ __('labels.login.google') }}</a>
                                 </div>
                                 <div class="col-lg-6 px-0 ps-lg-2 mt-3 mt-lg-0">
-                                    <a href="{{ route('socialite.redirect','google') }}" class="btn bg-facebook text-light w-100 py-3"><i class="fab fa-facebook-f me-2"></i>{{ __('labels.login.facebook') }}</a>
+                                    <a href="{{ route('socialite.redirect','facebook') }}" class="btn bg-facebook text-light w-100 py-3"><i class="fab fa-facebook-f me-2"></i>{{ __('labels.login.facebook') }}</a>
                                 </div>
                                 <div class="col-12 my-4 text-center">
                                     {{__('labels.already-member')}} <a href="{{route('register')}}" class="text-decoration-none text-blue-lighten"><u>{{__('labels.login-now')}}</u></a>
