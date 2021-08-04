@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Traits\UploadAble;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
-
+    use UploadAble;
     public function index()
     {
         return view('front.profile.index');
@@ -21,22 +23,33 @@ class ProfileController extends Controller
     public function update(Request $request)
     {
         $data = $request->validate([
-            'first_name' => 'sometime|nullable|string|max:100',
-            'last_name' => 'sometime|nullable|string|max:100',
-            'city' => 'sometime|nullable|string|max:100',
-            'country' => 'sometime|nullable|string|max:100',
-            'zip_code' => 'sometime|nullable|numeric',
-            'pic' => 'sometime|nullable|file|image',
-            'birth_date' => 'sometime|nullable|date',
-            'address' => 'sometime|nullable|string',
-            'phone' => 'sometime|nullable|string|max:20',
-            'gender' => 'sometime|nullable|string|in:male,female',
+            'email' => 'required|email|unique:users,email,'.user()->id,
+            'first_name' => 'sometimes|nullable|string|max:100',
+            'last_name' => 'sometimes|nullable|string|max:100',
+            'city' => 'sometimes|nullable|string|max:100',
+            'country' => 'sometimes|nullable|string|max:100',
+            'zip_code' => 'sometimes|nullable|numeric',
+            'pic' => 'sometimes|nullable|file|image',
+            'birth_date' => 'sometimes|nullable|date',
+            'address' => 'sometimes|nullable|string',
+            'phone' => 'sometimes|nullable|string|max:20',
+            'gender' => 'sometimes|nullable|string|in:male,female',
         ]);
+
+        if ($request->hasFile('pic'))
+        {
+            if (user()->pic)
+            {
+                $this->deleteOne(user()->pic);
+            }
+
+            $data['pic'] = $this->uploadOne($data['pic'],'users/'.user()->id);
+        }
 
         user()->update($data);
 
         session()->flash('success',__('messages.update'));
-        return redirect()->back();
+        return redirect()->route('profile.index');
 
     }
 }

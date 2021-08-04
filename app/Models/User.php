@@ -21,7 +21,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'first_name', 'last_name', 'phone', 'birth_date', 'zip_code', 'city', 'country', 'address', 'email',
-        'password',
+        'password','pic','points','gender'
     ];
 
     /**
@@ -41,11 +41,13 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'birth_date' => 'date',
     ];
 
     protected $appends = [
         'pic_url'
     ];
+
 
     public function getPicUrlAttribute()
     {

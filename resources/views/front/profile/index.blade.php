@@ -29,7 +29,7 @@
                                 </div>
                                 <div class="col-lg-6 ps-lg-2 px-0 mb-3">
                                     <div class="text-secondary small mb-1">{{__('labels.birth_date')}}</div>
-                                    <div>{{user()->bith_date ? user()->bith_date->format('d-m-Y') : '/'}}</div>
+                                    <div>{{user()->birth_date ? user()->birth_date->format('d-m-Y') : '/'}}</div>
                                 </div>
                                 <div class="col-lg-6 pe-lg-2 px-0 mb-3">
                                     <div class="text-secondary small mb-1">{{__('labels.phone')}}</div>

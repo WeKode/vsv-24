@@ -50,13 +50,13 @@ class SocialiteController extends Controller
     public function handleProviderCallback($provider): RedirectResponse
     {
         try {
-            $getInfo = Socialite::driver($provider)->user();
+            $getInfo = Socialite::driver($provider)->stateless()->user();
         }catch (ClientException $exception){
-            return $this->responseWithError($exception->getMessage());
+            return $this->responseWithError(__('auth.failed'));
         }
 
         if (!$getInfo->token) {
-            return $this->responseWithError($exception->getMessage());
+            return $this->responseWithError(__('messages.fail'));
         }
 
         return $this->responseWithSuccess($this->getUser($getInfo,$provider));
