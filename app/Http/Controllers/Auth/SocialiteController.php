@@ -8,8 +8,8 @@ use App\Models\SocialAccount;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use GuzzleHttp\Exception\ClientException;
-use http\Env\Request;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Laravel\Socialite\Facades\Socialite;
@@ -149,19 +149,28 @@ class SocialiteController extends Controller
     public function register(Request $request,$provider)
     {
 
-        $data = $request->validate([
+        $request->validate([
             'email' => 'required|string|email|unique:users,email'
         ]);
 
-        if (($user = session()->get('user')) && ($provider === session('provider')))
+        if (($user = session('user')) && ($provider === session('provider')))
         {
-            $this->createNewUser($user);
+
+            $user->email = $request->input('email');
+
+            $u = $this->createNewUser($user);
             SocialAccount::create([
                 'provider' => $provider,
                 'provider_user_id' => $user->id,
                 'user_id' => $user->id
             ]);
+
+            Auth::login($u);
+
+            return redirect(RouteServiceProvider::HOME);
         }
+
+        abort(404);
 
     }
 
