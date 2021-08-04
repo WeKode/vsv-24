@@ -119,7 +119,6 @@ class SocialiteController extends Controller
      */
     private function createNewUser($getInfo)
     {
-        dd($getInfo);
         return User::create([
             'name' => $getInfo->name,
             'password' => bcrypt(Str::random(8)),
