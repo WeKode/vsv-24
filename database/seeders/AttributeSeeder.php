@@ -15,7 +15,7 @@ class AttributeSeeder extends Seeder
      */
     public function run()
     {
-        Attribute::create(['name' => 'Ram'])->values()->saveMany([
+        Attribute::create(['name' => 'Ram', 'type' => 1])->values()->saveMany([
             new AttributeValue(['name' => '1 Go']),
             new AttributeValue(['name' => '2 Go']),
             new AttributeValue(['name' => '4 Go']),
@@ -24,26 +24,26 @@ class AttributeSeeder extends Seeder
             new AttributeValue(['name' => '10 Go']),
         ]);
 
-        Attribute::create(['name' => 'Frontal camera'])->values()->saveMany([
+        Attribute::create(['name' => 'Frontal camera', 'type' => 1])->values()->saveMany([
             new AttributeValue(['name' => '4 MP to 7 MP']),
             new AttributeValue(['name' => '8 MP to 12 MP']),
             new AttributeValue(['name' => '13 MP to 20 MP']),
             new AttributeValue(['name' => 'over 20 MP']),
         ]);
 
-        Attribute::create(['name' => 'Rear Camera'])->values()->saveMany([
+        Attribute::create(['name' => 'Rear Camera', 'type' => 1])->values()->saveMany([
             new AttributeValue(['name' => '4 MP to 7 MP']),
             new AttributeValue(['name' => '8 MP to 12 MP']),
             new AttributeValue(['name' => '13 MP to 20 MP']),
             new AttributeValue(['name' => 'over 20 MP']),
         ]);
 
-        Attribute::create(['name' => 'Operation system'])->values()->saveMany([
+        Attribute::create(['name' => 'Operation system', 'type' => 1])->values()->saveMany([
             new AttributeValue(['name' => 'Android']),
             new AttributeValue(['name' => 'IOS']),
         ]);
 
-        Attribute::create(['name' => 'Dual sim'])->values()->saveMany([
+        Attribute::create(['name' => 'Dual sim', 'type' => 1])->values()->saveMany([
             new AttributeValue(['name' => 'Yes']),
             new AttributeValue(['name' => 'No']),
         ]);;

@@ -60,10 +60,10 @@
                                     @case('1')
                                     <p>{{__('labels.smartphone')}}</p>
                                     @break
-                                    @case('1')
+                                    @case('2')
                                     <p>{{__('labels.phone-plan')}}</p>
                                     @break
-                                    @case('1')
+                                    @case('3')
                                     <p>{{__('labels.energy-plan')}}</p>
                                     @break
                                     @default
@@ -89,7 +89,7 @@
 
                             <div class="form-group col-md-3">
                                 <label>{{__('brand')}}</label>
-                                <p>{{$product->brand->name}}</p>
+                                <p>{{$product->brand ? $product->brand->name : '/'}}</p>
                             </div>
 
                             <div class="tab-pane text-left fade show col-12" id="vert-tabs-images" role="tabpanel"

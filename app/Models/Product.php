@@ -35,6 +35,11 @@ class Product extends Model
         return $this->images()->first() ? 'storage/'.$this->images()->first()->path : 'default';
     }
 
+    public function getPromotionAttribute(): string
+    {
+        return ($this->price * 100 )/ $this->old_price;
+    }
+
     public function scopeSmartphones($query)
     {
         return $query->where('type', 1);

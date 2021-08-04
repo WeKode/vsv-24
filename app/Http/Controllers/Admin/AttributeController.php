@@ -48,6 +48,7 @@ class AttributeController extends Controller
         $data = $request->validate([
             'name'      => 'required|string|max:100|unique:attributes,name',
             'description'      => 'sometimes|nullable|string|max:200',
+            'type' => 'required|in:1,2,3',
         ]);
 
         $this->attribute->new($data);
@@ -81,6 +82,7 @@ class AttributeController extends Controller
         $data = $request->validate([
             'name'      => 'required|string|max:100|unique:attributes,name,'.$id,
             'description'      => 'sometimes|nullable|string|max:200',
+            'type' => 'required|in:1,2,3',
         ]);
         $this->attribute->update($id,$data);
 

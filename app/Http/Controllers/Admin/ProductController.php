@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Contracts\AttributeContract;
 use App\Contracts\AttributeValueContract;
 use App\Contracts\ProductContract;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProductRequest;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -13,11 +15,15 @@ class ProductController extends Controller
 {
     protected $product;
     protected $attribute_value;
+    protected $attribute;
 
-    public function __construct(ProductContract $product, AttributeValueContract $attribute_value)
+
+    public function __construct(ProductContract $product, AttributeValueContract $attribute_value, AttributeContract $attribute)
     {
         $this->product = $product;
         $this->attribute_value = $attribute_value;
+        $this->attribute = $attribute;
+
 
     }
 
@@ -35,21 +41,13 @@ class ProductController extends Controller
      */
     public function create(): Renderable
     {
-        return view('admin.products.create');
+        $attributes = $this->attribute->setPerPage(0)->findByFilter(['values']);
+        return view('admin.products.create', compact('attributes'));
     }
 
-    public function store(Request $request): RedirectResponse
+    public function store(ProductRequest $request): RedirectResponse
     {
-        $data = $request->validate([
-            'name' => 'required|string|max:100',
-            'price' => 'required|numeric|between:0,999999.99',
-            'description' => 'sometimes|nullable|string',
-            'short_description' => 'required|string|max:200',
-            'images' => 'required|array|min:1',
-            'images.*' => 'required|file|image|max:5000',
-            'brand_id' => 'required|exists:brands,id',
-            'type' => 'required|in:1,2,3',
-        ]);
+        $data = $request->validated();
 
         $this->product->new($data);
 
@@ -78,18 +76,9 @@ class ProductController extends Controller
         return view('admin.products.edit', compact('product'));
     }
 
-    public function update($id, Request $request)
+    public function update($id, ProductRequest $request)
     {
-        $data = $request->validate([
-            'name' => 'required|string|max:100',
-            'price' => 'required|numeric|between:0,999999.99',
-            'old_price' => 'sometimes|nullable|numeric|between:0,999999.99',
-            'description' => 'sometimes|nullable|string',
-            'short_description' => 'required|string|max:200',
-            'images' => 'nullable|sometimes|array|min:1',
-            'images.*' => 'nullable|sometimes|file|image|max:5000',
-            'brand_id' => 'required|exists:brands,id'
-        ]);
+        $data = $request->validated();
         $this->product->update($id, $data);
 
         session()->flash('success', __('messages.update'));
