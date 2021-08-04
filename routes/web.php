@@ -40,7 +40,7 @@ Route::get('auth/{provider}', [App\Http\Controllers\Auth\SocialiteController::cl
 Route::get('auth/{provider}/callback', [App\Http\Controllers\Auth\SocialiteController::class, 'handleProviderCallback'])->name('socialite.handle');
 
 Route::get('auth/email/{provider}/{id}',[App\Http\Controllers\Auth\SocialiteController::class, 'emailView'])->name('auth.socialite.email');
-Route::post('auth/email',[App\Http\Controllers\Auth\SocialiteController::class, 'register'])->name('auth.socialite.register');
+Route::post('auth/email/{provider}/{id}',[App\Http\Controllers\Auth\SocialiteController::class, 'register'])->name('auth.socialite.register');
 
 
 Route::middleware('auth')->group(function(){
