@@ -19,3 +19,15 @@ if (! function_exists('settings'))
        return config('settings.'.$key);
     }
 }
+
+if (! function_exists('user'))
+{
+    function user(): ?\Illuminate\Contracts\Auth\Authenticatable
+    {
+        if (auth('web')->check())
+        {
+            return auth('web')->user();
+        }
+        return null;
+    }
+}

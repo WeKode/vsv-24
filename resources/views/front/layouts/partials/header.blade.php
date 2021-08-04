@@ -19,12 +19,32 @@
                             <li class="nav-item me-0 me-lg-3">
                                 <a class="nav-link text-light" href="tel:+213560030151"><i class="fas fa-phone-alt me-2"></i>+213 560 03 01 51</a>
                             </li>
-                            <li class="nav-item me-0 me-lg-3">
-                                <a class="nav-link text-light" href="{{route('login')}}"><i class="fas fa-user me-2"></i>Login</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="btn btn-warning px-4" href="{{route('register')}}">Register For Free</a>
-                            </li>
+
+                            @auth
+                                <li class="nav-item me-0 me-lg-3">
+                                    <a class="nav-link text-light" href="{{route('profile.index')}}"><i class="fas fa-phone-alt me-2"></i>{{user()->email}}</a>
+                                </li>
+
+                                <li class="nav-item me-0 me-lg-3">
+                                    <a class="nav-link text-light" href="{{route('profile.edit')}}"><i class="fas fa-phone-alt me-2"></i>{{__('actions.edit')}}</a>
+                                </li>
+
+                                <li class="nav-item me-0 me-lg-3">
+                                    <a onclick="document.getElementById('logout-form').submit()" class="nav-link text-light" href="javascript:void(0)">
+                                        <i class="fas fa-user me-2"></i>{{__('actions.logout')}}
+                                    </a>
+                                    <form action="{{route('logout')}}" method="post" id="logout-form">@csrf</form>
+                                </li>
+
+                            @else
+                                <li class="nav-item me-0 me-lg-3">
+                                    <a class="nav-link text-light" href="{{route('login')}}"><i class="fas fa-user me-2"></i>Login</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="btn btn-warning px-4" href="{{route('register')}}">Register For Free</a>
+                                </li>
+                            @endauth
+
                         </ul>
 
                     </div>

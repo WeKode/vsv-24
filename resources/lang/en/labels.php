@@ -28,6 +28,11 @@ return [
     'first_name'        => 'First Name',
     'choose-image'        => 'Choose Image',
     'last_name'         => 'Last Name',
+    'gender'         => 'gender',
+    'birth_date'         => 'birth date',
+    'male'         => 'Male',
+    'female'         => 'Female',
+    'profile_picture'         => 'Profile picture',
     'user'              => '{1}User|[2,*]Users',
     'permission'              => '{1}Permission|[2,*]Permissions',
     'brand'              => '{1}Brand|[2,*]Brands',
@@ -47,6 +52,8 @@ return [
     'dashboard'         => 'Dashboard',
     'price'         => 'Price',
     'accounts'          => 'Accounts',
+    'zip_code'          => 'Zip code',
+    'select_item'          => 'Select :name',
     'error'          => 'Error!',
     'upload'          => 'Upload',
     'success'          => 'Success!',
@@ -128,6 +135,6 @@ return [
     'smartphone' => 'Smartphone',
     'phone-plan' => 'Phone plan',
     'energy-plan' => 'Energy plan',
-
-
+    'already-member' => 'already member',
+    'register' => 'Register',
 ];

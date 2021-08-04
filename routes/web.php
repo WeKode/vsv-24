@@ -60,6 +60,7 @@ Route::get('/smartphones/{id}', [\App\Http\Controllers\Web\SmartphoneController:
 Route::view('/', 'front.home')->name('home');
 
 //
+Route::get('/smartphones', [\App\Http\Controllers\Web\SmartphoneController::class, 'index'])->name('smartphones.index');
 
 
 Route::get('artisan', function (){
