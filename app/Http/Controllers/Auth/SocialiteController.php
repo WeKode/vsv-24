@@ -35,7 +35,7 @@ class SocialiteController extends Controller
      */
     public function redirectToProvider($provider): SocialiteRedirect
     {
-        return Socialite::driver($provider)->redirect();
+        return Socialite::driver($provider)->stateless();
     }
 
     /**
@@ -47,7 +47,6 @@ class SocialiteController extends Controller
      */
     public function handleProviderCallback($provider): RedirectResponse
     {
-        Socialite::driver($provider)->user();
         try {
             $getInfo = Socialite::driver($provider)->stateless()->user();
         }catch (ClientException $exception){
