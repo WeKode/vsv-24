@@ -52,11 +52,11 @@ class SocialiteController extends Controller
         try {
             $getInfo = Socialite::driver($provider)->user();
         }catch (ClientException $exception){
-            return $this->responseWithError(__('messages.fail'));
+            return $this->responseWithError($exception->getMessage());
         }
 
         if (!$getInfo->token) {
-            return $this->responseWithError(__('auth.failed'));
+            return $this->responseWithError($exception->getMessage());
         }
 
         return $this->responseWithSuccess($this->getUser($getInfo,$provider));
@@ -136,6 +136,7 @@ class SocialiteController extends Controller
 
     private function responseWithError($message = 'Oops! Something went wrong, please try again')
     {
+        dd($message);
         session()->flash('error',$message);
         return redirect()->route('login');
     }
