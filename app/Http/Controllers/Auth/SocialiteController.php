@@ -36,7 +36,7 @@ class SocialiteController extends Controller
      */
     public function redirectToProvider($provider): SocialiteRedirect
     {
-        return Socialite::driver($provider)->redirect();
+        return Socialite::driver($provider)->stateless()->redirect();
     }
 
     /**
@@ -50,7 +50,6 @@ class SocialiteController extends Controller
         try {
             $getInfo = Socialite::driver($provider)->stateless()->user();
         }catch (ClientException $exception){
-            dd($exception->getMessage());
             return $this->responseWithError(__('messages.fail'));
         }
         if (!$getInfo->token) {
