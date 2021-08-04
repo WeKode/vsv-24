@@ -152,7 +152,7 @@ class SocialiteController extends Controller
         $request->validate([
             'email' => 'required|string|email|unique:users,email'
         ]);
-
+        dd(session('user'),session('provider'));
         if (($user = session('user')) && ($provider === session('provider')))
         {
 
