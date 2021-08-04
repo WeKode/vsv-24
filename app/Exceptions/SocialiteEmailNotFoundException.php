@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
+use App\Models\User;
 use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -27,8 +28,6 @@ class SocialiteEmailNotFoundException extends Exception
      */
     public function render(Request $request)
     {
-        session()->put('user',$this->user);
-        session()->put('provider',$this->provider);
-        return redirect()->route('auth.socialite.email',['id' => $this->user->id,'provider' => $this->provider]);
+        return redirect()->route('register.index');
     }
 }

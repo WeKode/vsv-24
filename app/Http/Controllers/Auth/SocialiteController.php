@@ -8,8 +8,8 @@ use App\Models\SocialAccount;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use GuzzleHttp\Exception\ClientException;
-use http\Env\Request;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Laravel\Socialite\Facades\Socialite;
@@ -52,11 +52,11 @@ class SocialiteController extends Controller
         try {
             $getInfo = Socialite::driver($provider)->user();
         }catch (ClientException $exception){
-            return $this->responseWithError(__('messages.fail'));
+            return $this->responseWithError($exception->getMessage());
         }
 
         if (!$getInfo->token) {
-            return $this->responseWithError(__('auth.failed'));
+            return $this->responseWithError($exception->getMessage());
         }
 
         return $this->responseWithSuccess($this->getUser($getInfo,$provider));
@@ -69,7 +69,7 @@ class SocialiteController extends Controller
      */
     private function getUser($getInfo, $provider): User
     {
-        $appUser = $this->checkForUser($getInfo);
+        $appUser = $this->checkForUser($getInfo,$provider);
 
         if (!$appUser){
             $appUser = $this->createNewUser($getInfo);
@@ -96,7 +96,7 @@ class SocialiteController extends Controller
     /**
      * @throws SocialiteEmailNotFoundException
      */
-    private function checkForUser($info)
+    private function checkForUser($info,$provider)
     {
         if ($info->email)
         {
@@ -110,7 +110,7 @@ class SocialiteController extends Controller
             return $this->socialAccount->user;
         }
 
-        throw new SocialiteEmailNotFoundException($info);
+        throw new SocialiteEmailNotFoundException($info,$provider);
     }
 
     /**
@@ -138,31 +138,6 @@ class SocialiteController extends Controller
     {
         session()->flash('error',$message);
         return redirect()->route('login');
-    }
-
-
-    public function emailView()
-    {
-        return view('auth.socialite.email');
-    }
-
-    public function register(Request $request)
-    {
-
-        $data = $request->validate([
-            'email' => 'required|string|email|unique:users,email'
-        ]);
-
-        if (($user = session()->get('user')) && ($provider = session('provider')))
-        {
-            $this->createNewUser($user);
-            SocialAccount::create([
-                'provider' => $provider,
-                'provider_user_id' => $user->id,
-                'user_id' => $user->id
-            ]);
-        }
-
     }
 
 }
