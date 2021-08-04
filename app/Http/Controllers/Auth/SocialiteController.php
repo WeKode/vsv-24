@@ -141,9 +141,9 @@ class SocialiteController extends Controller
     }
 
 
-    public function emailView()
+    public function emailView($id,$provider)
     {
-        return view('auth.socialite.email');
+        return view('auth.socialite.email',compact('provider','id'));
     }
 
     public function register(Request $request,$provider)
