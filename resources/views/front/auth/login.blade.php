@@ -8,6 +8,9 @@
                     <div class="card border-0 rounded-0 shadow-sm px-3 px-lg-4">
                         <div class="card-body">
                             <h2 class="text-center text-capitalize py-2">Login to your account</h2>
+                            @if(session()->has('error'))
+                            <div class="alert alert-danger">{{session('error')}}</div>
+                            @enderror
                             <hr>
                             <form class="row justify-content-center" action="{{ route('login') }}" method="post">
                                 @csrf

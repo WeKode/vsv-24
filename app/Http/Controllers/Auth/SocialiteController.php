@@ -36,9 +36,7 @@ class SocialiteController extends Controller
      */
     public function redirectToProvider($provider): SocialiteRedirect
     {
-
         return Socialite::driver($provider)->redirect();
-
     }
 
     /**
