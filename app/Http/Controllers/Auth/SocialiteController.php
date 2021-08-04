@@ -49,10 +49,10 @@ class SocialiteController extends Controller
     {
         try {
             $getInfo = Socialite::driver($provider)->stateless()->user();
+            dd($getInfo);
         }catch (ClientException $exception){
-            return $this->responseWithError(__('auth.failed'));
+            return $this->responseWithError(__('messages.fail'));
         }
-
         if (!$getInfo->token) {
             return $this->responseWithError(__('messages.fail'));
         }
