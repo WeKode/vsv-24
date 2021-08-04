@@ -9,7 +9,6 @@ use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use GuzzleHttp\Exception\ClientException;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Laravel\Socialite\Facades\Socialite;
@@ -36,7 +35,7 @@ class SocialiteController extends Controller
      */
     public function redirectToProvider($provider): SocialiteRedirect
     {
-        return Socialite::driver($provider)->stateless()->redirect();
+        return Socialite::driver($provider)->redirect();
     }
 
     /**
@@ -44,9 +43,11 @@ class SocialiteController extends Controller
      *
      * @param $provider
      * @return RedirectResponse
+     * @throws SocialiteEmailNotFoundException
      */
     public function handleProviderCallback($provider): RedirectResponse
     {
+        Socialite::driver($provider)->user();
         try {
             $getInfo = Socialite::driver($provider)->stateless()->user();
         }catch (ClientException $exception){
@@ -63,6 +64,7 @@ class SocialiteController extends Controller
      * @param $getInfo
      * @param $provider
      * @return User
+     * @throws SocialiteEmailNotFoundException
      */
     private function getUser($getInfo, $provider): User
     {
