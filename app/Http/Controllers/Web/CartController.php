@@ -8,34 +8,32 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
+
+    public function index()
+    {
+        $products = auth()->user()->products;
+
+        $total = 0;
+        foreach ($products as $product)
+        {
+            $total += $product->price * $product->pivot->qte;
+        }
+        return view('front.cart', compact('products', 'total'));
+    }
+
     public function addProduct($id)
     {
-        $data = $this->validate(request(),[
-            'qte' => 'required|numeric|min:1'
-        ]);
+        $data['qte'] = 1;
 
         $product = Product::findOrFail($id);
-        if ($data['qte'] <= 0){
-            session()->flash('error','The quantity most be greater than 0');
-            return  redirect()->back();
-        }
-
         $user = auth()->user();
 
         $exist =  $user->products()->find($id);
 
         if ($exist){
             $data['qte'] = $exist->qte + (int)$data['qte'];
-            if ($data['qte'] > $product->qte){
-                session()->flash('error','The quantity is not available');
-                return  redirect()->back();
-            }
             $user->products()->updateExistingPivot($id,$data);
         }else{
-            if ($data['qte'] > $product->qte){
-                session()->flash('error','The quantity is not available');
-                return  redirect()->back();
-            }
             $user->products()->attach($id,$data);
         }
         session()->flash('success','Product has been added to your Cart successfully');
@@ -53,7 +51,7 @@ class CartController extends Controller
 
     public function delete($id){
         auth()->user()->products()->detach($id);
-        session()->flash('Cart updated successfully');
+        session()->flash('success', 'Cart updated successfully');
         return redirect()->back();
     }
 
@@ -68,9 +66,9 @@ class CartController extends Controller
         $data = $data->map(static function($v,$k) use ($products) {
             $p = $products->where('id',$k)->first();
 
-            if ($p->qte < $v){
-                $v =  $p->qte;
-            }
+//            if ($p->qte < $v){
+//                $v =  $p->qte;
+//            }
             return $v;
         });
 

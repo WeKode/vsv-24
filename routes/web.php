@@ -45,14 +45,20 @@ Route::post('auth/email/{provider}/{id}',[App\Http\Controllers\Auth\SocialiteCon
 
 Route::middleware('auth')->group(function(){
     Route::any('logout',[\App\Http\Controllers\Auth\AuthenticatedSessionController::class,'destroy'])->name('logout');
-    Route::get('profile',[\App\Http\Controllers\Web\ProfileController::class,'index'])->name('profile.index');
-    Route::get('profile/edit',[\App\Http\Controllers\Web\ProfileController::class,'edit'])->name('profile.edit');
-    Route::put('profile/edit',[\App\Http\Controllers\Web\ProfileController::class,'update'])->name('profile.update');
+
+    Route::get('/cart/{id}/add', [\App\Http\Controllers\Web\CartController::class, 'addProduct'])->name('cart.add.product');
+    Route::get('/cart/{id}/delete', [\App\Http\Controllers\Web\CartController::class, 'delete'])->name('cart.delete.product');
+    Route::post('/cart', [\App\Http\Controllers\Web\CartController::class, 'update'])->name('cart.update');
+    Route::get('/cart', [\App\Http\Controllers\Web\CartController::class, 'index'])->name('cart.index');
+
+    Route::get('/cart-confirmation', [\App\Http\Controllers\Web\CartConfirmationController::class, 'index'])->name('cart-confirmation.index');
+
 });
 
 Route::get('/smartphones', [\App\Http\Controllers\Web\SmartphoneController::class, 'index'])->name('smartphones.index');
 Route::get('/smartphones/{id}', [\App\Http\Controllers\Web\SmartphoneController::class, 'show'])->name('smartphones.show');
 Route::view('/', 'front.home')->name('home');
+
 //
 Route::get('/smartphones', [\App\Http\Controllers\Web\SmartphoneController::class, 'index'])->name('smartphones.index');
 
