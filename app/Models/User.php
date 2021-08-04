@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Str;
+use function Sodium\add;
 
 class User extends Authenticatable
 {
@@ -18,8 +20,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
-        'email',
+        'first_name', 'last_name', 'phone', 'birth_date', 'zip_code', 'city', 'country', 'address', 'email',
         'password',
     ];
 
@@ -41,6 +42,25 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected $appends = [
+        'pic_url'
+    ];
+
+    public function getPicUrlAttribute()
+    {
+        if (Str::contains($this->pic,'http'))
+        {
+            return $this->pic;
+        }
+
+        return $this->pic ? asset('storage/'.$this->pic) : asset('assets/dist/img/default-150x150.png');
+    }
+
+    public function addressFromat()
+    {
+        return $this->address .", ".$this->zip_code. ', '.$this->city.', '.$this->country;
+    }
 
 
     public function products(): BelongsToMany
