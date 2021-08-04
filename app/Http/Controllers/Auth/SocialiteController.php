@@ -136,7 +136,6 @@ class SocialiteController extends Controller
 
     private function responseWithError($message = 'Oops! Something went wrong, please try again')
     {
-        dd($message);
         session()->flash('error',$message);
         return redirect()->route('login');
     }
