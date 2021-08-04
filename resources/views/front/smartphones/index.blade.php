@@ -122,13 +122,18 @@
                                                     {{$p->name}}
                                                 </div>
                                                 <div class="text-black">
+                                                    @if($p->old_price)
                                                     <span
-                                                        class="bg-danger text-light px-1 py-1 small rounded me-2">-23%</span>
+                                                        class="bg-danger text-light px-1 py-1 small rounded me-2">-{{$p->promotion}}%</span>
+                                                    @endif
                                                     <span class="small">33 offers</span>
                                                 </div>
                                                 <h6 class="text-truncate mt-2">
-                                                    <span class="text-black">{{$p->price}} $</span> - <span
-                                                        class="line-through text-secondary fw-normal">234 $</span>
+                                                    <span class="text-black">{{$p->price}} $</span>
+                                                    @if($p->old_price)
+                                                        - <span
+                                                        class="line-through text-secondary fw-normal">{{$p->old_price}} $</span>
+                                                    @endif
                                                 </h6>
                                                 <div class="text-secondary small">
                                                     Free shipping

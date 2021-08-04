@@ -41,6 +41,9 @@ class ProductRequest extends FormRequest
         {
             $rules['images'] = 'nullable|sometimes|array|min:1';
             $rules['images.*'] = 'nullable|sometimes|file|image|max:5000';
+            unset($rules['values']);
+            unset($rules['values.*']);
+
         }
 
 //        if ($this->request->get('type') != 1)

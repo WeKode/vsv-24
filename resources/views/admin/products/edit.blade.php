@@ -102,7 +102,7 @@
                                 <label for="old_price">{{__('labels.old_price')}}</label>
                                 <input type="text"
                                        class="form-control @error('old_price') is-invalid @enderror"
-                                        name="old_price" value="{{old('price', $product->old_price)}}"
+                                        name="old_price" value="{{old('old_price', $product->old_price)}}"
                                        id="old_price" placeholder="{{__('labels.old_price')}}">
                                 @error('old_price')
                                 <div class="text-danger">{{$message}}</div>
@@ -114,7 +114,9 @@
                                 <select  class="select2 form-control @error('brand_id') is-invalid @enderror"
                                         name="brand_id" id="brand" data-placeholder="{{trans_choice('labels.brand', 1)}}"
                                         style="width: 100%;">
+                                    @if($product->brand)
                                     <option value="{{$product->brand->id}}" selected> {{$product->brand->name}} </option>
+                                    @endif
 
                                 </select>
                                 @error('brand_id')
