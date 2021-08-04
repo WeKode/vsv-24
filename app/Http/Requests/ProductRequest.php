@@ -31,8 +31,10 @@ class ProductRequest extends FormRequest
             'short_description' => 'required|string|max:200',
             'images' => 'required|array|min:1',
             'images.*' => 'required|file|image|max:5000',
-            'brand_id' => 'required|exists:brands,id',
+            'brand_id' => 'required_if:type,1|exists:brands,id',
             'type' => 'required|in:1,2,3',
+            'values' => 'required|array|min:1',
+            'values.*' => 'required|exists:attribute_values,id',
         ];
 
         if ($this->method() === 'PUT')
@@ -41,10 +43,10 @@ class ProductRequest extends FormRequest
             $rules['images.*'] = 'nullable|sometimes|file|image|max:5000';
         }
 
-        if ($this->request->get('type') != 1)
-        {
-            $rules['brand_id'] = 'sometimes|nullable|exists:brands,id';
-        }
+//        if ($this->request->get('type') != 1)
+//        {
+//            $rules['brand_id'] = 'sometimes|nullable|exists:brands,id';
+//        }
 
         return $rules;
     }

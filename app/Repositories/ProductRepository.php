@@ -4,6 +4,7 @@
 namespace App\Repositories;
 
 
+use App\Models\AttributeValue;
 use App\Models\Product;
 use App\Traits\UploadAble;
 use Illuminate\Http\UploadedFile;
@@ -60,6 +61,15 @@ class ProductRepository extends BaseRepositories implements \App\Contracts\Produ
                         'original_name' => $image->getClientOriginalName()
                     ]);
                 }
+            }
+        }
+
+        if (array_key_exists('values',$data))
+        {
+            foreach ($data['values'] as $value)
+            {
+                $av = AttributeValue::findOrFail($value);
+                $product->attribute_values()->attach($av, ['attribute_id' => $av->attribute_id]);
             }
         }
 

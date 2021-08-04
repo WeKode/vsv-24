@@ -17,6 +17,7 @@ class CreateAttributesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('description')->nullable();
+            $table->integer('type'); // 1 : smartphone, 2 : mobile service, 3 : energy service
             $table->timestamps();
         });
     }

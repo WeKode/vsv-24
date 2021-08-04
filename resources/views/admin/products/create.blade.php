@@ -52,6 +52,8 @@
                                 <label for="type">{{__('labels.type')}}</label>
                                 <select class="form-control @error('type') is-invalid @enderror"
                                         required name="type" id="type" data-placeholder="{{__('labels.type')}}">
+                                    <option value="0" >------{{__('labels.type')}}--------</option>
+
                                     <option value="1" {{old('type') == 1 ? 'selected' : ''}}>{{__('labels.smartphone')}}</option>
                                     <option value="2" {{old('type') == 2 ? 'selected' : ''}}>{{__('labels.phone-plan')}}</option>
                                     <option value="3" {{old('type') == 3 ? 'selected' : ''}}>{{__('labels.energy-plan')}}</option>
@@ -140,6 +142,23 @@
                                 @enderror
                             </div>
 
+                            @foreach($attributes as $attribute)
+                                <div class="form-group {{$attribute->type_name}} d-none">
+                                    <label for="values">{{$attribute->name}}</label>
+                                    <select class="form-control  @error('values') is-invalid @enderror"
+                                            required name="values[]" id="values" data-placeholder="{{__('labels.value')}}">
+                                        @foreach($attribute->values as $value)
+                                        <option value="{{$value->id}}"
+                                            {{in_array($value->id, old('values') ?? []) ? 'selected' : ''}}>{{$value->name}}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('values')
+                                    <div class="text-danger">{{$message}}</div>
+                                    @enderror
+                                </div>
+                            @endforeach
+
+
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary">{{__('labels.submit')}}</button>
                             </div>
@@ -162,6 +181,29 @@
     <script src="{{asset('assets/plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>
     <!-- Summernote -->
     <script src="{{asset('assets/plugins/summernote/summernote-bs4.min.js')}}"></script>
+    <script>
+        $( document ).ready(function (){
+
+
+            var type = {{old('type')}}
+            if (type === 1)
+            {
+                $('.smartphone').removeClass('d-none')
+                $('.mobile-service').addClass('d-none')
+                $('.energy-service').addClass('d-none')
+            }else if(type === 2)
+            {
+                $('.smartphone').addClass('d-none')
+                $('.mobile-service').removeClass('d-none')
+                $('.energy-service').addClass('d-none')
+            }else if(type === 3)
+            {
+                $('.smartphone').addClass('d-none')
+                $('.mobile-service').addClass('d-none')
+                $('.energy-service').removeClass('d-none')
+            }
+        })
+    </script>
     <script>
         $(function () {
             bsCustomFileInput.init();
@@ -227,6 +269,27 @@
         })
 
 
+    </script>
+
+    <script>
+        $('#type').change(function (){
+            if (this.value === '1')
+            {
+                $('.smartphone').removeClass('d-none')
+                $('.mobile-service').addClass('d-none')
+                $('.energy-service').addClass('d-none')
+            }else if(this.value === '2')
+            {
+                $('.smartphone').addClass('d-none')
+                $('.mobile-service').removeClass('d-none')
+                $('.energy-service').addClass('d-none')
+            }else if(this.value === '3')
+            {
+                $('.smartphone').addClass('d-none')
+                $('.mobile-service').addClass('d-none')
+                $('.energy-service').removeClass('d-none')
+            }
+        })
     </script>
 
 @endpush

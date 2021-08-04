@@ -60,10 +60,10 @@
                                     @case('1')
                                     <p>{{__('labels.smartphone')}}</p>
                                     @break
-                                    @case('1')
+                                    @case('2')
                                     <p>{{__('labels.phone-plan')}}</p>
                                     @break
-                                    @case('1')
+                                    @case('3')
                                     <p>{{__('labels.energy-plan')}}</p>
                                     @break
                                     @default
