@@ -68,7 +68,7 @@
                                         </td>
                                         <td>{{$p->name}}</td>
                                         <td>{{$p->price}}</td>
-                                        <td>{{$p->brand->name}}</td>
+                                        <td>{{$p->brand ? $p->brand->name : '/'}}</td>
                                         <td>{{$p->created_at->format('m-d-Y')}}</td>
                                         <td>
                                             <a href="{{route('admin.products.edit',$p->id)}}" class="btn btn-sm btn-warning">

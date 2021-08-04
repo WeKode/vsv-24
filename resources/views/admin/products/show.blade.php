@@ -89,7 +89,7 @@
 
                             <div class="form-group col-md-3">
                                 <label>{{__('brand')}}</label>
-                                <p>{{$product->brand->name}}</p>
+                                <p>{{$product->brand ? $product->brand->name : '/'}}</p>
                             </div>
 
                             <div class="tab-pane text-left fade show col-12" id="vert-tabs-images" role="tabpanel"

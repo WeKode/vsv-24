@@ -145,7 +145,7 @@
                             @foreach($attributes as $attribute)
                                 <div class="form-group {{$attribute->type_name}} d-none">
                                     <label for="values">{{$attribute->name}}</label>
-                                    <select class="form-control  @error('values') is-invalid @enderror"
+                                    <select class="form-control  @error('values') is-invalid @enderror {{$attribute->type_name}}-input"
                                             required name="values[]" id="values" data-placeholder="{{__('labels.value')}}">
                                         @foreach($attribute->values as $value)
                                         <option value="{{$value->id}}"
@@ -189,18 +189,34 @@
             if (type === 1)
             {
                 $('.smartphone').removeClass('d-none')
+                $('.smartphone-input').prop("disabled", false)
+
                 $('.mobile-service').addClass('d-none')
+                $('.mobile-service-input').prop("disabled", true)
+
                 $('.energy-service').addClass('d-none')
+                $('.energy-service-input').prop("disabled", true)
             }else if(type === 2)
             {
                 $('.smartphone').addClass('d-none')
+                $('.smartphone-input').prop("disabled", true)
+
                 $('.mobile-service').removeClass('d-none')
+                $('.mobile-service-input').prop("disabled", false)
+
                 $('.energy-service').addClass('d-none')
+                $('.energy-service-input').prop("disabled", true)
             }else if(type === 3)
             {
                 $('.smartphone').addClass('d-none')
+                $('.smartphone-input').prop("disabled", true)
+
                 $('.mobile-service').addClass('d-none')
+                $('.mobile-service-input').prop("disabled", true)
+
                 $('.energy-service').removeClass('d-none')
+                $('.energy-service-input').prop("disabled", false)
+
             }
         })
     </script>
@@ -276,18 +292,33 @@
             if (this.value === '1')
             {
                 $('.smartphone').removeClass('d-none')
+                $('.smartphone-input').prop("disabled", false)
+
                 $('.mobile-service').addClass('d-none')
+                $('.mobile-service-input').prop("disabled", true)
+
                 $('.energy-service').addClass('d-none')
+                $('.energy-service-input').prop("disabled", true)
             }else if(this.value === '2')
             {
                 $('.smartphone').addClass('d-none')
+                $('.smartphone-input').prop("disabled", true)
+
                 $('.mobile-service').removeClass('d-none')
+                $('.mobile-service-input').prop("disabled", false)
+
                 $('.energy-service').addClass('d-none')
+                $('.energy-service-input').prop("disabled", true)
             }else if(this.value === '3')
             {
                 $('.smartphone').addClass('d-none')
+                $('.smartphone-input').prop("disabled", true)
+
                 $('.mobile-service').addClass('d-none')
+                $('.mobile-service-input').prop("disabled", true)
+
                 $('.energy-service').removeClass('d-none')
+                $('.energy-service-input').prop("disabled", false)
             }
         })
     </script>
