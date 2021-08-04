@@ -36,4 +36,10 @@ return [
         'redirect' => env('FACEBOOK_REDIRECT','http://vsv-24.test/auth/facebook/callback'),
     ],
 
+    'google' => [
+        'client_id' => env('GOOGLE_API_ID',''),
+        'client_secret' => env('GOOGLE_Client_SECRET',''),
+        'redirect' => env('GOOGLE_REDIRECT',''),
+    ],
+
 ];
