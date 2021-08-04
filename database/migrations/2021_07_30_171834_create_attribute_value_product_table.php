@@ -14,9 +14,6 @@ class CreateAttributeValueProductTable extends Migration
     public function up()
     {
         Schema::create('attribute_value_product', function (Blueprint $table) {
-            $table->string('note');
-            $table->decimal('price',14,2);
-
             $table->foreignId('product_id')->constrained()
                 ->onDelete('cascade')
                 ->onUpdate('cascade');

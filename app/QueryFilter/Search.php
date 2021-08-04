@@ -4,6 +4,8 @@
 namespace App\QueryFilter;
 
 
+use App\Models\Product;
+
 class Search extends Filter
 {
 
@@ -25,6 +27,11 @@ class Search extends Filter
         {
             return $builder->where('name','like','%'.$q.'%')
                 ->orWhere('description','like','%'.$q.'%');
+        }
+
+        if ($builder->getModel() instanceof Product)
+        {
+            return $builder->where('name','like','%'.$q.'%');
         }
 
         return $builder->where('first_name','like','%'.$q.'%')

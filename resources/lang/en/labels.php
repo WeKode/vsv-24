@@ -122,6 +122,12 @@ return [
     'enable' => 'Enable',
     'no-images'=> 'There is no images for this product',
     'old_price' => 'Old price',
-    'short_description' => 'Short description'
+    'short_description' => 'Short description',
+    'email-address' => 'Email address',
+    'new-member' => 'New member',
+    'smartphone' => 'Smartphone',
+    'phone-plan' => 'Phone plan',
+    'energy-plan' => 'Energy plan',
+
 
 ];

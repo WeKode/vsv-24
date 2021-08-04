@@ -21,7 +21,9 @@ class CreateProductsTable extends Migration
             $table->decimal('old_price',14,2)->nullable();
             $table->text('description')->nullable();
             $table->text('meta')->nullable();
-            $table->foreignId('brand_id')
+            $table->integer('type'); // 1 : smartphone, 2 : mobile service, 3 : energy service
+            $table->text('affiliate_link')->nullable();
+            $table->foreignId('brand_id')->nullable()
                 ->references('id')
                 ->on('brands')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();

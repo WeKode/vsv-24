@@ -22,7 +22,9 @@ class Product extends Model
         'old_price',
         'description',
         'brand_id',
-        'price'
+        'price',
+        'type',
+        'affiliate_link'
     ];
 
     /**
@@ -31,6 +33,21 @@ class Product extends Model
     public function getImgUrlAttribute(): string
     {
         return $this->images()->first() ? 'storage/'.$this->images()->first()->path : 'default';
+    }
+
+    public function scopeSmartphones($query)
+    {
+        return $query->where('type', 1);
+    }
+
+    public function scopePhonePlans($query)
+    {
+        return $query->where('type', 2);
+    }
+
+    public function scopeEnergyPlans($query)
+    {
+        return $query->where('type', 3);
     }
 
     public function images():HasMany
@@ -51,6 +68,6 @@ class Product extends Model
 
     public function attribute_values(): BelongsToMany
     {
-        return $this->belongsToMany(AttributeValue::class)->withPivot(['price', 'note'])->withTimestamps();
+        return $this->belongsToMany(AttributeValue::class)->withTimestamps();
     }
 }

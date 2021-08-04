@@ -20,4 +20,10 @@ return  [
     'add-new'    => 'Add new :name',
     'edit-current'    => 'Edit :name',
     'edit-item'    => 'Edit :name',
+
+    'stay-connected' => 'Stay connected',
+    'register-for-free' => 'Register for free',
+    'sign-in-with' => 'Sign in with :name',
+    'login' => 'Login',
+    'forgot-password' => 'Forgot password ?'
 ];

@@ -11,8 +11,8 @@
                         <i class="fas fa-bars text-light"></i>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <form class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <form class="d-flex" action="{{route('smartphones.index')}}">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search" value="{{request()->get('search')}}">
                             <button class="btn btn-warning" type="submit"><i class="fas fa-search"></i></button>
                         </form>
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-center">
@@ -37,7 +37,7 @@
         <div class="container-fluid">
             <div class="row d-flex justify-content-center">
                 <div class="col-auto">
-                    <a href="{{route('smartphones')}}" class="text-decoration-none text-light">Smartphones</a>
+                    <a href="{{route('smartphones.index')}}" class="text-decoration-none text-light">Smartphones</a>
                 </div>
                 <div class="col-auto">
                     <a href="javascript:void(0)" class="text-decoration-none text-light">Energy</a>

@@ -13,6 +13,17 @@ class ProductRepository extends BaseRepositories implements \App\Contracts\Produ
 
     use UploadAble;
 
+    public function __construct($per_page = 10, array $filters = [
+        \App\QueryFilter\Search::class,
+        \App\QueryFilter\MinPrice::class,
+        \App\QueryFilter\MaxPrice::class,
+        \App\QueryFilter\Attribute::class,
+        \App\QueryFilter\Brand::class,
+    ])
+    {
+        parent::__construct($per_page, $filters);
+    }
+
     /**
      * @inheritDoc
      */
@@ -100,9 +111,15 @@ class ProductRepository extends BaseRepositories implements \App\Contracts\Produ
 
     public function addAttributeValue($id, array $data)
     {
-        $data['note'] = 'test';
-        $data['price'] = 1234;
         $product = $this->findOneById($id);
         $product->attribute_values()->attach($data['attribute_value_id'], $data);
+        return $product;
+    }
+
+    public function removeAttributeValue($id, array $data)
+    {
+        $product = $this->findOneById($id);
+        $product->attribute_values()->detach($data['attribute_value_id']);
+        return $product;
     }
 }

@@ -27,6 +27,8 @@ Route::middleware('auth:admin')->group(function (){
     Route::resource('attribute-values',\App\Http\Controllers\Admin\AttributeValueController::class);
 
     Route::post('products/{id}/attribute-values',[App\Http\Controllers\Admin\ProductController::class,'valueStore'])->name('products.attribute-values.store');
+    Route::delete('products/{id}/attribute-values',[App\Http\Controllers\Admin\ProductController::class,'valueDestroy'])->name('products.attribute-values.delete');
+
     Route::post('products/image/upload',[App\Http\Controllers\Admin\ImageController::class,'store'])->name('products.images.upload');
     Route::get('products/{id}/delete',[App\Http\Controllers\Admin\ImageController::class,'destroy'])->name('products.images.delete');
     Route::resource('products',\App\Http\Controllers\Admin\ProductController::class);

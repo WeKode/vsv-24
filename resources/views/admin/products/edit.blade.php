@@ -54,6 +54,19 @@
                         @method('PUT')
                         <div class="card-body">
                             <div class="form-group">
+                                <label for="type">{{__('labels.type')}}</label>
+                                <select class="form-control @error('type') is-invalid @enderror"
+                                        required name="type" id="type" data-placeholder="{{__('labels.type')}}">
+                                    <option value="1" {{old('type', $product->type) == 1 ? 'selected' : ''}}>{{__('labels.smartphone')}}</option>
+                                    <option value="2" {{old('type', $product->type) == 2 ? 'selected' : ''}}>{{__('labels.phone-plan')}}</option>
+                                    <option value="3" {{old('type', $product->type) == 3 ? 'selected' : ''}}>{{__('labels.energy-plan')}}</option>
+                                </select>
+                                @error('type')
+                                <div class="text-danger">{{$message}}</div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
                                 <label for="name">{{__('labels.name')}}</label>
                                 <input type="text"
                                        class="form-control @error('name') is-invalid @enderror"
@@ -97,9 +110,9 @@
                             </div>
 
                             <div class="form-group">
-                                <label>{{__('brand')}}</label>
-                                <select required class="select2 form-control @error('brand_id') is-invalid @enderror"
-                                        name="brand_id" data-placeholder="{{__('brand')}}"
+                                <label for="brand">{{trans_choice('labels.brand', 1)}}</label>
+                                <select  class="select2 form-control @error('brand_id') is-invalid @enderror"
+                                        name="brand_id" id="brand" data-placeholder="{{trans_choice('labels.brand', 1)}}"
                                         style="width: 100%;">
                                     <option value="{{$product->brand->id}}" selected> {{$product->brand->name}} </option>
 
