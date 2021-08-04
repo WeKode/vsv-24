@@ -29,6 +29,7 @@ class SocialiteEmailNotFoundException extends Exception
     {
         session()->put('user',$this->user);
         session()->put('provider',$this->provider);
+        dd($this->user,$this->provider);
         return redirect()->route('auth.socialite.email',['id' => $this->user->id,'provider' => $this->provider]);
     }
 }
