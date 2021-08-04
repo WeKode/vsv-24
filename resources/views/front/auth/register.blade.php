@@ -19,6 +19,22 @@
                                     @enderror
                                 </div>
                                 <div class="col-lg-6 px-0 pe-lg-2 mb-3">
+                                    <label for="first_name" class="form-label">{{__('labels.first_name')}} <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control @error('first_name') is-invalid @enderror py-3" name="first_name" id="first_name" placeholder="{{__('labels.first_name')}} ">
+                                    @error('first_name')
+                                    <div  class="invalid-feedback">{{$message}}</div>
+                                    @enderror
+                                </div>
+
+                                <div class="col-lg-6 px-0 pe-lg-2 mb-3">
+                                    <label for="first_name" class="form-label">{{__('labels.last_name')}} <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control @error('last_name') is-invalid @enderror py-3" name="last_name" id="last_name" placeholder="{{__('labels.last_name')}} ">
+                                    @error('last_name')
+                                    <div  class="invalid-feedback">{{$message}}</div>
+                                    @enderror
+                                </div>
+
+                                <div class="col-lg-6 px-0 pe-lg-2 mb-3">
                                     <label for="password" class="form-label">{{__('labels.password')}} <span class="text-danger">*</span></label>
                                     <input type="password" class="form-control @error('password') is-invalid @enderror py-3" name="password" id="password" placeholder="{{__('labels.password')}} " aria-describedby="passwordHelp">
                                     @error('password')
