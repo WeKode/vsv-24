@@ -83,7 +83,26 @@
                 </p>
             </a>
         </li>
-        {{--        <li class="nav-header">EXAMPLES</li>--}}
+
+        <li class="nav-header text-muted">{{__('admin/sidebar.account')}}</li>
+
+        <li class="nav-item">
+            <a href="" class="nav-link">
+                <i class="nav-icon fas fa-cog"></i>
+                <p>
+                    {{trans_choice('labels.settings',3)}}
+                </p>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a href="" class="nav-link">
+                <i class="nav-icon fas fa-sign-out-alt"></i>
+                <p>
+                    {{trans_choice('labels.logout',3)}}
+                </p>
+            </a>
+        </li>
 
     </ul>
 </nav>
