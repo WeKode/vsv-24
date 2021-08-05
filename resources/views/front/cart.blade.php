@@ -29,7 +29,7 @@
                                             @foreach($products as $product)
                                             <tr>
                                                 <td>
-                                                    <a href="" class="text-decoration-none text-black text-capitalize">
+                                                    <a href="{{route('smartphones.show', $product->id)}}" class="text-decoration-none text-black text-capitalize">
                                                         {{$product->name}}
                                                     </a>
                                                 </td>

@@ -75,4 +75,9 @@ class Product extends Model
     {
         return $this->belongsToMany(AttributeValue::class)->withTimestamps();
     }
+
+    public function orders(): BelongsToMany
+    {
+        return $this->belongsToMany(Order::class)->with(['total', 'price', 'qty'])->withTimestamps();
+    }
 }
