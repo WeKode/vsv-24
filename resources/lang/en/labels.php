@@ -137,4 +137,7 @@ return [
     'energy-plan' => 'Energy plan',
     'already-member' => 'already member',
     'register' => 'Register',
+    'account' => 'Account',
+    'settings' => 'Settings',
+    'logout' => 'Logout',
 ];
