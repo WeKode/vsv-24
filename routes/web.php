@@ -46,6 +46,11 @@ Route::post('auth/email/{provider}/{id}',[App\Http\Controllers\Auth\SocialiteCon
 Route::middleware('auth')->group(function(){
     Route::any('logout',[\App\Http\Controllers\Auth\AuthenticatedSessionController::class,'destroy'])->name('logout');
 
+    Route::get('/profile', [\App\Http\Controllers\Web\ProfileController::class, 'index'])->name('profile.index');
+    Route::get('/profile/edit', [\App\Http\Controllers\Web\ProfileController::class, 'edit'])->name('profile.edit');
+    Route::get('/profile/edit', [\App\Http\Controllers\Web\ProfileController::class, 'update'])->name('profile.update');
+
+
     Route::get('/cart/{id}/add', [\App\Http\Controllers\Web\CartController::class, 'addProduct'])->name('cart.add.product');
     Route::get('/cart/{id}/delete', [\App\Http\Controllers\Web\CartController::class, 'delete'])->name('cart.delete.product');
     Route::post('/cart', [\App\Http\Controllers\Web\CartController::class, 'update'])->name('cart.update');
