@@ -41,6 +41,76 @@ class Product extends Model
         return 100 - round(($this->price * 100 )/ $this->old_price);
     }
 
+    public function getDisplayAttribute()
+    {
+        $value = $this->attribute_values()->whereHas('attribute', function ($q)
+        {
+            $q->where('name', 'Display');
+        })->first();
+        if ($value)
+        {
+            return $value->name;
+        }else{
+            return 'Not specified';
+        }
+    }
+
+    public function getResolutionAttribute()
+    {
+        $value = $this->attribute_values()->whereHas('attribute', function ($q)
+        {
+            $q->where('name', 'Resolution');
+        })->first();
+        if ($value)
+        {
+            return $value->name;
+        }else{
+            return 'Not specified';
+        }
+    }
+
+    public function getCameraAttribute()
+    {
+        $value = $this->attribute_values()->whereHas('attribute', function ($q)
+        {
+            $q->where('name', 'Camera');
+        })->first();
+        if ($value)
+        {
+            return $value->name;
+        }else{
+            return 'Not specified';
+        }
+    }
+
+    public function getRamAttribute()
+    {
+        $value = $this->attribute_values()->whereHas('attribute', function ($q)
+        {
+            $q->where('name', 'Ram');
+        })->first();
+        if ($value)
+        {
+            return $value->name;
+        }else{
+            return 'Not specified';
+        }
+    }
+
+    public function getBatteryAttribute()
+    {
+        $value = $this->attribute_values()->whereHas('attribute', function ($q)
+        {
+            $q->where('name', 'Battery');
+        })->first();
+        if ($value)
+        {
+            return $value->name;
+        }else{
+            return 'Not specified';
+        }
+    }
+
     public function scopeSmartphones($query)
     {
         return $query->where('type', 1);

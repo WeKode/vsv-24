@@ -46,7 +46,7 @@ class SmartphoneController extends Controller
      */
     public function show($id)
     {
-        $product = $this->product->findOneById($id,[],[],['*'],['smartphones']);
+        $product = $this->product->findOneById($id,['attribute_values.attribute'],[],['*'],['smartphones']);
         return view('front.smartphones.show', compact('product'));
 
     }

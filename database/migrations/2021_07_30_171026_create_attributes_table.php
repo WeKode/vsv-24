@@ -18,6 +18,7 @@ class CreateAttributesTable extends Migration
             $table->string('name');
             $table->string('description')->nullable();
             $table->integer('type'); // 1 : smartphone, 2 : mobile service, 3 : energy service
+            $table->boolean('is_editable')->default(true);
             $table->timestamps();
         });
     }

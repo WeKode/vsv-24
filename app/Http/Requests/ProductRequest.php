@@ -34,8 +34,8 @@ class ProductRequest extends FormRequest
             'brand_id' => 'required_if:type,1|exists:brands,id',
             'is_available' => 'required_if:type,1|in:0,1',
             'type' => 'required|in:1,2,3',
-            'values' => 'required|array|min:1',
-            'values.*' => 'required|exists:attribute_values,id',
+            'values' => 'sometimes|nullable|array|min:1',
+            'values.*' => 'sometimes|nullable|exists:attribute_values,id',
         ];
 
         if ($this->method() === 'PUT')

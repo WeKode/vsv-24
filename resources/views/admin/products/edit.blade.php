@@ -110,6 +110,19 @@
                             </div>
 
                             <div class="form-group">
+                                <label>{{__('available')}}</label>
+                                <select class=" form-control @error('is_available') is-invalid @enderror"
+                                        name="is_available" data-placeholder="{{__('available')}}"
+                                        style="width: 100%;">
+                                    <option value="1" {{old('is_available', $product->is_available) == 1 ? 'selected' : ''}}>Yes</option>
+                                    <option value="0" {{old('is_available', $product->is_available) == 1 ? 'selected' : ''}}>No</option>
+                                </select>
+                                @error('is_available')
+                                <div class="invalid-feedback">{{$message}}</div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
                                 <label for="brand">{{trans_choice('labels.brand', 1)}}</label>
                                 <select  class="select2 form-control @error('brand_id') is-invalid @enderror"
                                         name="brand_id" id="brand" data-placeholder="{{trans_choice('labels.brand', 1)}}"

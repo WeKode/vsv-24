@@ -45,11 +45,11 @@
                         <span class="small">33 offers</span>
                     </div>
                     <ul class="mt-4">
-                        <li>Display: 6.5 inches (16.51 cm)</li>
-                        <li>Resolution: 2400 x 1080 pixels (Full HD)</li>
-                        <li>Camera: 48, 12, 5 and 5 megapixels</li>
-                        <li>RAM: 4 GB RAM</li>
-                        <li>Battery: 4000 mAh</li>
+                        <li>Display: {{$product->display}}</li>
+                        <li>Resolution: {{$product->resolution}}</li>
+                        <li>Camera: {{$product->camera}}</li>
+                        <li>RAM: {{$product->ram}}</li>
+                        <li>Battery: {{$product->battery}}</li>
                     </ul>
                     <div>{{$product->description}}</div>
                     <div class="small mt-3">

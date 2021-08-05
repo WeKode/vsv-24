@@ -111,8 +111,8 @@
                                 <select class=" form-control @error('is_available') is-invalid @enderror"
                                         name="is_available" data-placeholder="{{__('available')}}"
                                         style="width: 100%;">
-                                    <option value="1">Yes</option>
-                                    <option value="0">No</option>
+                                    <option value="1" {{old('is_available') == 1 ? 'selected' : ''}}>Yes</option>
+                                    <option value="0" {{old('is_available') == 0 ? 'selected' : ''}}>No</option>
                                 </select>
                                 @error('is_available')
                                 <div class="invalid-feedback">{{$message}}</div>
@@ -157,7 +157,7 @@
                                 <div class="form-group {{$attribute->type_name}} d-none">
                                     <label for="values">{{$attribute->name}}</label>
                                     <select class="form-control  @error('values') is-invalid @enderror {{$attribute->type_name}}-input"
-                                            required name="values[]" id="values" data-placeholder="{{__('labels.value')}}">
+                                            name="values[]" id="values" data-placeholder="{{__('labels.value')}}">
                                         @foreach($attribute->values as $value)
                                         <option value="{{$value->id}}"
                                             {{in_array($value->id, old('values') ?? []) ? 'selected' : ''}}>{{$value->name}}</option>
