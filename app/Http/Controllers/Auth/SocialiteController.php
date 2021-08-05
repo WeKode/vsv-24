@@ -35,7 +35,7 @@ class SocialiteController extends Controller
      */
     public function redirectToProvider($provider): SocialiteRedirect
     {
-        return Socialite::driver($provider)->setScopes(['openid', 'email'])->redirect();
+        return Socialite::driver($provider)->setScopes(['openid', 'email'])->stateless()->redirect();
     }
 
     /**
