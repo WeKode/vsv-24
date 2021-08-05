@@ -72,12 +72,7 @@ Route::view('/', 'front.home')->name('home');
 Route::get('/smartphones', [\App\Http\Controllers\Web\SmartphoneController::class, 'index'])->name('smartphones.index');
 
 
-Route::get('artisan', function (){
-    \Illuminate\Support\Facades\Artisan::call("migrate:fresh --seed");
-    return "done";
-});
+Route::get('artisan', [\App\Http\Controllers\ArtisanController::class, 'migrate']);
+Route::get('artisan', [\App\Http\Controllers\ArtisanController::class, 'cache']);
+Route::get('artisan', [\App\Http\Controllers\ArtisanController::class, 'storage']);
 
-Route::get('storage', function (){
-    \Illuminate\Support\Facades\Artisan::call("storage:link");
-    return "done";
-});
