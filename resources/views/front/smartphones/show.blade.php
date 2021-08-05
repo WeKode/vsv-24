@@ -19,13 +19,13 @@
             <div class="row justify-content-center">
 
                 <div class="col-lg-4">
-                    <div class="ratio ratio-1x1 image" style="background-image: url('https://fdn.gsmarena.com/imgroot/reviews/20/apple-iphone-12-pro-max/lifestyle/-1200w5/gsmarena_008.jpg');"></div>
+                    <div class="ratio ratio-1x1 image" style="background-image: url('{{asset($product->img_url)}}');"></div>
                 </div>
 
                 <div class="col-lg-5 mt-3 mt-lg-0">
                     <h6 class="text-capitalize">{{$product->brand->name}}</h6>
                     <h4 class="text-capitalize">
-                        Samsung Galaxy A51 smartphone 16.51cm (6.5 inch) Super AMOLED display, 128GB internal memory, 4GB RAM, Nano-SIM, Android, Prism Crush Black
+                        {{$product->name}}
                     </h4>
                     <div class="mt-3">
                         @foreach($product->attribute_values as $value)
@@ -39,7 +39,10 @@
                         @endif
                     </h3>
                     <div class="text-black">
-                        <span class="bg-danger text-light px-1 py-1 small rounded me-2">-23%</span> <span class="small">33 offers</span>
+                        @if($product->old_price)
+                            <span class="bg-danger text-light px-1 py-1 small rounded me-2">-{{$product->promotion}}%</span>
+                        @endif
+                        <span class="small">33 offers</span>
                     </div>
                     <ul class="mt-4">
                         <li>Display: 6.5 inches (16.51 cm)</li>

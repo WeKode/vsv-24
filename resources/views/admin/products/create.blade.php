@@ -106,7 +106,18 @@
                                 @enderror
                             </div>
 
-
+                            <div class="form-group">
+                                <label>{{__('available')}}</label>
+                                <select class=" form-control @error('is_available') is-invalid @enderror"
+                                        name="is_available" data-placeholder="{{__('available')}}"
+                                        style="width: 100%;">
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                                @error('is_available')
+                                <div class="invalid-feedback">{{$message}}</div>
+                                @enderror
+                            </div>
 
                             <div class="form-group">
                                 <label for="images">{{trans_choice('labels.image',3)}}</label>
