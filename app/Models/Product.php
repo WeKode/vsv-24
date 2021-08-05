@@ -111,6 +111,20 @@ class Product extends Model
         }
     }
 
+    public function getOsAttribute()
+    {
+        $value = $this->attribute_values()->whereHas('attribute', function ($q)
+        {
+            $q->where('name', 'Battery');
+        })->first();
+        if ($value)
+        {
+            return $value->name;
+        }else{
+            return null;
+        }
+    }
+
     public function scopeSmartphones($query)
     {
         return $query->where('type', 1);

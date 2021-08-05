@@ -19,7 +19,8 @@
             <div class="row justify-content-center">
 
                 <div class="col-lg-4">
-                    <div class="ratio ratio-1x1 image" style="background-image: url('{{asset($product->img_url)}}');"></div>
+                    <div class="ratio ratio-1x1 image"
+                         style="background-image: url('{{asset($product->img_url)}}');"></div>
                 </div>
 
                 <div class="col-lg-5 mt-3 mt-lg-0">
@@ -28,9 +29,15 @@
                         {{$product->name}}
                     </h4>
                     <div class="mt-3">
-                        @foreach($product->attribute_values as $value)
-                        <span class="badge border border-danger text-danger fw-normal">{{$value->name}}</span>
-                        @endforeach
+                        <span class="badge border border-danger text-danger fw-normal">{{$product->brand->name}}</span>
+                        @if($product->os)
+                            <span class="badge border border-danger text-danger fw-normal">{{$product->os}}</span>
+                        @endif
+                        <span class="badge border border-danger text-danger fw-normal">{{$product->ram}}</span>
+                        @if($product->display != 'Not specified')
+                        <span class="badge border border-danger text-danger fw-normal">{{$product->display}}</span>
+                        @endif
+
                     </div>
                     <h3 class="mt-3">
                         <span class="text-black">{{$product->price}} $</span>
@@ -40,10 +47,12 @@
                     </h3>
                     <div class="text-black">
                         @if($product->old_price)
-                            <span class="bg-danger text-light px-1 py-1 small rounded me-2">-{{$product->promotion}}%</span>
+                            <span
+                                class="bg-danger text-light px-1 py-1 small rounded me-2">-{{$product->promotion}}%</span>
                         @endif
                         <span class="small">33 offers</span>
                     </div>
+                    brand os ram display
                     <ul class="mt-4">
                         <li>Display: {{$product->display}}</li>
                         <li>Resolution: {{$product->resolution}}</li>
@@ -63,7 +72,9 @@
                         </a>
                     </div>
                     <div class="text-end">
-                        <a href="{{route('cart.add.product', $product->id)}}" class="btn bg-blue text-light px-5 py-3 text-capitalize">add to cart<i class="fas fa-shopping-cart ms-2"></i></a>
+                        <a href="{{route('cart.add.product', $product->id)}}"
+                           class="btn bg-blue text-light px-5 py-3 text-capitalize">add to cart<i
+                                class="fas fa-shopping-cart ms-2"></i></a>
                     </div>
                 </div>
             </div>
@@ -79,49 +90,61 @@
                                 <td></td>
                                 <td>
                                     <a href="#" class="text-decoration-none">
-                                        <div class="ratio ratio-1x1 image" style="background-image: url('https://fdn.gsmarena.com/imgroot/reviews/20/apple-iphone-12-pro-max/lifestyle/-1200w5/gsmarena_008.jpg');"></div>
+                                        <div class="ratio ratio-1x1 image"
+                                             style="background-image: url('https://fdn.gsmarena.com/imgroot/reviews/20/apple-iphone-12-pro-max/lifestyle/-1200w5/gsmarena_008.jpg');"></div>
                                         <div class="my-2 text-black">
-                                            Samsung Galaxy A51 Smartphone 16.51cm (6.5 Inch) Super AMOLED Display, 128GB Internal Memory, 4GB RAM, Nano-SIM, Android, Prism Crush Black
+                                            Samsung Galaxy A51 Smartphone 16.51cm (6.5 Inch) Super AMOLED Display, 128GB
+                                            Internal Memory, 4GB RAM, Nano-SIM, Android, Prism Crush Black
                                         </div>
                                     </a>
                                 </td>
                                 <td>
                                     <a href="#" class="text-decoration-none">
-                                        <div class="ratio ratio-1x1 image" style="background-image: url('https://fdn.gsmarena.com/imgroot/reviews/20/apple-iphone-12-pro-max/lifestyle/-1200w5/gsmarena_008.jpg');"></div>
+                                        <div class="ratio ratio-1x1 image"
+                                             style="background-image: url('https://fdn.gsmarena.com/imgroot/reviews/20/apple-iphone-12-pro-max/lifestyle/-1200w5/gsmarena_008.jpg');"></div>
                                         <div class="my-2 text-black">
-                                            Samsung Galaxy A51 Smartphone 16.51cm (6.5 Inch) Super AMOLED Display, 128GB Internal Memory, 4GB RAM, Nano-SIM, Android, Prism Crush Black
+                                            Samsung Galaxy A51 Smartphone 16.51cm (6.5 Inch) Super AMOLED Display, 128GB
+                                            Internal Memory, 4GB RAM, Nano-SIM, Android, Prism Crush Black
                                         </div>
                                     </a>
                                 </td>
                                 <td>
                                     <a href="#" class="text-decoration-none">
-                                        <div class="ratio ratio-1x1 image" style="background-image: url('https://fdn.gsmarena.com/imgroot/reviews/20/apple-iphone-12-pro-max/lifestyle/-1200w5/gsmarena_008.jpg');"></div>
+                                        <div class="ratio ratio-1x1 image"
+                                             style="background-image: url('https://fdn.gsmarena.com/imgroot/reviews/20/apple-iphone-12-pro-max/lifestyle/-1200w5/gsmarena_008.jpg');"></div>
                                         <div class="my-2 text-black">
-                                            Samsung Galaxy A51 Smartphone 16.51cm (6.5 Inch) Super AMOLED Display, 128GB Internal Memory, 4GB RAM, Nano-SIM, Android, Prism Crush Black
+                                            Samsung Galaxy A51 Smartphone 16.51cm (6.5 Inch) Super AMOLED Display, 128GB
+                                            Internal Memory, 4GB RAM, Nano-SIM, Android, Prism Crush Black
                                         </div>
                                     </a>
                                 </td>
                                 <td>
                                     <a href="#" class="text-decoration-none">
-                                        <div class="ratio ratio-1x1 image" style="background-image: url('https://fdn.gsmarena.com/imgroot/reviews/20/apple-iphone-12-pro-max/lifestyle/-1200w5/gsmarena_008.jpg');"></div>
+                                        <div class="ratio ratio-1x1 image"
+                                             style="background-image: url('https://fdn.gsmarena.com/imgroot/reviews/20/apple-iphone-12-pro-max/lifestyle/-1200w5/gsmarena_008.jpg');"></div>
                                         <div class="my-2 text-black">
-                                            Samsung Galaxy A51 Smartphone 16.51cm (6.5 Inch) Super AMOLED Display, 128GB Internal Memory, 4GB RAM, Nano-SIM, Android, Prism Crush Black
+                                            Samsung Galaxy A51 Smartphone 16.51cm (6.5 Inch) Super AMOLED Display, 128GB
+                                            Internal Memory, 4GB RAM, Nano-SIM, Android, Prism Crush Black
                                         </div>
                                     </a>
                                 </td>
                                 <td>
                                     <a href="#" class="text-decoration-none">
-                                        <div class="ratio ratio-1x1 image" style="background-image: url('https://fdn.gsmarena.com/imgroot/reviews/20/apple-iphone-12-pro-max/lifestyle/-1200w5/gsmarena_008.jpg');"></div>
+                                        <div class="ratio ratio-1x1 image"
+                                             style="background-image: url('https://fdn.gsmarena.com/imgroot/reviews/20/apple-iphone-12-pro-max/lifestyle/-1200w5/gsmarena_008.jpg');"></div>
                                         <div class="my-2 text-black">
-                                            Samsung Galaxy A51 Smartphone 16.51cm (6.5 Inch) Super AMOLED Display, 128GB Internal Memory, 4GB RAM, Nano-SIM, Android, Prism Crush Black
+                                            Samsung Galaxy A51 Smartphone 16.51cm (6.5 Inch) Super AMOLED Display, 128GB
+                                            Internal Memory, 4GB RAM, Nano-SIM, Android, Prism Crush Black
                                         </div>
                                     </a>
                                 </td>
                                 <td>
                                     <a href="#" class="text-decoration-none">
-                                        <div class="ratio ratio-1x1 image" style="background-image: url('https://fdn.gsmarena.com/imgroot/reviews/20/apple-iphone-12-pro-max/lifestyle/-1200w5/gsmarena_008.jpg');"></div>
+                                        <div class="ratio ratio-1x1 image"
+                                             style="background-image: url('https://fdn.gsmarena.com/imgroot/reviews/20/apple-iphone-12-pro-max/lifestyle/-1200w5/gsmarena_008.jpg');"></div>
                                         <div class="my-2 text-black">
-                                            Samsung Galaxy A51 Smartphone 16.51cm (6.5 Inch) Super AMOLED Display, 128GB Internal Memory, 4GB RAM, Nano-SIM, Android, Prism Crush Black
+                                            Samsung Galaxy A51 Smartphone 16.51cm (6.5 Inch) Super AMOLED Display, 128GB
+                                            Internal Memory, 4GB RAM, Nano-SIM, Android, Prism Crush Black
                                         </div>
                                     </a>
                                 </td>
@@ -244,15 +267,18 @@
                             <caption class="mb-2 text-black fw-bold">General characteristics</caption>
                             <tbody>
                             <tr>
-                                <td>Product type:</th>
+                                <td>Product type:
+                                </th>
                                 <td>Smartphone</td>
                             </tr>
                             <tr>
-                                <td>RAM:</th>
+                                <td>RAM:
+                                </th>
                                 <td>3 GB</td>
                             </tr>
                             <tr>
-                                <td>Internal storage:</th>
+                                <td>Internal storage:
+                                </th>
                                 <td>128 GB</td>
                             </tr>
                             </tbody>
@@ -264,15 +290,18 @@
                             <caption class="mb-2 text-black fw-bold">General characteristics</caption>
                             <tbody>
                             <tr>
-                                <td>Product type:</th>
+                                <td>Product type:
+                                </th>
                                 <td>Smartphone</td>
                             </tr>
                             <tr>
-                                <td>RAM:</th>
+                                <td>RAM:
+                                </th>
                                 <td>3 GB</td>
                             </tr>
                             <tr>
-                                <td>Internal storage:</th>
+                                <td>Internal storage:
+                                </th>
                                 <td>128 GB</td>
                             </tr>
                             </tbody>
@@ -288,15 +317,18 @@
                             <caption class="mb-2 text-black fw-bold">General characteristics</caption>
                             <tbody>
                             <tr>
-                                <td>Product type:</th>
+                                <td>Product type:
+                                </th>
                                 <td>Smartphone</td>
                             </tr>
                             <tr>
-                                <td>RAM:</th>
+                                <td>RAM:
+                                </th>
                                 <td>3 GB</td>
                             </tr>
                             <tr>
-                                <td>Internal storage:</th>
+                                <td>Internal storage:
+                                </th>
                                 <td>128 GB</td>
                             </tr>
                             </tbody>
@@ -308,15 +340,18 @@
                             <caption class="mb-2 text-black fw-bold">General characteristics</caption>
                             <tbody>
                             <tr>
-                                <td>Product type:</th>
+                                <td>Product type:
+                                </th>
                                 <td>Smartphone</td>
                             </tr>
                             <tr>
-                                <td>RAM:</th>
+                                <td>RAM:
+                                </th>
                                 <td>3 GB</td>
                             </tr>
                             <tr>
-                                <td>Internal storage:</th>
+                                <td>Internal storage:
+                                </th>
                                 <td>128 GB</td>
                             </tr>
                             </tbody>
@@ -334,17 +369,20 @@
                 <div class="col-lg-3 mb-4">
                     <a href="javascript:void(0)" class="text-decoration-none">
                         <div class="card rounded-0">
-                            <div class="image" style="background: url('https://static.toiimg.com/thumb/msid-71178070,width-1200,height-900,resizemode-4/.jpg');height: 250px;"></div>
+                            <div class="image"
+                                 style="background: url('https://static.toiimg.com/thumb/msid-71178070,width-1200,height-900,resizemode-4/.jpg');height: 250px;"></div>
                             <div class="card-body">
                                 <div class="card-text">
                                     <div class="text-truncate text-black mb-2">
                                         Lorem ipsum dolor sit amet dolor sit amet
                                     </div>
                                     <div class="text-black">
-                                        <span class="bg-danger text-light px-1 py-1 small rounded me-2">-23%</span> <span class="small">33 offers</span>
+                                        <span class="bg-danger text-light px-1 py-1 small rounded me-2">-23%</span>
+                                        <span class="small">33 offers</span>
                                     </div>
                                     <h6 class="text-truncate mt-2">
-                                        <span class="text-black">234 $</span> - <span class="line-through text-secondary fw-normal">234 $</span>
+                                        <span class="text-black">234 $</span> - <span
+                                            class="line-through text-secondary fw-normal">234 $</span>
                                     </h6>
                                     <div class="text-secondary small">
                                         Free shipping
@@ -358,17 +396,20 @@
                 <div class="col-lg-3 mb-4">
                     <a href="javascript:void(0)" class="text-decoration-none">
                         <div class="card rounded-0">
-                            <div class="image" style="background: url('https://static.toiimg.com/thumb/msid-71178070,width-1200,height-900,resizemode-4/.jpg');height: 250px;"></div>
+                            <div class="image"
+                                 style="background: url('https://static.toiimg.com/thumb/msid-71178070,width-1200,height-900,resizemode-4/.jpg');height: 250px;"></div>
                             <div class="card-body">
                                 <div class="card-text">
                                     <div class="text-truncate text-black mb-2">
                                         Lorem ipsum dolor sit amet dolor sit amet
                                     </div>
                                     <div class="text-black">
-                                        <span class="bg-danger text-light px-1 py-1 small rounded me-2">-23%</span> <span class="small">33 offers</span>
+                                        <span class="bg-danger text-light px-1 py-1 small rounded me-2">-23%</span>
+                                        <span class="small">33 offers</span>
                                     </div>
                                     <h6 class="text-truncate mt-2">
-                                        <span class="text-black">234 $</span> - <span class="line-through text-secondary fw-normal">234 $</span>
+                                        <span class="text-black">234 $</span> - <span
+                                            class="line-through text-secondary fw-normal">234 $</span>
                                     </h6>
                                     <div class="text-secondary small">
                                         Free shipping
@@ -382,17 +423,20 @@
                 <div class="col-lg-3 mb-4">
                     <a href="javascript:void(0)" class="text-decoration-none">
                         <div class="card rounded-0">
-                            <div class="image" style="background: url('https://static.toiimg.com/thumb/msid-71178070,width-1200,height-900,resizemode-4/.jpg');height: 250px;"></div>
+                            <div class="image"
+                                 style="background: url('https://static.toiimg.com/thumb/msid-71178070,width-1200,height-900,resizemode-4/.jpg');height: 250px;"></div>
                             <div class="card-body">
                                 <div class="card-text">
                                     <div class="text-truncate text-black mb-2">
                                         Lorem ipsum dolor sit amet dolor sit amet
                                     </div>
                                     <div class="text-black">
-                                        <span class="bg-danger text-light px-1 py-1 small rounded me-2">-23%</span> <span class="small">33 offers</span>
+                                        <span class="bg-danger text-light px-1 py-1 small rounded me-2">-23%</span>
+                                        <span class="small">33 offers</span>
                                     </div>
                                     <h6 class="text-truncate mt-2">
-                                        <span class="text-black">234 $</span> - <span class="line-through text-secondary fw-normal">234 $</span>
+                                        <span class="text-black">234 $</span> - <span
+                                            class="line-through text-secondary fw-normal">234 $</span>
                                     </h6>
                                     <div class="text-secondary small">
                                         Free shipping
@@ -406,17 +450,20 @@
                 <div class="col-lg-3 mb-4">
                     <a href="javascript:void(0)" class="text-decoration-none">
                         <div class="card rounded-0">
-                            <div class="image" style="background: url('https://static.toiimg.com/thumb/msid-71178070,width-1200,height-900,resizemode-4/.jpg');height: 250px;"></div>
+                            <div class="image"
+                                 style="background: url('https://static.toiimg.com/thumb/msid-71178070,width-1200,height-900,resizemode-4/.jpg');height: 250px;"></div>
                             <div class="card-body">
                                 <div class="card-text">
                                     <div class="text-truncate text-black mb-2">
                                         Lorem ipsum dolor sit amet dolor sit amet
                                     </div>
                                     <div class="text-black">
-                                        <span class="bg-danger text-light px-1 py-1 small rounded me-2">-23%</span> <span class="small">33 offers</span>
+                                        <span class="bg-danger text-light px-1 py-1 small rounded me-2">-23%</span>
+                                        <span class="small">33 offers</span>
                                     </div>
                                     <h6 class="text-truncate mt-2">
-                                        <span class="text-black">234 $</span> - <span class="line-through text-secondary fw-normal">234 $</span>
+                                        <span class="text-black">234 $</span> - <span
+                                            class="line-through text-secondary fw-normal">234 $</span>
                                     </h6>
                                     <div class="text-secondary small">
                                         Free shipping
