@@ -22,11 +22,11 @@
 
                             @auth
                                 <li class="nav-item me-0 me-lg-3">
-                                    <a class="nav-link text-light" href="{{route('profile.index')}}"><i class="fas fa-phone-alt me-2"></i>{{user()->email}}</a>
+{{--                                    <a class="nav-link text-light" href="{{route('profile.index')}}"><i class="fas fa-phone-alt me-2"></i>{{user()->email}}</a>--}}
                                 </li>
 
                                 <li class="nav-item me-0 me-lg-3">
-                                    <a class="nav-link text-light" href="{{route('profile.edit')}}"><i class="fas fa-phone-alt me-2"></i>{{__('actions.edit')}}</a>
+{{--                                    <a class="nav-link text-light" href="{{route('profile.edit')}}"><i class="fas fa-phone-alt me-2"></i>{{__('actions.edit')}}</a>--}}
                                 </li>
 
                                 <li class="nav-item me-0 me-lg-3">
@@ -69,8 +69,8 @@
         </div>
     </section>
 
-    <section class="bg-grey text-center py-5">
-        carousel goes here
-    </section>
+{{--    <section class="bg-grey text-center py-5">--}}
+{{--        carousel goes here--}}
+{{--    </section>--}}
 
 </header>

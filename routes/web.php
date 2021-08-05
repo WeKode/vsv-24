@@ -57,6 +57,11 @@ Route::middleware('auth')->group(function(){
     Route::get('/cart', [\App\Http\Controllers\Web\CartController::class, 'index'])->name('cart.index');
 
     Route::get('/cart-confirmation', [\App\Http\Controllers\Web\CartConfirmationController::class, 'index'])->name('cart-confirmation.index');
+    Route::get('/checkout', [\App\Http\Controllers\Web\CheckoutController::class, 'index'])->name('checkout.index');
+    Route::get('/checkout/confirm', [\App\Http\Controllers\Web\CheckoutController::class, 'store'])->name('checkout.confirm');
+
+    Route::get('/notifications', [\App\Http\Controllers\Web\NotificationController::class, 'index'])->name('notifications.index');
+
 
 });
 

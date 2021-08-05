@@ -37,7 +37,7 @@ class Product extends Model
 
     public function getPromotionAttribute(): string
     {
-        return ($this->price * 100 )/ $this->old_price;
+        return 100 - round(($this->price * 100 )/ $this->old_price);
     }
 
     public function scopeSmartphones($query)
@@ -74,5 +74,10 @@ class Product extends Model
     public function attribute_values(): BelongsToMany
     {
         return $this->belongsToMany(AttributeValue::class)->withTimestamps();
+    }
+
+    public function orders(): BelongsToMany
+    {
+        return $this->belongsToMany(Order::class)->with(['total', 'price', 'qty'])->withTimestamps();
     }
 }

@@ -11,13 +11,7 @@
                             <hr>
                             <form class="row justify-content-center" method="post" action="{{route('register')}}">
                                 @csrf
-                                <div class="col-12 px-0 mb-3">
-                                    <label for="email" class="form-label">{{__('labels.email')}} <span class="text-danger">*</span></label>
-                                    <input type="email" name="email" value="{{old('email')}}" class="form-control py-3 @error('email') is-invalid @enderror" id="email" placeholder="{{__('labels.email')}} " aria-describedby="emailHelp">
-                                    @error('email')
-                                    <div  class="invalid-feedback">{{$message}}</div>
-                                    @enderror
-                                </div>
+
                                 <div class="col-lg-6 px-0 pe-lg-2 mb-3">
                                     <label for="first_name" class="form-label">{{__('labels.first_name')}} <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control @error('first_name') is-invalid @enderror py-3" name="first_name" id="first_name" placeholder="{{__('labels.first_name')}} ">
@@ -26,10 +20,18 @@
                                     @enderror
                                 </div>
 
-                                <div class="col-lg-6 px-0 pe-lg-2 mb-3">
+                                <div class="col-lg-6 px-0 ps-lg-2 mb-3">
                                     <label for="first_name" class="form-label">{{__('labels.last_name')}} <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control @error('last_name') is-invalid @enderror py-3" name="last_name" id="last_name" placeholder="{{__('labels.last_name')}} ">
                                     @error('last_name')
+                                    <div  class="invalid-feedback">{{$message}}</div>
+                                    @enderror
+                                </div>
+
+                                <div class="col-12 px-0 mb-3">
+                                    <label for="email" class="form-label">{{__('labels.email')}} <span class="text-danger">*</span></label>
+                                    <input type="email" name="email" value="{{old('email')}}" class="form-control py-3 @error('email') is-invalid @enderror" id="email" placeholder="{{__('labels.email')}} " aria-describedby="emailHelp">
+                                    @error('email')
                                     <div  class="invalid-feedback">{{$message}}</div>
                                     @enderror
                                 </div>

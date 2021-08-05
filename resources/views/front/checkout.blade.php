@@ -63,65 +63,42 @@
                                     <hr>
                                 </div>
                                 <div class="col-lg-6 pe-lg-2 px-0 mb-3">
-                                    <label for="first_name" class="form-label @error('first_name') is-invalid @enderror">First name</label>
-                                    <input type="text" class="form-control py-3" value="{{old('first_name', auth()->user()->first_name)}}" id="first_name" placeholder="First name">
-                                    @error('first_name')
-                                    <div class="form-text text-danger">Errors goes here.</div>
-                                    @enderror
+                                    <div class="text-secondary small mb-1">First name</div>
+                                    <div>Mouatez</div>
 
                                 </div>
                                 <div class="col-lg-6 ps-lg-2 px-0 mb-3">
-                                    <label for="last_name" class="form-label">Last name</label>
-                                    <input type="text" class="form-control py-3" id="first_name" placeholder="Last name">
-                                    <div class="form-text text-danger">Errors goes here.</div>
+                                    <div class="text-secondary small mb-1">Last name</div>
+                                    <div>Mouatez</div>
+                                </div>
+
+                                <div class="col-lg-6 pe-lg-2 px-0 mb-3">
+                                    <div class="text-secondary small mb-1">Gender</div>
+                                    <div>Male</div>
+                                </div>
+
+                                <div class="col-lg-6 ps-lg-2 px-0 mb-3">
+                                    <div class="text-secondary small mb-1">Birth date</div>
+                                    <div>09/09/1996</div>
                                 </div>
                                 <div class="col-lg-6 pe-lg-2 px-0 mb-3">
-                                    <label for="gender" class="form-label">Gender</label>
-                                    <select type="text" class="form-select py-3" id="gender">
-                                        <option value="1" disabled selected>Select gender</option>
-                                        <option value="2">Male</option>
-                                        <option value="3">Female</option>
-                                    </select>
-                                    <div class="form-text text-danger">Errors goes here.</div>
+                                    <div class="text-secondary small mb-1">Phone number</div>
+                                    <div>0555 33 22 11</div>
                                 </div>
                                 <div class="col-lg-6 ps-lg-2 px-0 mb-3">
-                                    <label for="date" class="form-label">Birth Date</label>
-                                    <input type="date" class="form-control py-3" id="date">
-                                    <div class="form-text text-danger">Errors goes here.</div>
+                                    <div class="text-secondary small mb-1">Email address</div>
+                                    <div>khalfaoui.mouatez@gmail.com</div>
                                 </div>
                                 <div class="col-lg-6 pe-lg-2 px-0 mb-3">
-                                    <label for="phone" class="form-label">Phone number</label>
-                                    <input type="text" class="form-control py-3" id="phone" placeholder="Phone number">
-                                    <div class="form-text text-danger">Errors goes here.</div>
-                                </div>
-                                <div class="col-lg-6 ps-lg-2 px-0 mb-3">
-                                    <label for="email" class="form-label">Email address</label>
-                                    <input type="email" class="form-control py-3" id="email" placeholder="Email address">
-                                    <div class="form-text text-danger">Errors goes here.</div>
-                                </div>
-                                <div class="col-lg-6 pe-lg-2 px-0 mb-3">
-                                    <label for="address" class="form-label">Address</label>
-                                    <input type="text" class="form-control py-3" id="address" placeholder="Address">
-                                    <div class="form-text text-danger">Errors goes here.</div>
-                                </div>
-                                <div class="col-lg-3 ps-lg-2 px-0 mb-3">
-                                    <label for="city" class="form-label">City</label>
-                                    <select type="text" class="form-select py-3" id="city">
-                                        <option value="1" disabled selected>Select city</option>
-                                    </select>
-                                    <div class="form-text text-danger">Errors goes here.</div>
-                                </div>
-                                <div class="col-lg-3 ps-lg-2 px-0 mb-3">
-                                    <label for="zip_code" class="form-label">Zip Code</label>
-                                    <input type="text" class="form-control py-3" id="email" placeholder="Zip code">
-                                    <div class="form-text text-danger">Errors goes here.</div>
+                                    <div class="text-secondary small mb-1"> address</div>
+                                    <div>100 lorem ipsum dolor, 25000, Algeria.</div>
                                 </div>
                                 <div class="col-12 px-0">
                                     <hr>
                                 </div>
                                 <div class="col-12 px-0 py-3 text-end">
-                                    <a href="{{route('cart.index')}}" class="btn bg-blue text-light py-3" style="width: 150px;">Back</a>
-                                    <a href="{{route('checkout.index')}}" class="btn bg-blue text-light py-3" style="width: 150px;">Next</a>
+                                    <a href="{{route('cart-confirmation.index')}}" class="btn bg-blue text-light py-3" style="width: 150px;">Back</a>
+                                    <a href="{{route('checkout.confirm')}}" class="btn bg-blue text-light py-3" style="width: 150px;">Next</a>
                                 </div>
                             </form>
                         </div>
