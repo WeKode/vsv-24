@@ -31,11 +31,15 @@ class SocialiteController extends Controller
      * Redirect the user to the Provider(like facebook or google ...) authentication page.
      *
      * @param $provider
-     * @return SocialiteRedirect
      */
-    public function redirectToProvider($provider): SocialiteRedirect
+    public function redirectToProvider($provider)
     {
-        return Socialite::driver($provider)->stateless()->redirect();
+        if (!in_array($provider,['google','facebook'],true))
+        {
+            abort(404);
+        }
+
+        return Socialite::driver($provider)->setScopes(['openid', 'email'])->stateless()->redirect();
     }
 
     /**
@@ -47,6 +51,10 @@ class SocialiteController extends Controller
      */
     public function handleProviderCallback($provider): RedirectResponse
     {
+        if (!in_array($provider,['google','facebook'],true))
+        {
+            abort(404);
+        }
         $getInfo = Socialite::driver($provider)->stateless()->user();
         try {
 //            $getInfo = Socialite::driver($provider)->stateless()->user();
