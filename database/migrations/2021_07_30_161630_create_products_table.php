@@ -26,6 +26,7 @@ class CreateProductsTable extends Migration
             $table->foreignId('brand_id')->nullable()
                 ->references('id')
                 ->on('brands')->onDelete('cascade')->onUpdate('cascade');
+            $table->boolean('is_available')->default(true);
             $table->timestamps();
         });
     }

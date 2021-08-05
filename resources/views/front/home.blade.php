@@ -8,18 +8,19 @@
 
             <div class="row d-flex mt-5">
 
+                @foreach($smartphones as $s)
                 <div class="col-lg-4 mb-3 mb-lg-0">
-                    <a href="javascript:void(0)" class="text-decoration-none">
+                    <a href="{{route('smartphones.show',$s->id)}}" class="text-decoration-none">
                         <div class="card rounded-0 h-100">
                             <div class="row g-0">
                                 <div class="col-4 image"
-                                     style="background-image: url('https://www.cityphones.com.au/wp-content/uploads/2018/09/gsmarena_001.jpg');"></div>
+                                     style="background-image: url('{{asset($s->img_url)}}');"></div>
                                 <div class="col-8">
                                     <div class="card-body">
-                                        <h6 class="text-secondary text-truncate mb-1">Apple</h6>
-                                        <h4 class="text-black text-truncate">Iphone 12</h4>
+                                        <h6 class="text-secondary text-truncate mb-1">{{$s->brand->name}}</h6>
+                                        <h4 class="text-black text-truncate">{{$s->name}}</h4>
                                         <div class="text-end mt-3 text-black">
-                                            <span class="small">from</span> <span class="fw-bold">32,45 $</span>
+                                            <span class="small">from</span> <span class="fw-bold">{{$s->price}} $</span>
                                         </div>
                                         <div class="text-end text-capitalize small text-secondary">
                                             Immediately available
@@ -31,56 +32,11 @@
                     </a>
                 </div>
 
-                <div class="col-lg-4 mb-3 mb-lg-0">
-                    <a href="javascript:void(0)" class="text-decoration-none">
-                        <div class="card rounded-0 h-100">
-                            <div class="row g-0">
-                                <div class="col-4 image"
-                                     style="background-image: url('https://www.cityphones.com.au/wp-content/uploads/2018/09/gsmarena_001.jpg');"></div>
-                                <div class="col-8">
-                                    <div class="card-body">
-                                        <h6 class="text-secondary text-truncate mb-1">Apple</h6>
-                                        <h4 class="text-black text-truncate">Iphone 12</h4>
-                                        <div class="text-end mt-3 text-black">
-                                            <span class="small">from</span> <span class="fw-bold">32,45 $</span>
-                                        </div>
-                                        <div class="text-end text-capitalize small text-secondary">
-                                            Immediately available
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-lg-4 mb-3 mb-lg-0">
-                    <a href="javascript:void(0)" class="text-decoration-none">
-                        <div class="card rounded-0 h-100">
-                            <div class="row g-0">
-                                <div class="col-4 image"
-                                     style="background-image: url('https://www.cityphones.com.au/wp-content/uploads/2018/09/gsmarena_001.jpg');"></div>
-                                <div class="col-8">
-                                    <div class="card-body">
-                                        <h6 class="text-secondary text-truncate mb-1">Apple</h6>
-                                        <h4 class="text-black text-truncate">Iphone 12</h4>
-                                        <div class="text-end mt-3 text-black">
-                                            <span class="small">from</span> <span class="fw-bold">32,45 $</span>
-                                        </div>
-                                        <div class="text-end text-capitalize small text-secondary">
-                                            Immediately available
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
+                @endforeach
             </div>
 
             <div class="mt-4 mt-lg-5 text-center">
-                <a href="javascript:void(0)" class="text-decoration-none text-blue-lighten">
+                <a href="{{route('smartphones.index')}}" class="text-decoration-none text-blue-lighten">
                     <u>See all offers</u>
                 </a>
             </div>
