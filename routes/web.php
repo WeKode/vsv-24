@@ -55,6 +55,7 @@ Route::middleware('auth')->group(function(){
     Route::get('/checkout', [\App\Http\Controllers\Web\CheckoutController::class, 'index'])->name('checkout.index');
     Route::get('/checkout/confirm', [\App\Http\Controllers\Web\CheckoutController::class, 'store'])->name('checkout.confirm');
 
+    Route::get('/notifications', [\App\Http\Controllers\Web\NotificationController::class, 'index'])->name('notifications.index');
 
 
 });

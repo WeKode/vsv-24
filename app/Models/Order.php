@@ -25,4 +25,9 @@ class Order extends Model
     {
         return $this->belongsToMany(Product::class)->with(['total', 'price', 'qty'])->withTimestamps();
     }
+
+    public function notifications(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Notification::class);
+    }
 }

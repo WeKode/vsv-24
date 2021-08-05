@@ -37,7 +37,7 @@ class Product extends Model
 
     public function getPromotionAttribute(): string
     {
-        return ($this->price * 100 )/ $this->old_price;
+        return 100 - round(($this->price * 100 )/ $this->old_price);
     }
 
     public function scopeSmartphones($query)

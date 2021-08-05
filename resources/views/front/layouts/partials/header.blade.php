@@ -69,8 +69,8 @@
         </div>
     </section>
 
-    <section class="bg-grey text-center py-5">
-        carousel goes here
-    </section>
+{{--    <section class="bg-grey text-center py-5">--}}
+{{--        carousel goes here--}}
+{{--    </section>--}}
 
 </header>
