@@ -29,7 +29,7 @@ class OrderObserver
     public function updated(Order $order)
     {
         $order->notifications()->create([
-            'user_id' => auth()->id(),
+            'user_id' => $order->user_id,
             'type' => 2
         ]);
     }
@@ -43,7 +43,7 @@ class OrderObserver
     public function deleted(Order $order)
     {
         $order->notifications()->create([
-            'user_id' => auth()->id(),
+            'user_id' => $order->user_id,
             'type' => 3
         ]);
     }
