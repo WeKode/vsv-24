@@ -24,7 +24,8 @@ class Product extends Model
         'brand_id',
         'price',
         'type',
-        'affiliate_link'
+        'affiliate_link',
+        'is_available'
     ];
 
     /**
