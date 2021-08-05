@@ -60,13 +60,14 @@ class AttributeRepository extends BaseRepositories implements AttributeContract
 
     public function update($id, array $data)
     {
-        $b = $this->findOneById($id);
-        $b->update($data);
-        return $b;
+        $a = $this->findOneById($id,[],[],['*'],['editable']);
+        $a->update($data);
+        return $a;
     }
 
     public function destroy($id)
     {
-        return Attribute::destroy($id);
+        $a = $this->findOneById($id,[],[],['*'],['editable']);
+        return $a->delete();
     }
 }

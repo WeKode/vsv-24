@@ -56,7 +56,7 @@
                                         <div class="text-danger">{{$message}}</div>
                                         @enderror
                                     </div>
-                                    
+
                                     <div class="form-group">
                                         <label for="name">{{__('labels.name')}}</label>
                                         <input type="text"
@@ -118,12 +118,14 @@
                                         <td>{{$a->description ?? '/'}}</td>
                                         <td>{{$a->created_at->format('m-d-Y')}}</td>
                                         <td>
+                                            @if($a->is_editable)
                                             <a href="{{route('admin.attributes.edit',$a->id)}}" class="btn btn-sm btn-warning">
                                                 <i class="fas fa-edit"></i>
                                             </a>
                                             <button type="button" onclick="deleteItem({{$a->id}})" class="btn btn-sm btn-danger">
                                                 <i class="fas fa-trash"></i>
                                             </button>
+                                                @endif
                                         </td>
                                     </tr>
                                     @endforeach

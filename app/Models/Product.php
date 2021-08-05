@@ -125,6 +125,11 @@ class Product extends Model
         }
     }
 
+    public function scopeLatest($query)
+    {
+        return $query->latest();
+    }
+
     public function scopeSmartphones($query)
     {
         return $query->where('type', 1);

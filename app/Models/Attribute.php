@@ -32,6 +32,11 @@ class Attribute extends Model
         }
     }
 
+    public function scopeEditable($query)
+    {
+        return $query->where('is_editable', true);
+    }
+
     public function values(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(AttributeValue::class);

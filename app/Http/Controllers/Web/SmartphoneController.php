@@ -47,7 +47,8 @@ class SmartphoneController extends Controller
     public function show($id)
     {
         $product = $this->product->findOneById($id,['attribute_values.attribute'],[],['*'],['smartphones']);
-        return view('front.smartphones.show', compact('product'));
+        $latest_products = $this->product->setPerPage(4)->findByFilter(['brand'],[],['*'],['smartphones', 'latest']);
+        return view('front.smartphones.show', compact('product', 'latest_products'));
 
     }
 
