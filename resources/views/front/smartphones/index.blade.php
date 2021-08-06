@@ -32,7 +32,7 @@
                 <div class="col-lg-3">
                     <div class="card rounded-0">
                         <div class="card-body">
-                            <div class="row">
+                            <div>
                                 <form class="row" action="{{route('smartphones.index')}}">
                                     <div class="fw-bold mb-2">Price range in $</div>
                                     <input type="hidden" value="{{request()->get('attribute')}}" name="attribute">
