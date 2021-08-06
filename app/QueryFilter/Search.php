@@ -34,7 +34,6 @@ class Search extends Filter
             return $builder->where('name','like','%'.$q.'%');
         }
 
-        return $builder->where('first_name','like','%'.$q.'%')
-                        ->orWhere('last_name','like','%'.$q.'%');
+        return $builder;
     }
 }
