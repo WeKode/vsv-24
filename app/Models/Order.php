@@ -12,7 +12,9 @@ class Order extends Model
 
     protected $fillable = [
         'total',
-        'user_id'
+        'user_id',
+        'first_name', 'last_name', 'phone', 'birth_date', 'zip_code', 'city', 'country', 'address', 'email',
+         'gender'
     ];
 
 

@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
+use Illuminate\Support\Facades\Session;
 
 class Authenticate extends Middleware
 {
@@ -19,6 +20,7 @@ class Authenticate extends Middleware
             {
                 return route('admin.login.index');
             }
+            Session::put('previous_url', url()->previous());
             return route('login');
         }
     }

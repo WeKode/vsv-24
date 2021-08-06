@@ -64,34 +64,34 @@
                                 </div>
                                 <div class="col-lg-6 pe-lg-2 px-0 mb-3">
                                     <div class="text-secondary small mb-1">First name</div>
-                                    <div>Mouatez</div>
+                                    <div>{{$data['first_name']}}</div>
 
                                 </div>
                                 <div class="col-lg-6 ps-lg-2 px-0 mb-3">
                                     <div class="text-secondary small mb-1">Last name</div>
-                                    <div>Mouatez</div>
+                                    <div>{{$data['last_name']}}</div>
                                 </div>
 
                                 <div class="col-lg-6 pe-lg-2 px-0 mb-3">
                                     <div class="text-secondary small mb-1">Gender</div>
-                                    <div>Male</div>
+                                    <div>{{$data['gender']}}</div>
                                 </div>
 
                                 <div class="col-lg-6 ps-lg-2 px-0 mb-3">
                                     <div class="text-secondary small mb-1">Birth date</div>
-                                    <div>09/09/1996</div>
+                                    <div>{{$data['birth_date']}}</div>
                                 </div>
                                 <div class="col-lg-6 pe-lg-2 px-0 mb-3">
                                     <div class="text-secondary small mb-1">Phone number</div>
-                                    <div>0555 33 22 11</div>
+                                    <div>{{$data['phone']}}</div>
                                 </div>
                                 <div class="col-lg-6 ps-lg-2 px-0 mb-3">
                                     <div class="text-secondary small mb-1">Email address</div>
-                                    <div>khalfaoui.mouatez@gmail.com</div>
+                                    <div>{{$data['email']}}</div>
                                 </div>
                                 <div class="col-lg-6 pe-lg-2 px-0 mb-3">
                                     <div class="text-secondary small mb-1"> address</div>
-                                    <div>100 lorem ipsum dolor, 25000, Algeria.</div>
+                                    <div>{{$data['address']}}, {{$data['zip_code']}}, {{$data['country']}}.</div>
                                 </div>
                                 <div class="col-12 px-0">
                                     <hr>

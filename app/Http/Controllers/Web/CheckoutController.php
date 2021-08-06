@@ -10,19 +10,21 @@ class CheckoutController extends Controller
 {
     public function index()
     {
+        $data = session()->get('information');
         $products = auth()->user()->products;
 
         $total = 0;
         foreach ($products as $product) {
             $total += $product->price * $product->pivot->qte;
         }
-        return view('front.checkout', compact('products', 'total'));
+        return view('front.checkout', compact('products', 'total', 'data'));
     }
 
 
     public function store()
     {
         $products = auth()->user()->products;
+        $data = session()->get('information');
 
         $data['total'] = 0;
         foreach ($products as $product) {
@@ -36,8 +38,8 @@ class CheckoutController extends Controller
             $order->products()->attach($product->id, [
                 'price' => $product->price,
                 'qty' => $product->pivot->qte,
-                'total' => $product->price*$product->pivot->qte]);
-
+                'total' => $product->price*$product->pivot->qte
+            ]);
         }
 
         auth()->user()->products()->detach();

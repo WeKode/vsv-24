@@ -15,6 +15,16 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('phone');
+            $table->date('birth_date');
+            $table->string('zip_code');
+            $table->string('city');
+            $table->string('gender');
+            $table->string('country');
+            $table->string('address');
+            $table->string('email');
             $table->decimal('total',14,2);
             $table->foreignId('user_id')->constrained()
                 ->onDelete('cascade')

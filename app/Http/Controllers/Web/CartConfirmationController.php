@@ -18,4 +18,24 @@ class CartConfirmationController extends Controller
         }
         return view('front.cart_confirmation', compact('products', 'total'));
     }
+
+    public function store(Request $request)
+    {
+        $data = $request->validate([
+            'email' => 'required|email|max:240',
+            'first_name' => 'required|string|max:100',
+            'last_name' => 'required|string|max:100',
+            'city' => 'required|string|max:100',
+            'country' => 'required|string|max:100',
+            'zip_code' => 'required|numeric',
+            'birth_date' => 'required|date',
+            'address' => 'required|string',
+            'phone' => 'required|string|max:20',
+            'gender' => 'required|string|in:male,female',
+        ]);
+
+        session()->put('information', $data);
+
+        return redirect()->route('checkout.index');
+    }
 }
