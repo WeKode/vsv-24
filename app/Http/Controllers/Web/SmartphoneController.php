@@ -32,7 +32,7 @@ class SmartphoneController extends Controller
     {
         $products = $this->product->findByFilter([],[],['*'],['smartphones']);
         $brands = $this->brand->setPerPage(0)->findByFilter();
-        $attributes = $this->attribute->setPerPage(0)->findByFilter(['values']);
+        $attributes = $this->attribute->setPerPage(0)->findByFilter(['values'], [], ['*'], ['smartphones']);
 
         return view('front.smartphones.index', compact('products', 'brands', 'attributes'));
     }

@@ -2,7 +2,6 @@
 
 namespace App\Http\View\Composers;
 
-use App\Repositories\UserRepository;
 use Illuminate\View\View;
 
 class CartComposer

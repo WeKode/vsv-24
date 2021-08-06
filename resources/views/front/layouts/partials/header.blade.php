@@ -59,10 +59,10 @@
                     <a href="{{route('smartphones.index')}}" class="text-decoration-none text-light">Smartphones</a>
                 </div>
                 <div class="col-auto">
-                    <a href="javascript:void(0)" class="text-decoration-none text-light">Energy</a>
+                    <a href="{{route('electricity_providers.index')}}" class="text-decoration-none text-light">Energy</a>
                 </div>
                 <div class="col-auto">
-                    <a href="javascript:void(0)" class="text-decoration-none text-light">Phone Plans</a>
+                    <a href="{{route('sim_offers.index')}}" class="text-decoration-none text-light">Phone Plans</a>
                 </div>
             </div>
         </div>

@@ -66,6 +66,12 @@ Route::middleware('auth')->group(function(){
 
 Route::get('/smartphones', [\App\Http\Controllers\Web\SmartphoneController::class, 'index'])->name('smartphones.index');
 Route::get('/smartphones/{id}', [\App\Http\Controllers\Web\SmartphoneController::class, 'show'])->name('smartphones.show');
+
+Route::get('/energy-providers', [\App\Http\Controllers\Web\EnergyController::class, 'index'])->name('electricity_providers.index');
+Route::get('/energy-providers/{id}', [\App\Http\Controllers\Web\EnergyController::class, 'show'])->name('electricity_providers.show');
+
+Route::get('/sim-offers', [\App\Http\Controllers\Web\SimController::class, 'index'])->name('sim_offers.index');
+Route::get('/sim-offers/{id}', [\App\Http\Controllers\Web\SimController::class, 'show'])->name('sim_offers.show');
 Route::get('/', [\App\Http\Controllers\Web\HomeController::class, 'index'])->name('home');
 
 //
