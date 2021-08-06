@@ -76,9 +76,8 @@
                                 </div>
                                 <div class="col-lg-3 ps-lg-2 px-0 mb-3">
                                     <label for="city" class="form-label ">{{trans_choice('labels.city',1)}}</label>
-                                    <select type="text" name="city"   class="form-select @error('city') is-invalid @enderror py-3" id="city">
-                                        <option value="1" disabled selected>{{__('labels.select_item',['name' => trans_choice('labels.city',1)])}}</option>
-                                    </select>
+                                    <input type="number" name="city"  value="{{user()->city}}" class="form-control @error('city') is-invalid @enderror py-3" id="city" placeholder="{{__('labels.city')}}">
+
                                     @error('city')
                                     <div class="invalid-feedback">{{$message}}</div>
                                     @enderror                                </div>

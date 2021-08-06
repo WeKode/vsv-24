@@ -18,6 +18,9 @@ Route::middleware('auth:admin')->group(function (){
     Route::get('dashboard',[\App\Http\Controllers\Admin\DashboardController::class,'index'])->name('dashboard');
 
     Route::resource('admins',\App\Http\Controllers\Admin\AdminController::class);
+    Route::resource('users',\App\Http\Controllers\Admin\UserController::class)->except(['show', 'create', 'store']);
+    Route::resource('orders',\App\Http\Controllers\Admin\OrderController::class)->except(['show', 'create', 'store', 'destroy']);
+
 
     Route::get('brands/list',[\App\Http\Controllers\Admin\BrandController::class,'getBrandsList'])
         ->name('brands.list.index');

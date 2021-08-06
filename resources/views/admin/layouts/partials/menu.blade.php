@@ -19,16 +19,25 @@
         </li>
         <li class="nav-item">
             <a href="{{route('admin.admins.index')}}"
-               class="nav-link {{request()->routeIs('admin.attribute*') ? 'active' : ''}}"
+               class="nav-link {{request()->routeIs('admin.admins*') ? 'active' : ''}}"
                data-link="/admin/admins">
                 <i class="nav-icon fas fa-users-cog"></i>
                 <p>{{trans_choice('labels.admin',3)}}</p>
             </a>
         </li>
         <li class="nav-item">
-            <a href="#" data-link="/admin/users" class="nav-link">
+            <a href="{{route('admin.users.index')}}" data-link="/admin/users"
+               class="nav-link {{request()->routeIs('admin.users*') ? 'active' : ''}}">
                 <i class="nav-icon fas fa-users"></i>
                 <p>{{trans_choice('labels.user',2)}}</p>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a href="{{route('admin.orders.index')}}" data-link="/admin/orders"
+               class="nav-link {{request()->routeIs('admin.orders*') ? 'active' : ''}}">
+                <i class="nav-icon fas fa-orders"></i>
+                <p>{{trans_choice('labels.order',2)}}</p>
             </a>
         </li>
 

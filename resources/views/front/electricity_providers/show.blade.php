@@ -9,7 +9,8 @@
                     <div class="mb-0">
                         <a href="{{route('home')}}" class="text-decoration-none text-black">Home</a>
                         <span class="mx-2">/</span>
-                        <a href="{{route('electricity_providers.index')}}" class="text-decoration-none text-black">Electricity Providers</a>
+                        <a href="{{route('electricity_providers.index')}}" class="text-decoration-none text-black">Electricity
+                            Providers</a>
                     </div>
                 </div>
             </div>
@@ -19,7 +20,8 @@
             <div class="row justify-content-center">
 
                 <div class="col-lg-2">
-                    <div class="ratio ratio-1x1 image" style="background-image: url('{{asset($product->img_url)}}');"></div>
+                    <div class="ratio ratio-1x1 image"
+                         style="background-image: url('{{asset($product->img_url)}}');"></div>
                 </div>
 
                 <div class="col-lg-7 mt-3 mt-lg-0">
@@ -65,14 +67,15 @@
                             <tr>
                                 <td></td>
                                 @foreach($comp_products as $cp)
-                                <td>
-                                    <a href="#" class="text-decoration-none">
-                                        <div class="ratio ratio-1x1 image" style="background-image: url('{{asset($cp->img_url)}}');"></div>
-                                        <div class="my-2 text-black">
-                                            {{$cp->name}}
-                                        </div>
-                                    </a>
-                                </td>
+                                    <td>
+                                        <a href="#" class="text-decoration-none">
+                                            <div class="ratio ratio-1x1 image"
+                                                 style="background-image: url('{{asset($cp->img_url)}}');"></div>
+                                            <div class="my-2 text-black">
+                                                {{$cp->name}}
+                                            </div>
+                                        </a>
+                                    </td>
                                 @endforeach
                             </tr>
                             </thead>
@@ -131,15 +134,18 @@
                             <caption class="mb-2 text-black fw-bold">General characteristics</caption>
                             <tbody>
                             <tr>
-                                <td>Product type:</th>
+                                <td>Product type:
+                                </th>
                                 <td>Smartphone</td>
                             </tr>
                             <tr>
-                                <td>RAM:</th>
+                                <td>RAM:
+                                </th>
                                 <td>3 GB</td>
                             </tr>
                             <tr>
-                                <td>Internal storage:</th>
+                                <td>Internal storage:
+                                </th>
                                 <td>128 GB</td>
                             </tr>
                             </tbody>
@@ -151,15 +157,18 @@
                             <caption class="mb-2 text-black fw-bold">General characteristics</caption>
                             <tbody>
                             <tr>
-                                <td>Product type:</th>
+                                <td>Product type:
+                                </th>
                                 <td>Smartphone</td>
                             </tr>
                             <tr>
-                                <td>RAM:</th>
+                                <td>RAM:
+                                </th>
                                 <td>3 GB</td>
                             </tr>
                             <tr>
-                                <td>Internal storage:</th>
+                                <td>Internal storage:
+                                </th>
                                 <td>128 GB</td>
                             </tr>
                             </tbody>
@@ -175,15 +184,18 @@
                             <caption class="mb-2 text-black fw-bold">General characteristics</caption>
                             <tbody>
                             <tr>
-                                <td>Product type:</th>
+                                <td>Product type:
+                                </th>
                                 <td>Smartphone</td>
                             </tr>
                             <tr>
-                                <td>RAM:</th>
+                                <td>RAM:
+                                </th>
                                 <td>3 GB</td>
                             </tr>
                             <tr>
-                                <td>Internal storage:</th>
+                                <td>Internal storage:
+                                </th>
                                 <td>128 GB</td>
                             </tr>
                             </tbody>
@@ -195,15 +207,18 @@
                             <caption class="mb-2 text-black fw-bold">General characteristics</caption>
                             <tbody>
                             <tr>
-                                <td>Product type:</th>
+                                <td>Product type:
+                                </th>
                                 <td>Smartphone</td>
                             </tr>
                             <tr>
-                                <td>RAM:</th>
+                                <td>RAM:
+                                </th>
                                 <td>3 GB</td>
                             </tr>
                             <tr>
-                                <td>Internal storage:</th>
+                                <td>Internal storage:
+                                </th>
                                 <td>128 GB</td>
                             </tr>
                             </tbody>
@@ -217,60 +232,36 @@
             <h3 class="text-center text-lg-start text-capitalize my-5">Similar products</h3>
 
             <div class="row">
+                @foreach($latest_products as $lp)
+                    <div class="col-lg-6 mb-3">
+                        <a href="{{route('electricity_providers.show', $lp->id)}}" class="text-decoration-none">
+                            <div class="card rounded-0 h-100">
+                                <div class="row g-0">
+                                    <div class="col-6 image"
+                                         style="background-image: url('{{asset($lp->img_url)}}');"></div>
+                                    <div class="col-6">
+                                        <div class="card-body">
 
-                <div class="col-lg-6 mb-3">
-                    <a href="javascript:void(0)" class="text-decoration-none">
-                        <div class="card rounded-0 h-100">
-                            <div class="row g-0">
-                                <div class="col-6 image" style="background-image: url('https://3vffxhfy5ah3clou11dg4jhd-wpengine.netdna-ssl.com/wp-content/uploads/AdobeStock_195603050.jpeg');"></div>
-                                <div class="col-6">
-                                    <div class="card-body">
-
-                                        <h4 class="text-black text-capitalize text-truncate mb-2">Lorem ipsum dolor sit amet</h4>
-                                        <h6 class="text-secondary text-truncate mb-1">2500 kWh</h6>
-                                        <h6 class="text-secondary text-truncate">Lorem ipsum dolor sit amet</h6>
-                                        <div class="text-end mt-3 text-black">
-                                            <span class="small">From :</span> <span class="fw-bold">32,45 $</span>
-                                        </div>
-                                        <div class="text-end text-secondary">
-                                            ø Per Month
-                                        </div>
-                                        <div class="text-end text-capitalize small text-secondary">
-                                            You will save : 34,44 $
+                                            <h4 class="text-black text-capitalize text-truncate mb-2">{{$lp->brand->name}}</h4>
+                                            <h6 class="text-secondary text-truncate mb-1">{{$lp->name}}</h6>
+                                            <h6 class="text-secondary text-truncate">{{$lp->short_description}}</h6>
+                                            <div class="text-end mt-3 text-black">
+                                                <span class="small">From :</span> <span
+                                                    class="fw-bold">{{$lp->price}} $</span>
+                                            </div>
+                                            <div class="text-end text-secondary">
+                                                ø Per Month
+                                            </div>
+                                            <div class="text-end text-capitalize small text-secondary">
+                                                You will save : 34,44 $
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-lg-6 mb-3">
-                    <a href="javascript:void(0)" class="text-decoration-none">
-                        <div class="card rounded-0 h-100">
-                            <div class="row g-0">
-                                <div class="col-6 image" style="background-image: url('https://3vffxhfy5ah3clou11dg4jhd-wpengine.netdna-ssl.com/wp-content/uploads/AdobeStock_195603050.jpeg');"></div>
-                                <div class="col-6">
-                                    <div class="card-body">
-
-                                        <h4 class="text-black text-capitalize text-truncate mb-2">Lorem ipsum dolor sit amet</h4>
-                                        <h6 class="text-secondary text-truncate mb-1">2500 kWh</h6>
-                                        <h6 class="text-secondary text-truncate">Lorem ipsum dolor sit amet</h6>
-                                        <div class="text-end mt-3 text-black">
-                                            <span class="small">From :</span> <span class="fw-bold">32,45 $</span>
-                                        </div>
-                                        <div class="text-end text-secondary">
-                                            ø Per Month
-                                        </div>
-                                        <div class="text-end text-capitalize small text-secondary">
-                                            You will save : 34,44 $
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                        </a>
+                    </div>
+                @endforeach
 
             </div>
 

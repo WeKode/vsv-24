@@ -20,7 +20,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'first_name', 'last_name', 'phone', 'birth_date', 'zip_code', 'city', 'country', 'address', 'email',
-        'password','pic','points','gender'
+        'password', 'pic', 'points', 'gender'
     ];
 
     /**
@@ -47,20 +47,23 @@ class User extends Authenticatable
         'pic_url'
     ];
 
+    public function getNameAttribute()
+    {
+        return $this->first_name . ' ' . $this->last_name;
+    }
 
     public function getPicUrlAttribute()
     {
-        if (Str::contains($this->pic,'http'))
-        {
+        if (Str::contains($this->pic, 'http')) {
             return $this->pic;
         }
 
-        return $this->pic ? asset('storage/'.$this->pic) : asset('assets/dist/img/default-150x150.png');
+        return $this->pic ? asset('storage/' . $this->pic) : asset('assets/dist/img/default-150x150.png');
     }
 
     public function addressFromat()
     {
-        return $this->address .", ".$this->zip_code. ', '.$this->city.', '.$this->country;
+        return $this->address . ", " . $this->zip_code . ', ' . $this->city . ', ' . $this->country;
     }
 
 
