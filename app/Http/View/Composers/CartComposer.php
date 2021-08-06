@@ -17,7 +17,7 @@ class CartComposer
     {
         if (auth()->check())
         {
-            $view->with('count', auth()->user()->products()->count());
+            $view->with('count', auth()->user()->products()->sum('qte'));
         }
     }
 }

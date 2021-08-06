@@ -31,7 +31,7 @@ class CartController extends Controller
         $exist =  $user->products()->find($id);
 
         if ($exist){
-            $data['qte'] = $exist->qte + (int)$data['qte'];
+            $data['qte'] = $exist->pivot->qte + 1;
             $user->products()->updateExistingPivot($id,$data);
         }else{
             $user->products()->attach($id,$data);
