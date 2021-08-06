@@ -88,131 +88,70 @@
                             <thead>
                             <tr>
                                 <td></td>
+                                @foreach($comp_products as $cp)
                                 <td>
                                     <a href="#" class="text-decoration-none">
                                         <div class="ratio ratio-1x1 image"
-                                             style="background-image: url('https://fdn.gsmarena.com/imgroot/reviews/20/apple-iphone-12-pro-max/lifestyle/-1200w5/gsmarena_008.jpg');"></div>
+                                             style="background-image: url('{{asset($cp->img_url)}}');"></div>
                                         <div class="my-2 text-black">
-                                            Samsung Galaxy A51 Smartphone 16.51cm (6.5 Inch) Super AMOLED Display, 128GB
-                                            Internal Memory, 4GB RAM, Nano-SIM, Android, Prism Crush Black
+                                            {{$cp->name}}
                                         </div>
                                     </a>
                                 </td>
-                                <td>
-                                    <a href="#" class="text-decoration-none">
-                                        <div class="ratio ratio-1x1 image"
-                                             style="background-image: url('https://fdn.gsmarena.com/imgroot/reviews/20/apple-iphone-12-pro-max/lifestyle/-1200w5/gsmarena_008.jpg');"></div>
-                                        <div class="my-2 text-black">
-                                            Samsung Galaxy A51 Smartphone 16.51cm (6.5 Inch) Super AMOLED Display, 128GB
-                                            Internal Memory, 4GB RAM, Nano-SIM, Android, Prism Crush Black
-                                        </div>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="#" class="text-decoration-none">
-                                        <div class="ratio ratio-1x1 image"
-                                             style="background-image: url('https://fdn.gsmarena.com/imgroot/reviews/20/apple-iphone-12-pro-max/lifestyle/-1200w5/gsmarena_008.jpg');"></div>
-                                        <div class="my-2 text-black">
-                                            Samsung Galaxy A51 Smartphone 16.51cm (6.5 Inch) Super AMOLED Display, 128GB
-                                            Internal Memory, 4GB RAM, Nano-SIM, Android, Prism Crush Black
-                                        </div>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="#" class="text-decoration-none">
-                                        <div class="ratio ratio-1x1 image"
-                                             style="background-image: url('https://fdn.gsmarena.com/imgroot/reviews/20/apple-iphone-12-pro-max/lifestyle/-1200w5/gsmarena_008.jpg');"></div>
-                                        <div class="my-2 text-black">
-                                            Samsung Galaxy A51 Smartphone 16.51cm (6.5 Inch) Super AMOLED Display, 128GB
-                                            Internal Memory, 4GB RAM, Nano-SIM, Android, Prism Crush Black
-                                        </div>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="#" class="text-decoration-none">
-                                        <div class="ratio ratio-1x1 image"
-                                             style="background-image: url('https://fdn.gsmarena.com/imgroot/reviews/20/apple-iphone-12-pro-max/lifestyle/-1200w5/gsmarena_008.jpg');"></div>
-                                        <div class="my-2 text-black">
-                                            Samsung Galaxy A51 Smartphone 16.51cm (6.5 Inch) Super AMOLED Display, 128GB
-                                            Internal Memory, 4GB RAM, Nano-SIM, Android, Prism Crush Black
-                                        </div>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="#" class="text-decoration-none">
-                                        <div class="ratio ratio-1x1 image"
-                                             style="background-image: url('https://fdn.gsmarena.com/imgroot/reviews/20/apple-iphone-12-pro-max/lifestyle/-1200w5/gsmarena_008.jpg');"></div>
-                                        <div class="my-2 text-black">
-                                            Samsung Galaxy A51 Smartphone 16.51cm (6.5 Inch) Super AMOLED Display, 128GB
-                                            Internal Memory, 4GB RAM, Nano-SIM, Android, Prism Crush Black
-                                        </div>
-                                    </a>
-                                </td>
+                                @endforeach
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
                                 <th scope="row">Price excluding shipping</th>
-                                <td>200 $</td>
-                                <td>200 $</td>
-                                <td>200 $</td>
-                                <td>200 $</td>
-                                <td>200 $</td>
-                                <td>200 $</td>
+                                @foreach($comp_products as $cp)
+                                <td>{{$cp->price}} $</td>
+                                @endforeach
                             </tr>
                             <tr>
                                 <th scope="row">Product type</th>
-                                <td>Smartphone</td>
-                                <td>Smartphone</td>
-                                <td>Smartphone</td>
-                                <td>Smartphone</td>
-                                <td>Smartphone</td>
-                                <td>Smartphone</td>
+                                @foreach($comp_products as $cp)
+                                    <td>{{$cp->type}}</td>
+                                @endforeach
                             </tr>
                             <tr>
                                 <th scope="row">Battery technology</th>
-                                <td>Lithium-Ion (Li-Ion)</td>
-                                <td>Lithium-Ion (Li-Ion)</td>
-                                <td>Lithium-Ion (Li-Ion)</td>
-                                <td>Lithium-Ion (Li-Ion)</td>
-                                <td>-</td>
-                                <td>-</td>
+                                @foreach($comp_products as $cp)
+                                    <td>{{$cp->battery}}</td>
+                                @endforeach
                             </tr>
-                            <tr>
-                                <th scope="row">Colour</th>
-                                <td>Blue</td>
-                                <td>Blue</td>
-                                <td>Blue</td>
-                                <td>Blue</td>
-                                <td>Blue</td>
-                                <td>Blue</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Bluetooth</th>
-                                <td>Yes</td>
-                                <td>Yes</td>
-                                <td>Yes</td>
-                                <td>Yes</td>
-                                <td>Yes</td>
-                                <td>Yes</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Wireless Internet Access</th>
-                                <td>Yes</td>
-                                <td>Yes</td>
-                                <td>Yes</td>
-                                <td>Yes</td>
-                                <td>Yes</td>
-                                <td>Yes</td>
-                            </tr>
+{{--                            <tr>--}}
+{{--                                <th scope="row">Colour</th>--}}
+{{--                                <td>Blue</td>--}}
+{{--                                <td>Blue</td>--}}
+{{--                                <td>Blue</td>--}}
+{{--                                <td>Blue</td>--}}
+{{--                                <td>Blue</td>--}}
+{{--                                <td>Blue</td>--}}
+{{--                            </tr>--}}
+{{--                            <tr>--}}
+{{--                                <th scope="row">Bluetooth</th>--}}
+{{--                                <td>Yes</td>--}}
+{{--                                <td>Yes</td>--}}
+{{--                                <td>Yes</td>--}}
+{{--                                <td>Yes</td>--}}
+{{--                                <td>Yes</td>--}}
+{{--                                <td>Yes</td>--}}
+{{--                            </tr>--}}
+{{--                            <tr>--}}
+{{--                                <th scope="row">Wireless Internet Access</th>--}}
+{{--                                <td>Yes</td>--}}
+{{--                                <td>Yes</td>--}}
+{{--                                <td>Yes</td>--}}
+{{--                                <td>Yes</td>--}}
+{{--                                <td>Yes</td>--}}
+{{--                                <td>Yes</td>--}}
+{{--                            </tr>--}}
                             <tr>
                                 <th scope="row">Screen Size Inch</th>
-                                <td>6.3 Inch</td>
-                                <td>6.3 Inch</td>
-                                <td>6.3 Inch</td>
-                                <td>6.3 Inch</td>
-                                <td>6.3 Inch</td>
-                                <td>6.3 Inch</td>
+                                @foreach($comp_products as $cp)
+                                    <td>{{$cp->display}}</td>
+                                @endforeach
                             </tr>
                             <tr>
                                 <th scope="row">Internal memory in GB</th>
