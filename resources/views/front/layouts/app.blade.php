@@ -54,7 +54,6 @@
     });
 
     @if(session('success'))
-        console.log('success')
     Swal.fire({
         position: 'center',
         icon: 'success',
@@ -65,8 +64,6 @@
     @endif
 
     @if(session('error'))
-    console.log('error')
-
     Swal.fire({
         position: 'center',
         icon: 'error',
@@ -75,6 +72,11 @@
         timer: 2000
     })
     @endif
+</script>
+<script>
+    $('#sort').change(function() {
+        $('#sort-form').submit()
+    })
 </script>
 @stack('js')
 </body>

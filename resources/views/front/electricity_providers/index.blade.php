@@ -10,19 +10,8 @@
                         Electricity providers<span class="mx-3">|</span>{{$products->total()}} Results
                     </h3>
                 </div>
-                <div class="col-auto">
-                    <select name="filter" id="filter" class="form-select">
-                        <option value="1" selected disabled>
-                            Filter by
-                        </option>
-                        <option value="2">
-                            Name
-                        </option>
-                        <option value="3">
-                            Date
-                        </option>
-                    </select>
-                </div>
+                @include('front.layouts.partials.sort')
+
             </div>
 
             <hr>
@@ -36,6 +25,9 @@
                                 <form class="row" action="{{route('smartphones.index')}}">
                                     <div class="fw-bold mb-2">Price range in $</div>
                                     <input type="hidden" value="{{request()->get('attribute')}}" name="attribute">
+                                    <input type="hidden" value="{{request()->get('brand')}}" name="brand">
+                                    <input type="hidden" value="{{request()->get('available')}}" name="available">
+
 
                                     <div class="col-6 mb-3">
                                         <label for="from">from</label>
@@ -58,12 +50,17 @@
 
                                 <div class="col-12 mb-3">
                                     <div class="fw-bold mb-2">Delivery time</div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="deliveryTime">
+                                    <form class="form-check" id="deliveryTime-form">
+                                        <input type="hidden" value="{{request()->get('attribute')}}" name="attribute">
+                                        <input type="hidden" value="{{request()->get('brand')}}" name="brand">
+                                        <input class="form-check-input" type="checkbox"
+                                               value="true"
+                                               {{request()->has('available') ? 'checked' : ''}}
+                                               id="deliveryTime" name="available">
                                         <label class="form-check-label" for="deliveryTime">
                                             Immediately available
                                         </label>
-                                    </div>
+                                    </form>
                                 </div>
                                 <div class="col-12 mb-3">
                                     <div class="fw-bold mb-2">Brands</div>
