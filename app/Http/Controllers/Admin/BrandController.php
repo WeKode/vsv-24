@@ -41,6 +41,7 @@ class BrandController extends Controller
     {
         $data = $request->validate([
             'name'      => 'required|string|max:100|unique:brands,name',
+            'type' => 'required|in:1,2,3',
         ]);
 
         $this->brand->new($data);
@@ -73,6 +74,7 @@ class BrandController extends Controller
     {
         $data = $request->validate([
             'name'      => 'required|string|max:100|unique:brands,name,'.$id,
+            'type' => 'required|in:1,2,3',
         ]);
         $this->brand->update($id,$data);
 

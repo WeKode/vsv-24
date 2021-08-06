@@ -14,14 +14,14 @@ class BrandSeeder extends Seeder
      */
     public function run()
     {
-        Brand::create(['name' => 'Samsung']);
-        Brand::create(['name' => 'Apple']);
-        Brand::create(['name' => 'Huawei']);
-        Brand::create(['name' => 'Sony']);
-        Brand::create(['name' => 'Oppo']);
-        Brand::create(['name' => 'Xiaomi']);
-        Brand::create(['name' => 'Poco']);
-        Brand::create(['name' => 'One plus']);
+        Brand::create(['name' => 'Samsung', 'type' => 1]);
+        Brand::create(['name' => 'Apple', 'type' => 1]);
+        Brand::create(['name' => 'Huawei', 'type' => 1]);
+        Brand::create(['name' => 'Sony', 'type' => 1]);
+        Brand::create(['name' => 'Oppo', 'type' => 1]);
+        Brand::create(['name' => 'Xiaomi', 'type' => 1]);
+        Brand::create(['name' => 'Poco', 'type' => 1]);
+        Brand::create(['name' => 'One plus', 'type' => 1]);
 
     }
 }

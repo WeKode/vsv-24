@@ -65,6 +65,22 @@
                                         </label>
                                     </div>
                                 </div>
+                                <div class="col-12 mb-3">
+                                    <div class="fw-bold mb-2">Brands</div>
+                                    <form id="brandsFilters">
+                                        @foreach($brands as $b)
+                                            <div class="form-check">
+                                                <input class="form-check-input set_brand" type="checkbox"
+                                                       value="{{$b->id}}"
+                                                       id="brand1"
+                                                       name="brands" {{in_array($b->id, explode('_',request()->get('brand')) ?? []) ? 'checked' : ''}}>
+                                                <label class="form-check-label" for="brand1">
+                                                    {{$b->name}}
+                                                </label>
+                                            </div>
+                                        @endforeach
+                                    </form>
+                                </div>
                                 <form id="filtersForm" method="get">
                                     @foreach($attributes as $a)
                                         @if(!$a->values->isEmpty())
@@ -101,8 +117,8 @@
                                             <div class="col-6">
                                                 <div class="card-body">
 
-                                                    <h4 class="text-black text-capitalize text-truncate mb-2">{{$p->name}}</h4>
-{{--                                                    <h6 class="text-secondary text-truncate mb-1">2500 kWh</h6>--}}
+                                                    <h4 class="text-black text-capitalize text-truncate mb-2">{{$p->brand->name}}</h4>
+                                                    <h6 class="text-secondary text-truncate mb-1">{{$p->name}}</h6>
                                                     <h6 class="text-secondary text-truncate">{{$p->short_description}}</h6>
                                                     <div class="text-end mt-3 text-black">
                                                         <span class="small">From :</span> <span class="fw-bold">{{$p->price}} $</span>

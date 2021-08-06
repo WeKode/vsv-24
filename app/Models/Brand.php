@@ -14,10 +14,24 @@ class Brand extends Model
      * @var string[]
      */
     protected $fillable = [
-        'name'
+        'name',
+        'type'
     ];
 
+    public function scopeSmartphones($query)
+    {
+        return $query->where('type', 1);
+    }
 
+    public function scopePhonePlans($query)
+    {
+        return $query->where('type', 2);
+    }
+
+    public function scopeEnergyPlans($query)
+    {
+        return $query->where('type', 3);
+    }
 
     public function products():HasMany
     {

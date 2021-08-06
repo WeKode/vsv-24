@@ -31,7 +31,7 @@ class ProductRequest extends FormRequest
             'short_description' => 'required|string|max:200',
             'images' => 'required|array|min:1',
             'images.*' => 'required|file|image|max:5000',
-            'brand_id' => 'required_if:type,1|exists:brands,id',
+            'brand_id' => 'required|exists:brands,id',
             'is_available' => 'required_if:type,1|in:0,1',
             'type' => 'required|in:1,2,3',
             'values' => 'sometimes|nullable|array|min:1',

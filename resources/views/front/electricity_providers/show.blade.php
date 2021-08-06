@@ -38,10 +38,10 @@
                         ø per month
                     </h6>
                     <ul class="mt-4">
-                        <li>Tariff: Easy24 electricity</li>
-                        <li>Green electricity tariff: No</li>
-                        <li>Use: Private</li>
-                        <li>Contract Term: 24 Months</li>
+                        <li>Tariff: {{$product->tariff}}</li>
+                        <li>Green electricity tariff: {{$product->green_electricity}}</li>
+                        <li>Use: {{$product->use}}</li>
+                        <li>Contract Term: {{$product->contract}}</li>
                     </ul>
                     <div>{{$product->description}}</div>
                     <div class="small mt-3">
@@ -64,110 +64,55 @@
                             <thead>
                             <tr>
                                 <td></td>
+                                @foreach($comp_products as $cp)
                                 <td>
                                     <a href="#" class="text-decoration-none">
-                                        <div class="ratio ratio-1x1 image" style="background-image: url('https://media-exp1.licdn.com/dms/image/C4E0BAQFN_6Gk_O2IRw/company-logo_200_200/0/1519855875100?e=2159024400&v=beta&t=uuHB-WDRTFXkHAGrEMt2h1GtTRPWvi0XMaoqNtl0Tww');"></div>
+                                        <div class="ratio ratio-1x1 image" style="background-image: url('{{asset($cp->img_url)}}');"></div>
                                         <div class="my-2 text-black">
-                                            Total Energy Basic Plan
+                                            {{$cp->name}}
                                         </div>
                                     </a>
                                 </td>
-                                <td>
-                                    <a href="#" class="text-decoration-none">
-                                        <div class="ratio ratio-1x1 image" style="background-image: url('https://media-exp1.licdn.com/dms/image/C4E0BAQFN_6Gk_O2IRw/company-logo_200_200/0/1519855875100?e=2159024400&v=beta&t=uuHB-WDRTFXkHAGrEMt2h1GtTRPWvi0XMaoqNtl0Tww');"></div>
-                                        <div class="my-2 text-black">
-                                            Total Energy Basic Plan
-                                        </div>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="#" class="text-decoration-none">
-                                        <div class="ratio ratio-1x1 image" style="background-image: url('https://media-exp1.licdn.com/dms/image/C4E0BAQFN_6Gk_O2IRw/company-logo_200_200/0/1519855875100?e=2159024400&v=beta&t=uuHB-WDRTFXkHAGrEMt2h1GtTRPWvi0XMaoqNtl0Tww');"></div>
-                                        <div class="my-2 text-black">
-                                            Total Energy Basic Plan
-                                        </div>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="#" class="text-decoration-none">
-                                        <div class="ratio ratio-1x1 image" style="background-image: url('https://media-exp1.licdn.com/dms/image/C4E0BAQFN_6Gk_O2IRw/company-logo_200_200/0/1519855875100?e=2159024400&v=beta&t=uuHB-WDRTFXkHAGrEMt2h1GtTRPWvi0XMaoqNtl0Tww');"></div>
-                                        <div class="my-2 text-black">
-                                            Total Energy Basic Plan
-                                        </div>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="#" class="text-decoration-none">
-                                        <div class="ratio ratio-1x1 image" style="background-image: url('https://media-exp1.licdn.com/dms/image/C4E0BAQFN_6Gk_O2IRw/company-logo_200_200/0/1519855875100?e=2159024400&v=beta&t=uuHB-WDRTFXkHAGrEMt2h1GtTRPWvi0XMaoqNtl0Tww');"></div>
-                                        <div class="my-2 text-black">
-                                            Total Energy Basic Plan
-                                        </div>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="#" class="text-decoration-none">
-                                        <div class="ratio ratio-1x1 image" style="background-image: url('https://media-exp1.licdn.com/dms/image/C4E0BAQFN_6Gk_O2IRw/company-logo_200_200/0/1519855875100?e=2159024400&v=beta&t=uuHB-WDRTFXkHAGrEMt2h1GtTRPWvi0XMaoqNtl0Tww');"></div>
-                                        <div class="my-2 text-black">
-                                            Total Energy Basic Plan
-                                        </div>
-                                    </a>
-                                </td>
+                                @endforeach
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
                                 <th scope="row">Annual consumption</th>
-                                <td>4250 kWh</td>
-                                <td>4250 kWh</td>
-                                <td>4250 kWh</td>
-                                <td>4250 kWh</td>
-                                <td>4250 kWh</td>
-                                <td>4250 kWh</td>
+                                @foreach($comp_products as $cp)
+                                    <td>{{$cp->consumption}}</td>
+                                @endforeach
+
                             </tr>
                             <tr>
                                 <th scope="row">Down payment</th>
-                                <td>monthly</td>
-                                <td>monthly</td>
-                                <td>monthly</td>
-                                <td>monthly</td>
-                                <td>monthly</td>
-                                <td>monthly</td>
+                                @foreach($comp_products as $cp)
+                                    <td>{{$cp->payment}}</td>
+                                @endforeach
                             </tr>
                             <tr>
                                 <th scope="row">Base price</th>
-                                <td>$ 12.40 / month ($ 148.80 / year)</td>
-                                <td>$ 12.40 / month ($ 148.80 / year)</td>
-                                <td>$ 12.40 / month ($ 148.80 / year)</td>
-                                <td>$ 12.40 / month ($ 148.80 / year)</td>
-                                <td>$ 12.40 / month ($ 148.80 / year)</td>
-                                <td>$ 12.40 / month ($ 148.80 / year)</td>
+                                @foreach($comp_products as $cp)
+                                    <td>{{$cp->base_price}}</td>
+                                @endforeach
                             </tr>
                             <tr>
                                 <th scope="row">1st year price</th>
-                                <td>$ 87.67 / month</td>
-                                <td>$ 87.67 / month</td>
-                                <td>$ 87.67 / month</td>
-                                <td>$ 87.67 / month</td>
-                                <td>$ 87.67 / month</td>
-                                <td>$ 87.67 / month</td>
+                                @foreach($comp_products as $cp)
+                                    <td>{{$cp->year_price}}</td>
+                                @endforeach
                             </tr>
                             <tr>
                                 <th scope="row">Contract term</th>
-                                <td>24 Months</td>
-                                <td>24 Months</td>
-                                <td>24 Months</td>
-                                <td>24 Months</td>
-                                <td>24 Months</td>
-                                <td>24 Months</td>
+                                @foreach($comp_products as $cp)
+                                    <td>{{$cp->contract}}</td>
+                                @endforeach
                             </tr>
                             <tr>
                                 <th scope="row">Renewal</th>
-                                <td>12 Months</td>
-                                <td>12 Months</td>
-                                <td>12 Months</td>
-                                <td>12 Months</td>
-                                <td>12 Months</td>
-                                <td>12 Months</td>
+                                @foreach($comp_products as $cp)
+                                    <td>{{$cp->renewal}}</td>
+                                @endforeach
                             </tr>
                             </tbody>
                         </table>

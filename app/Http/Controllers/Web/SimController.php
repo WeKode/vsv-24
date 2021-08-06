@@ -14,13 +14,16 @@ class SimController extends Controller
 
     protected $product;
     protected $attribute;
+    protected $brand;
 
-    public function __construct(ProductContract $product, AttributeContract $attribute)
+
+    public function __construct(ProductContract $product, AttributeContract $attribute, BrandContract $brand)
     {
         $this->product = $product;
         $this->attribute = $attribute;
-
+        $this->brand = $brand;
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -28,10 +31,12 @@ class SimController extends Controller
      */
     public function index()
     {
-        $products = $this->product->findByFilter([],[],['*'],['phonePlans']);
+        $products = $this->product->findByFilter(['brand'],[],['*'],['phonePlans']);
+        $brands = $this->brand->setPerPage(0)->findByFilter([],[],['*'],['phonePlans']);
+
         $attributes = $this->attribute->setPerPage(0)->findByFilter(['values'], [], ['*'], ['phonePlans']);
 
-        return view('front.sim_offers.index', compact('products', 'attributes'));
+        return view('front.sim_offers.index', compact('products', 'attributes', 'brands'));
     }
 
 

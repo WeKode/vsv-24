@@ -14,12 +14,14 @@ class EnergyController extends Controller
 
     protected $product;
     protected $attribute;
+    protected $brand;
 
-    public function __construct(ProductContract $product, AttributeContract $attribute)
+
+    public function __construct(ProductContract $product, AttributeContract $attribute, BrandContract $brand)
     {
         $this->product = $product;
         $this->attribute = $attribute;
-
+        $this->brand = $brand;
     }
     /**
      * Display a listing of the resource.
@@ -29,9 +31,10 @@ class EnergyController extends Controller
     public function index()
     {
         $products = $this->product->findByFilter([],[],['*'],['energyPlans']);
+        $brands = $this->brand->setPerPage(0)->findByFilter([],[],['*'],['energyPlans']);
         $attributes = $this->attribute->setPerPage(0)->findByFilter(['values'], [], ['*'], ['energyPlans']);
 
-        return view('front.electricity_providers.index', compact('products', 'attributes'));
+        return view('front.electricity_providers.index', compact('products', 'attributes', 'brands'));
     }
 
 
