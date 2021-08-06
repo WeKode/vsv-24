@@ -20,6 +20,8 @@ class ProductRepository extends BaseRepositories implements \App\Contracts\Produ
         \App\QueryFilter\MaxPrice::class,
         \App\QueryFilter\Attribute::class,
         \App\QueryFilter\Brand::class,
+        \App\QueryFilter\Available::class,
+        \App\QueryFilter\Sort::class,
     ])
     {
         parent::__construct($per_page, $filters);
