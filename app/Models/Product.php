@@ -115,13 +115,69 @@ class Product extends Model
     {
         $value = $this->attribute_values()->whereHas('attribute', function ($q)
         {
-            $q->where('name', 'Battery');
+            $q->where('name', 'Os');
         })->first();
         if ($value)
         {
             return $value->name;
         }else{
-            return null;
+            return 'Not specified';
+        }
+    }
+
+    public function getSimAttribute()
+    {
+        $value = $this->attribute_values()->whereHas('attribute', function ($q)
+        {
+            $q->where('name', 'Sim');
+        })->first();
+        if ($value)
+        {
+            return $value->name;
+        }else{
+            return 'Not specified';
+        }
+    }
+
+    public function getColourAttribute()
+    {
+        $value = $this->attribute_values()->whereHas('attribute', function ($q)
+        {
+            $q->where('name', 'Colour');
+        })->first();
+        if ($value)
+        {
+            return $value->name;
+        }else{
+            return 'Not specified';
+        }
+    }
+
+    public function getBluetoothAttribute()
+    {
+        $value = $this->attribute_values()->whereHas('attribute', function ($q)
+        {
+            $q->where('name', 'Bluetooth');
+        })->first();
+        if ($value)
+        {
+            return $value->name;
+        }else{
+            return 'Not specified';
+        }
+    }
+
+    public function getRomAttribute()
+    {
+        $value = $this->attribute_values()->whereHas('attribute', function ($q)
+        {
+            $q->where('name', 'Rom');
+        })->first();
+        if ($value)
+        {
+            return $value->name;
+        }else{
+            return 'Not specified';
         }
     }
 

@@ -30,7 +30,7 @@
                     </h4>
                     <div class="mt-3">
                         <span class="badge border border-danger text-danger fw-normal">{{$product->brand->name}}</span>
-                        @if($product->os)
+                        @if($product->os != 'Not specified')
                             <span class="badge border border-danger text-danger fw-normal">{{$product->os}}</span>
                         @endif
                         <span class="badge border border-danger text-danger fw-normal">{{$product->ram}}</span>
@@ -120,32 +120,23 @@
                                     <td>{{$cp->battery}}</td>
                                 @endforeach
                             </tr>
-{{--                            <tr>--}}
-{{--                                <th scope="row">Colour</th>--}}
-{{--                                <td>Blue</td>--}}
-{{--                                <td>Blue</td>--}}
-{{--                                <td>Blue</td>--}}
-{{--                                <td>Blue</td>--}}
-{{--                                <td>Blue</td>--}}
-{{--                                <td>Blue</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <th scope="row">Bluetooth</th>--}}
-{{--                                <td>Yes</td>--}}
-{{--                                <td>Yes</td>--}}
-{{--                                <td>Yes</td>--}}
-{{--                                <td>Yes</td>--}}
-{{--                                <td>Yes</td>--}}
-{{--                                <td>Yes</td>--}}
-{{--                            </tr>--}}
+                            <tr>
+                                <th scope="row">Colour</th>
+                                @foreach($comp_products as $cp)
+                                    <td>{{$cp->colour}}</td>
+                                @endforeach
+                            </tr>
+                            <tr>
+                                <th scope="row">Bluetooth</th>
+                                @foreach($comp_products as $cp)
+                                    <td>{{$cp->bluetooth}}</td>
+                                @endforeach
+                            </tr>
 {{--                            <tr>--}}
 {{--                                <th scope="row">Wireless Internet Access</th>--}}
-{{--                                <td>Yes</td>--}}
-{{--                                <td>Yes</td>--}}
-{{--                                <td>Yes</td>--}}
-{{--                                <td>Yes</td>--}}
-{{--                                <td>Yes</td>--}}
-{{--                                <td>Yes</td>--}}
+{{--                                @foreach($comp_products as $cp)--}}
+{{--                                    <td>{{$cp->display}}</td>--}}
+{{--                                @endforeach--}}
 {{--                            </tr>--}}
                             <tr>
                                 <th scope="row">Screen Size Inch</th>
@@ -155,39 +146,27 @@
                             </tr>
                             <tr>
                                 <th scope="row">Internal memory in GB</th>
-                                <td>128 GB</td>
-                                <td>128 GB</td>
-                                <td>128 GB</td>
-                                <td>128 GB</td>
-                                <td>128 GB</td>
-                                <td>128 GB</td>
+                                @foreach($comp_products as $cp)
+                                    <td>{{$cp->rom}}</td>
+                                @endforeach
                             </tr>
                             <tr>
                                 <th scope="row">Operating system version</th>
-                                <td>Android</td>
-                                <td>Android</td>
-                                <td>Android</td>
-                                <td>Android</td>
-                                <td>Android</td>
-                                <td>Android</td>
+                                @foreach($comp_products as $cp)
+                                    <td>{{$cp->os}}</td>
+                                @endforeach
                             </tr>
                             <tr>
                                 <th scope="row">Main camera resolution in megapixels</th>
-                                <td>12 MP</td>
-                                <td>12 MP</td>
-                                <td>12 MP</td>
-                                <td>12 MP</td>
-                                <td>12 MP</td>
-                                <td>12 MP</td>
+                                @foreach($comp_products as $cp)
+                                    <td>{{$cp->camera}}</td>
+                                @endforeach
                             </tr>
                             <tr>
                                 <th scope="row">SIM card format</th>
-                                <td>Dual SIM / Nano SIM, eSIM</td>
-                                <td>Dual SIM / Nano SIM, eSIM</td>
-                                <td>Dual SIM / Nano SIM, eSIM</td>
-                                <td>Dual SIM / Nano SIM, eSIM</td>
-                                <td>Dual SIM / Nano SIM, eSIM</td>
-                                <td>Dual SIM / Nano SIM, eSIM</td>
+                                @foreach($comp_products as $cp)
+                                    <td>{{$cp->sim}}</td>
+                                @endforeach
                             </tr>
                             </tbody>
                         </table>
