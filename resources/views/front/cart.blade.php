@@ -49,14 +49,15 @@
                                             </tr>
                                             @endforeach
                                             <tr>
-                                                <td colspan="4">
+                                                <td colspan="5">
                                                     <h4 class="text-end">
                                                         Total : {{$total}} $
                                                     </h4>
                                                 </td>
                                             </tr>
-                                            <button  class="btn bg-warning fw-bold py-3" style="width: 150px;">
-                                                Update
+                                            <button  class="btn bg-warning fw-bold mb-3"
+                                            >
+                                                <i class="fas fa-sync-alt me-2"></i> Update cart
                                             </button>
                                         </form>
                                         </tbody>
