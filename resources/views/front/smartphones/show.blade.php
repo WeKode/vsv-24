@@ -52,7 +52,6 @@
                         @endif
                         <span class="small">33 offers</span>
                     </div>
-                    brand os ram display
                     <ul class="mt-4">
                         <li>Display: {{$product->display}}</li>
                         <li>Resolution: {{$product->resolution}}</li>

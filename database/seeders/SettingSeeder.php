@@ -37,11 +37,11 @@ class SettingSeeder extends Seeder
         ],
         [
             'key'                       =>  'currency_code',
-            'value'                     =>  'DZD',
+            'value'                     =>  '$',
         ],
         [
             'key'                       =>  'currency_symbol',
-            'value'                     =>  'د.ج',
+            'value'                     =>  '$',
         ],
         [
             'key'                       =>  'site_logo',
