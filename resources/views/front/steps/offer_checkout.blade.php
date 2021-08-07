@@ -89,7 +89,7 @@
                                 <hr>
                             </div>
                             <div class="col-12 px-0 py-3 text-end">
-                                <a href="{{url()->previous()}}" class="btn bg-blue text-light py-3" style="width: 150px;">Cancel</a>
+                                <a href="{{route('home')}}" class="btn bg-blue text-light py-3" style="width: 150px;">Cancel</a>
                                 <button type="submit" class="btn bg-blue text-light py-3" style="width: 150px;">Next</button>
                             </div>
                         </form>
