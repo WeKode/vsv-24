@@ -245,7 +245,11 @@
                                         @endif
                                     </h6>
                                     <div class="text-secondary small">
-                                        Free shipping
+                                        @if($s->is_available)
+                                            Immediately available
+                                        @else
+                                            Unavailable
+                                        @endif
                                     </div>
                                 </div>
                             </div>

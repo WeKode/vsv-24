@@ -132,7 +132,7 @@
                                                     @if($p->is_available)
                                                         Immediately available
                                                     @else
-                                                        Immediately unavailable
+                                                        Unavailable
                                                     @endif
                                                 </div>
                                             </div>

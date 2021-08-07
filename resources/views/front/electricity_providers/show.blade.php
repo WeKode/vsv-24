@@ -29,9 +29,14 @@
                         {{$product->name}}
                     </h4>
                     <div class="mt-3">
-                        <span class="badge border border-danger text-danger fw-normal">Electricity</span>
-                        <span class="badge border border-danger text-danger fw-normal">Private</span>
-                        <span class="badge border border-danger text-danger fw-normal">24 Months</span>
+                        @if($product->use != 'Not specified')
+                            <span class="badge border border-danger text-danger fw-normal">{{$product->use}}</span>
+                        @endif
+                        @if($product->contract_duration != 'Not specified')
+                            <span
+                                class="badge border border-danger text-danger fw-normal">{{$product->contract_duration}}</span>
+                        @endif
+
                     </div>
                     <h3 class="mt-3 mb-0">
                         <span class="text-black">{{$product->price}} $</span>
@@ -43,7 +48,7 @@
                         <li>Tariff: {{$product->tariff}}</li>
                         <li>Green electricity tariff: {{$product->green_electricity}}</li>
                         <li>Use: {{$product->use}}</li>
-                        <li>Contract Term: {{$product->contract}}</li>
+                        <li>Contract Term: {{$product->contract_duration}}</li>
                     </ul>
                     <div>{!!$product->description!!}</div>
                     <div class="small mt-3">
@@ -68,7 +73,7 @@
                                 <td></td>
                                 @foreach($comp_products as $cp)
                                     <td>
-                                        <a href="#" class="text-decoration-none">
+                                        <a href="{{route('electricity_providers.show', $cp->id)}}" class="text-decoration-none">
                                             <div class="ratio ratio-1x1 image"
                                                  style="background-image: url('{{asset($cp->img_url)}}');"></div>
                                             <div class="my-2 text-black">
@@ -83,32 +88,32 @@
                             <tr>
                                 <th scope="row">Annual consumption</th>
                                 @foreach($comp_products as $cp)
-                                    <td>{{$cp->consumption}}</td>
+                                    <td>{{$cp->annual_consumption}}</td>
                                 @endforeach
 
                             </tr>
                             <tr>
                                 <th scope="row">Down payment</th>
                                 @foreach($comp_products as $cp)
-                                    <td>{{$cp->payment}}</td>
+                                    <td>{{$cp->down_payment}}</td>
                                 @endforeach
                             </tr>
                             <tr>
                                 <th scope="row">Base price</th>
                                 @foreach($comp_products as $cp)
-                                    <td>{{$cp->base_price}}</td>
+                                    <td>{{$cp->price}}</td>
                                 @endforeach
                             </tr>
-                            <tr>
-                                <th scope="row">1st year price</th>
-                                @foreach($comp_products as $cp)
-                                    <td>{{$cp->year_price}}</td>
-                                @endforeach
-                            </tr>
+{{--                            <tr>--}}
+{{--                                <th scope="row">1st year price</th>--}}
+{{--                                @foreach($comp_products as $cp)--}}
+{{--                                    <td>{{$cp->year_price}}</td>--}}
+{{--                                @endforeach--}}
+{{--                            </tr>--}}
                             <tr>
                                 <th scope="row">Contract term</th>
                                 @foreach($comp_products as $cp)
-                                    <td>{{$cp->contract}}</td>
+                                    <td>{{$cp->contract_duration}}</td>
                                 @endforeach
                             </tr>
                             <tr>
@@ -133,44 +138,13 @@
                         <table class="table table-striped caption-top">
                             <caption class="mb-2 text-black fw-bold">General characteristics</caption>
                             <tbody>
-                            <tr>
-                                <td>Product type:
-                                </th>
-                                <td>Smartphone</td>
-                            </tr>
-                            <tr>
-                                <td>RAM:
-                                </th>
-                                <td>3 GB</td>
-                            </tr>
-                            <tr>
-                                <td>Internal storage:
-                                </th>
-                                <td>128 GB</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <div class="table-responsive small">
-                        <table class="table table-striped caption-top">
-                            <caption class="mb-2 text-black fw-bold">General characteristics</caption>
-                            <tbody>
-                            <tr>
-                                <td>Product type:
-                                </th>
-                                <td>Smartphone</td>
-                            </tr>
-                            <tr>
-                                <td>RAM:
-                                </th>
-                                <td>3 GB</td>
-                            </tr>
-                            <tr>
-                                <td>Internal storage:
-                                </th>
-                                <td>128 GB</td>
-                            </tr>
+                            @foreach($product->attribute_values->where('attribute.is_editable', false) as $ga)
+                                <tr>
+                                    <td>{{$ga->attribute->name}}:
+                                    </th>
+                                    <td>{{$ga->name}}</td>
+                                </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -183,48 +157,16 @@
                         <table class="table table-striped caption-top">
                             <caption class="mb-2 text-black fw-bold">General characteristics</caption>
                             <tbody>
-                            <tr>
-                                <td>Product type:
-                                </th>
-                                <td>Smartphone</td>
-                            </tr>
-                            <tr>
-                                <td>RAM:
-                                </th>
-                                <td>3 GB</td>
-                            </tr>
-                            <tr>
-                                <td>Internal storage:
-                                </th>
-                                <td>128 GB</td>
-                            </tr>
+                            @foreach($product->attribute_values->where('attribute.is_editable', true) as $sa)
+                                <tr>
+                                    <td>{{$sa->attribute->name}}:
+                                    </th>
+                                    <td>{{$sa->name}}</td>
+                                </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
-
-                    <div class="table-responsive small">
-                        <table class="table table-striped caption-top">
-                            <caption class="mb-2 text-black fw-bold">General characteristics</caption>
-                            <tbody>
-                            <tr>
-                                <td>Product type:
-                                </th>
-                                <td>Smartphone</td>
-                            </tr>
-                            <tr>
-                                <td>RAM:
-                                </th>
-                                <td>3 GB</td>
-                            </tr>
-                            <tr>
-                                <td>Internal storage:
-                                </th>
-                                <td>128 GB</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
                 </div>
 
             </div>

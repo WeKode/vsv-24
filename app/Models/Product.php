@@ -336,6 +336,44 @@ class Product extends Model
         }
     }
 
+    public function getUseAttribute()
+    {
+        $value = $this->attribute_values()->whereHas('attribute', function ($q)
+        {
+            $q->where('name', 'Use');
+        })->first();
+        if ($value)
+        {
+            return $value->name;
+        }else{
+            return 'Not specified';
+        }
+    }
+
+    public function getGreenElectricityAttribute()
+    {
+        $value = $this->attribute_values()->whereHas('attribute', function ($q)
+        {
+            $q->where('name', 'Rom');
+        })->first();
+        if ($value)
+        {
+            return $value->name;
+        }else{
+            return 'Not specified';
+        }
+    }
+    public function getTariffAttribute()
+    {
+        $value = $this->attribute_values()->whereHas('attribute', function ($q) {
+            $q->where('name', 'Rom');
+        })->first();
+        if ($value) {
+            return $value->name;
+        } else {
+            return 'Not specified';
+        }
+    }
 //    public function getRomAttribute()
 //    {
 //        $value = $this->attribute_values()->whereHas('attribute', function ($q)
@@ -349,7 +387,71 @@ class Product extends Model
 //            return 'Not specified';
 //        }
 //    }
-
+//    public function getRomAttribute()
+//    {
+//        $value = $this->attribute_values()->whereHas('attribute', function ($q)
+//        {
+//            $q->where('name', 'Rom');
+//        })->first();
+//        if ($value)
+//        {
+//            return $value->name;
+//        }else{
+//            return 'Not specified';
+//        }
+//    }
+//    public function getRomAttribute()
+//    {
+//        $value = $this->attribute_values()->whereHas('attribute', function ($q)
+//        {
+//            $q->where('name', 'Rom');
+//        })->first();
+//        if ($value)
+//        {
+//            return $value->name;
+//        }else{
+//            return 'Not specified';
+//        }
+//    }
+//    public function getRomAttribute()
+//    {
+//        $value = $this->attribute_values()->whereHas('attribute', function ($q)
+//        {
+//            $q->where('name', 'Rom');
+//        })->first();
+//        if ($value)
+//        {
+//            return $value->name;
+//        }else{
+//            return 'Not specified';
+//        }
+//    }
+//    public function getRomAttribute()
+//    {
+//        $value = $this->attribute_values()->whereHas('attribute', function ($q)
+//        {
+//            $q->where('name', 'Rom');
+//        })->first();
+//        if ($value)
+//        {
+//            return $value->name;
+//        }else{
+//            return 'Not specified';
+//        }
+//    }
+//    public function getRomAttribute()
+//    {
+//        $value = $this->attribute_values()->whereHas('attribute', function ($q)
+//        {
+//            $q->where('name', 'Rom');
+//        })->first();
+//        if ($value)
+//        {
+//            return $value->name;
+//        }else{
+//            return 'Not specified';
+//        }
+//    }
     public function scopeLatest($query)
     {
         return $query->latest();
