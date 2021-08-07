@@ -27,21 +27,21 @@
                         {{$product->name}}
                     </h4>
                     <div class="mt-3">
-                        <span class="badge border border-danger text-danger fw-normal">Sim Offer</span>
-                        <span class="badge border border-danger text-danger fw-normal">50 GB</span>
-                        <span class="badge border border-danger text-danger fw-normal">E-sim</span>
+                        <span class="badge border border-danger text-danger fw-normal">Brand</span>
+                        <span class="badge border border-danger text-danger fw-normal">Data volume</span>
+                        <span class="badge border border-danger text-danger fw-normal">Esim or triple sim</span>
                     </div>
                     <h3 class="mt-3 mb-0">
-                        <span class="text-black">34 $</span>
+                        <span class="text-black">price $</span>
                     </h3>
                     <h6 class="text-secondary">
                         per month
                     </h6>
                     <ul class="mt-4">
-                        <li>Tariff: Easy24 electricity</li>
-                        <li>Green electricity tariff: No</li>
+                        <li>Tariff: price $ per month</li>
+                        <li>Sim card options: E-sim or triple sim</li>
                         <li>Use: Private</li>
-                        <li>Contract Term: 24 Months</li>
+                        <li>Tariff type: contract</li>
                     </ul>
                     <div>{!!$product->description!!}</div>
                     <div class="small mt-3">
@@ -55,7 +55,7 @@
                 </div>
             </div>
 
-            <h3 id="compare" class="text-center text-lg-start text-capitalize my-5">Compare smartphones prices</h3>
+            <h3 id="compare" class="text-center text-lg-start text-capitalize my-5">Compare sim offers prices</h3>
 
             <div class="row">
                 <div class="col-12">
@@ -68,7 +68,7 @@
                                     <a href="#" class="text-decoration-none">
                                         <div class="ratio ratio-1x1 image" style="background-image: url('https://media-exp1.licdn.com/dms/image/C4E0BAQFN_6Gk_O2IRw/company-logo_200_200/0/1519855875100?e=2159024400&v=beta&t=uuHB-WDRTFXkHAGrEMt2h1GtTRPWvi0XMaoqNtl0Tww');"></div>
                                         <div class="my-2 text-black">
-                                            Total Energy Basic Plan
+                                            name image and link
                                         </div>
                                     </a>
                                 </td>
@@ -76,7 +76,7 @@
                                     <a href="#" class="text-decoration-none">
                                         <div class="ratio ratio-1x1 image" style="background-image: url('https://media-exp1.licdn.com/dms/image/C4E0BAQFN_6Gk_O2IRw/company-logo_200_200/0/1519855875100?e=2159024400&v=beta&t=uuHB-WDRTFXkHAGrEMt2h1GtTRPWvi0XMaoqNtl0Tww');"></div>
                                         <div class="my-2 text-black">
-                                            Total Energy Basic Plan
+                                            name image and link
                                         </div>
                                     </a>
                                 </td>
@@ -84,7 +84,7 @@
                                     <a href="#" class="text-decoration-none">
                                         <div class="ratio ratio-1x1 image" style="background-image: url('https://media-exp1.licdn.com/dms/image/C4E0BAQFN_6Gk_O2IRw/company-logo_200_200/0/1519855875100?e=2159024400&v=beta&t=uuHB-WDRTFXkHAGrEMt2h1GtTRPWvi0XMaoqNtl0Tww');"></div>
                                         <div class="my-2 text-black">
-                                            Total Energy Basic Plan
+                                            name image and link
                                         </div>
                                     </a>
                                 </td>
@@ -92,7 +92,7 @@
                                     <a href="#" class="text-decoration-none">
                                         <div class="ratio ratio-1x1 image" style="background-image: url('https://media-exp1.licdn.com/dms/image/C4E0BAQFN_6Gk_O2IRw/company-logo_200_200/0/1519855875100?e=2159024400&v=beta&t=uuHB-WDRTFXkHAGrEMt2h1GtTRPWvi0XMaoqNtl0Tww');"></div>
                                         <div class="my-2 text-black">
-                                            Total Energy Basic Plan
+                                            name image and link
                                         </div>
                                     </a>
                                 </td>
@@ -100,7 +100,7 @@
                                     <a href="#" class="text-decoration-none">
                                         <div class="ratio ratio-1x1 image" style="background-image: url('https://media-exp1.licdn.com/dms/image/C4E0BAQFN_6Gk_O2IRw/company-logo_200_200/0/1519855875100?e=2159024400&v=beta&t=uuHB-WDRTFXkHAGrEMt2h1GtTRPWvi0XMaoqNtl0Tww');"></div>
                                         <div class="my-2 text-black">
-                                            Total Energy Basic Plan
+                                            name image and link
                                         </div>
                                     </a>
                                 </td>
@@ -108,7 +108,7 @@
                                     <a href="#" class="text-decoration-none">
                                         <div class="ratio ratio-1x1 image" style="background-image: url('https://media-exp1.licdn.com/dms/image/C4E0BAQFN_6Gk_O2IRw/company-logo_200_200/0/1519855875100?e=2159024400&v=beta&t=uuHB-WDRTFXkHAGrEMt2h1GtTRPWvi0XMaoqNtl0Tww');"></div>
                                         <div class="my-2 text-black">
-                                            Total Energy Basic Plan
+                                            name image and link
                                         </div>
                                     </a>
                                 </td>
@@ -116,7 +116,7 @@
                             </thead>
                             <tbody>
                             <tr>
-                                <th scope="row">Annual consumption</th>
+                                <th scope="row">Company</th>
                                 <td>4250 kWh</td>
                                 <td>4250 kWh</td>
                                 <td>4250 kWh</td>
@@ -125,7 +125,7 @@
                                 <td>4250 kWh</td>
                             </tr>
                             <tr>
-                                <th scope="row">Down payment</th>
+                                <th scope="row">Tariff</th>
                                 <td>monthly</td>
                                 <td>monthly</td>
                                 <td>monthly</td>
@@ -134,7 +134,7 @@
                                 <td>monthly</td>
                             </tr>
                             <tr>
-                                <th scope="row">Base price</th>
+                                <th scope="row">Number portability</th>
                                 <td>$ 12.40 / month ($ 148.80 / year)</td>
                                 <td>$ 12.40 / month ($ 148.80 / year)</td>
                                 <td>$ 12.40 / month ($ 148.80 / year)</td>
@@ -143,7 +143,7 @@
                                 <td>$ 12.40 / month ($ 148.80 / year)</td>
                             </tr>
                             <tr>
-                                <th scope="row">1st year price</th>
+                                <th scope="row">Sim card options</th>
                                 <td>$ 87.67 / month</td>
                                 <td>$ 87.67 / month</td>
                                 <td>$ 87.67 / month</td>
@@ -152,7 +152,7 @@
                                 <td>$ 87.67 / month</td>
                             </tr>
                             <tr>
-                                <th scope="row">Contract term</th>
+                                <th scope="row">Data speed</th>
                                 <td>24 Months</td>
                                 <td>24 Months</td>
                                 <td>24 Months</td>
@@ -161,7 +161,7 @@
                                 <td>24 Months</td>
                             </tr>
                             <tr>
-                                <th scope="row">Renewal</th>
+                                <th scope="row">Tariff type</th>
                                 <td>12 Months</td>
                                 <td>12 Months</td>
                                 <td>12 Months</td>
@@ -175,7 +175,7 @@
                 </div>
             </div>
 
-            <h3 id="compare" class="text-center text-lg-start text-capitalize my-5">Product details</h3>
+            <h3 id="compare" class="text-center text-lg-start text-capitalize my-5">Offer details</h3>
 
             <div class="row">
 
@@ -183,39 +183,31 @@
 
                     <div class="table-responsive small">
                         <table class="table table-striped caption-top">
-                            <caption class="mb-2 text-black fw-bold">General characteristics</caption>
+                            <caption class="mb-2 text-black fw-bold">General informations</caption>
                             <tbody>
                             <tr>
-                                <td>Product type:</th>
+                                <td>Company:</th>
                                 <td>Smartphone</td>
                             </tr>
                             <tr>
-                                <td>RAM:</th>
+                                <td>Tariff:</th>
                                 <td>3 GB</td>
                             </tr>
                             <tr>
-                                <td>Internal storage:</th>
+                                <td>Number portability:</th>
                                 <td>128 GB</td>
                             </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <div class="table-responsive small">
-                        <table class="table table-striped caption-top">
-                            <caption class="mb-2 text-black fw-bold">General characteristics</caption>
-                            <tbody>
                             <tr>
-                                <td>Product type:</th>
-                                <td>Smartphone</td>
+                                <td>Sim card options:</th>
+                                <td>Sim card options</td>
                             </tr>
                             <tr>
-                                <td>RAM:</th>
+                                <td>Data speed:</th>
+                                <td>Sim card options</td>
+                            </tr>
+                            <tr>
+                                <td>Tariff type:</th>
                                 <td>3 GB</td>
-                            </tr>
-                            <tr>
-                                <td>Internal storage:</th>
-                                <td>128 GB</td>
                             </tr>
                             </tbody>
                         </table>
@@ -227,39 +219,11 @@
 
                     <div class="table-responsive small">
                         <table class="table table-striped caption-top">
-                            <caption class="mb-2 text-black fw-bold">General characteristics</caption>
+                            <caption class="mb-2 text-black fw-bold">Other informations</caption>
                             <tbody>
                             <tr>
-                                <td>Product type:</th>
-                                <td>Smartphone</td>
-                            </tr>
-                            <tr>
-                                <td>RAM:</th>
-                                <td>3 GB</td>
-                            </tr>
-                            <tr>
-                                <td>Internal storage:</th>
-                                <td>128 GB</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <div class="table-responsive small">
-                        <table class="table table-striped caption-top">
-                            <caption class="mb-2 text-black fw-bold">General characteristics</caption>
-                            <tbody>
-                            <tr>
-                                <td>Product type:</th>
-                                <td>Smartphone</td>
-                            </tr>
-                            <tr>
-                                <td>RAM:</th>
-                                <td>3 GB</td>
-                            </tr>
-                            <tr>
-                                <td>Internal storage:</th>
-                                <td>128 GB</td>
+                                <td>Attribute:</th>
+                                <td>value</td>
                             </tr>
                             </tbody>
                         </table>
@@ -269,7 +233,7 @@
 
             </div>
 
-            <h3 class="text-center text-lg-start text-capitalize my-5">Similar products</h3>
+            <h3 class="text-center text-lg-start text-capitalize my-5">Similar offers</h3>
 
             <div class="row">
 
