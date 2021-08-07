@@ -125,6 +125,20 @@ class Product extends Model
         }
     }
 
+    public function getSimCardFormatAttribute()
+    {
+        $value = $this->attribute_values()->whereHas('attribute', function ($q)
+        {
+            $q->where('name', 'Sim card format');
+        })->first();
+        if ($value)
+        {
+            return $value->name;
+        }else{
+            return 'Not specified';
+        }
+    }
+
     public function getSimAttribute()
     {
         $value = $this->attribute_values()->whereHas('attribute', function ($q)

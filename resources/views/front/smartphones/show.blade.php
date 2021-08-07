@@ -89,7 +89,7 @@
                                 <td></td>
                                 @foreach($comp_products as $cp)
                                 <td>
-                                    <a href="#" class="text-decoration-none">
+                                    <a href="{{route('smartphones.show', $cp->id)}}" class="text-decoration-none">
                                         <div class="ratio ratio-1x1 image"
                                              style="background-image: url('{{asset($cp->img_url)}}');"></div>
                                         <div class="my-2 text-black">
@@ -164,7 +164,7 @@
                             <tr>
                                 <th scope="row">SIM card format</th>
                                 @foreach($comp_products as $cp)
-                                    <td>{{$cp->sim}}</td>
+                                    <td>{{$cp->simCardFormat}}</td>
                                 @endforeach
                             </tr>
                             </tbody>
@@ -183,48 +183,16 @@
                         <table class="table table-striped caption-top">
                             <caption class="mb-2 text-black fw-bold">General characteristics</caption>
                             <tbody>
+                            @foreach($product->attribute_values->where('attribute.is_editable', false) as $ga)
                             <tr>
-                                <td>Product type:
+                                <td>{{$ga->attribute->name}}:
                                 </th>
-                                <td>Smartphone</td>
+                                <td>{{$ga->name}}</td>
                             </tr>
-                            <tr>
-                                <td>RAM:
-                                </th>
-                                <td>3 GB</td>
-                            </tr>
-                            <tr>
-                                <td>Internal storage:
-                                </th>
-                                <td>128 GB</td>
-                            </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
-
-                    <div class="table-responsive small">
-                        <table class="table table-striped caption-top">
-                            <caption class="mb-2 text-black fw-bold">General characteristics</caption>
-                            <tbody>
-                            <tr>
-                                <td>Product type:
-                                </th>
-                                <td>Smartphone</td>
-                            </tr>
-                            <tr>
-                                <td>RAM:
-                                </th>
-                                <td>3 GB</td>
-                            </tr>
-                            <tr>
-                                <td>Internal storage:
-                                </th>
-                                <td>128 GB</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
                 </div>
 
                 <div class="col-lg-6">
@@ -233,47 +201,17 @@
                         <table class="table table-striped caption-top">
                             <caption class="mb-2 text-black fw-bold">General characteristics</caption>
                             <tbody>
-                            <tr>
-                                <td>Product type:
-                                </th>
-                                <td>Smartphone</td>
-                            </tr>
-                            <tr>
-                                <td>RAM:
-                                </th>
-                                <td>3 GB</td>
-                            </tr>
-                            <tr>
-                                <td>Internal storage:
-                                </th>
-                                <td>128 GB</td>
-                            </tr>
+                            @foreach($product->attribute_values->where('attribute.is_editable', true) as $sa)
+                                <tr>
+                                    <td>{{$sa->attribute->name}}:
+                                    </th>
+                                    <td>{{$sa->name}}</td>
+                                </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
 
-                    <div class="table-responsive small">
-                        <table class="table table-striped caption-top">
-                            <caption class="mb-2 text-black fw-bold">General characteristics</caption>
-                            <tbody>
-                            <tr>
-                                <td>Product type:
-                                </th>
-                                <td>Smartphone</td>
-                            </tr>
-                            <tr>
-                                <td>RAM:
-                                </th>
-                                <td>3 GB</td>
-                            </tr>
-                            <tr>
-                                <td>Internal storage:
-                                </th>
-                                <td>128 GB</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
 
                 </div>
 
@@ -284,7 +222,7 @@
             <div class="row">
                 @foreach($latest_products as $latest_product)
                 <div class="col-lg-3 mb-4">
-                    <a href="javascript:void(0)" class="text-decoration-none">
+                    <a href="{{route('smartphones.show', $latest_product->id)}}" class="text-decoration-none">
                         <div class="card rounded-0">
                             <div class="image"
                                  style="background: url('{{asset($latest_product->img_url)}}');height: 250px;"></div>

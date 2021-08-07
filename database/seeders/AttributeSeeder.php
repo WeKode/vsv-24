@@ -24,6 +24,12 @@ class AttributeSeeder extends Seeder
             new AttributeValue(['name' => '10 Go']),
         ]);
 
+        Attribute::create(['name' => 'Rom', 'type' => 1, 'is_editable' => false])->values()->saveMany([
+            new AttributeValue(['name' => '64 Go']),
+            new AttributeValue(['name' => '128 Go']),
+
+        ]);
+
         Attribute::create(['name' => 'Frontal camera', 'type' => 1, 'is_editable' => false])->values()->saveMany([
             new AttributeValue(['name' => '4 MP to 7 MP']),
             new AttributeValue(['name' => '8 MP to 12 MP']),
@@ -43,9 +49,8 @@ class AttributeSeeder extends Seeder
             new AttributeValue(['name' => 'IOS']),
         ]);
 
-        Attribute::create(['name' => 'Dual sim', 'type' => 1, 'is_editable' => false])->values()->saveMany([
-            new AttributeValue(['name' => 'Yes']),
-            new AttributeValue(['name' => 'No']),
+        Attribute::create(['name' => 'Sim card format', 'type' => 1, 'is_editable' => false])->values()->saveMany([
+            new AttributeValue(['name' => 'Dual sim']),
         ]);
 
         Attribute::create(['name' => 'Bluetooth', 'type' => 1, 'is_editable' => false])->values()->saveMany([
