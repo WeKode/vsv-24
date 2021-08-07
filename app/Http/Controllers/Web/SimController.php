@@ -31,7 +31,7 @@ class SimController extends Controller
      */
     public function index()
     {
-        $products = $this->product->findByFilter(['brand'],[],['*'],['phonePlans']);
+        $products = $this->product->setPerPage(16)->findByFilter(['brand'],[],['*'],['phonePlans']);
         $brands = $this->brand->setPerPage(0)->findByFilter([],[],['*'],['phonePlans']);
 
         $attributes = $this->attribute->setPerPage(0)->findByFilter(['values'], [], ['*'], ['phonePlans']);

@@ -22,7 +22,7 @@
                     <div class="card rounded-0">
                         <div class="card-body">
                             <div class="row">
-                                <form class="row" action="{{route('smartphones.index')}}">
+                                <form class="row">
                                     <div class="fw-bold mb-2">Price range in $</div>
                                     <input type="hidden" value="{{request()->get('attribute')}}" name="attribute">
                                     <input type="hidden" value="{{request()->get('brand')}}" name="brand">
@@ -55,7 +55,7 @@
                                         <input type="hidden" value="{{request()->get('brand')}}" name="brand">
                                         <input class="form-check-input" type="checkbox"
                                                value="true"
-                                               {{request()->has('available') ? 'checked' : ''}}
+                                               {{request()->get('available') ? 'checked' : ''}}
                                                id="deliveryTime" name="available">
                                         <label class="form-check-label" for="deliveryTime">
                                             Immediately available

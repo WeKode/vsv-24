@@ -21,7 +21,7 @@
                     <div class="card rounded-0">
                         <div class="card-body">
                             <div>
-                                <form class="row" action="{{route('smartphones.index')}}">
+                                <form class="row">
                                     <div class="fw-bold mb-2">Price range in $</div>
                                     <input type="hidden" value="{{request()->get('attribute')}}" name="attribute">
                                     <input type="hidden" value="{{request()->get('brand')}}" name="brand">
@@ -53,7 +53,7 @@
                                         <input type="hidden" value="{{request()->get('brand')}}" name="brand">
                                         <input class="form-check-input" type="checkbox"
                                                value="true"
-                                               {{request()->has('available') ? 'checked' : ''}}
+                                               {{request()->get('available') ? 'checked' : ''}}
                                                id="deliveryTime" name="available">
                                         <label class="form-check-label" for="deliveryTime">
                                             Immediately available
@@ -120,7 +120,6 @@
                                                     <span
                                                         class="bg-danger text-light px-1 py-1 small rounded me-2">-{{$p->promotion}}%</span>
                                                     @endif
-                                                    <span class="small">33 offers</span>
                                                 </div>
                                                 <h6 class="text-truncate mt-2">
                                                     <span class="text-black">{{$p->price}} $</span>
@@ -130,7 +129,11 @@
                                                     @endif
                                                 </h6>
                                                 <div class="text-secondary small">
-                                                    Free shipping
+                                                    @if($p->is_available)
+                                                        Immediately available
+                                                    @else
+                                                        Immediately unavailable
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>

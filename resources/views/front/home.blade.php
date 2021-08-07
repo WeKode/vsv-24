@@ -23,8 +23,13 @@
                                             <span class="small">from</span> <span class="fw-bold">{{$s->price}} $</span>
                                         </div>
                                         <div class="text-end text-capitalize small text-secondary">
+                                            @if($s->is_available)
                                             Immediately available
+                                            @else
+                                                Immediately unavailable
+                                            @endif
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -63,16 +68,18 @@
 
                                         <h4 class="text-black text-capitalize text-truncate mb-2">{{$energy->brand->name}}</h4>
                                         <h6 class="text-secondary text-truncate mb-1">{{$energy->name}}</h6>
-                                        <h6 class="text-secondary text-truncate">{{$energy->description}}</h6>
+                                        <h6 class="text-secondary text-truncate">{!! $energy->description !!}</h6>
                                         <div class="text-end mt-3 text-black">
                                             <span class="small">From :</span> <span class="fw-bold">{{$energy->price}} $</span>
                                         </div>
                                         <div class="text-end text-secondary">
                                             ø Per Month
                                         </div>
-                                        <div class="text-end text-capitalize small text-secondary">
-                                            You will save : 34,44 $
-                                        </div>
+                                        @if($s->is_available)
+                                            Immediately available
+                                        @else
+                                            Immediately unavailable
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -105,7 +112,7 @@
                             <div class="row g-0">
                                 <div class="col-5 d-flex align-items-center justify-content-center bg-warning p-1">
                                     <div class="text-center text-light">
-                                        <h2 class="mb-0">{{$sim->data}}</h2>
+                                        <h2 class="mb-0">{{$sim->data_volume}}</h2>
                                         <div class="small">
                                             Data Volume
                                         </div>
@@ -119,7 +126,7 @@
                                             <span class="small">from</span> <span class="fw-bold">{{$sim->price}} $</span>
                                         </div>
                                         <div class="text-end text-capitalize small text-secondary">
-                                            {{$sim->e_sim}}
+                                            {{$sim->sim_card_options}}
                                         </div>
                                     </div>
                                 </div>

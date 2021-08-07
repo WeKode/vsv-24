@@ -28,7 +28,7 @@ class ProductRequest extends FormRequest
             'price' => 'required|numeric|between:0,999999.99',
             'old_price' => 'sometimes|nullable|numeric|between:0,999999.99',
             'description' => 'sometimes|nullable|string',
-            'short_description' => 'required|string|max:200',
+//            'short_description' => 'required|string|max:200',
             'images' => 'required|array|min:1',
             'images.*' => 'required|file|image|max:5000',
             'brand_id' => 'required|exists:brands,id',

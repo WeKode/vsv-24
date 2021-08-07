@@ -43,7 +43,7 @@
                         <li>Use: Private</li>
                         <li>Contract Term: 24 Months</li>
                     </ul>
-                    <div>{{$product->description}}</div>
+                    <div>{!!$product->description!!}</div>
                     <div class="small mt-3">
                         <a href="#compare" class="text-decoration-none text-secondary">
                             Compare with similar offers

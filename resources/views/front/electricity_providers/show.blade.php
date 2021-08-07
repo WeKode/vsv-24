@@ -45,7 +45,7 @@
                         <li>Use: {{$product->use}}</li>
                         <li>Contract Term: {{$product->contract}}</li>
                     </ul>
-                    <div>{{$product->description}}</div>
+                    <div>{!!$product->description!!}</div>
                     <div class="small mt-3">
                         <a href="#compare" class="text-decoration-none text-secondary">
                             Compare with similar offers

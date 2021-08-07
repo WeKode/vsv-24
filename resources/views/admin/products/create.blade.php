@@ -74,15 +74,15 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group">
-                                <label for="short_description">{{__('labels.short_description')}}</label>
-                                <textarea name="short_description"
-                                          class="form-control @error('short_description') is-invalid @enderror"
-                                          id="short_description" rows="4">{{old('short_description')}}</textarea>
-                                @error('short_description')
-                                <div class="text-danger">{{$message}}</div>
-                                @enderror
-                            </div>
+{{--                            <div class="form-group">--}}
+{{--                                <label for="short_description">{{__('labels.short_description')}}</label>--}}
+{{--                                <textarea name="short_description"--}}
+{{--                                          class="form-control @error('short_description') is-invalid @enderror"--}}
+{{--                                          id="short_description" rows="4">{{old('short_description')}}</textarea>--}}
+{{--                                @error('short_description')--}}
+{{--                                <div class="text-danger">{{$message}}</div>--}}
+{{--                                @enderror--}}
+{{--                            </div>--}}
 
                             <div class="form-group">
                                 <label for="price">{{__('labels.price')}}</label>

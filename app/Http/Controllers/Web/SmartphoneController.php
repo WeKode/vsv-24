@@ -30,7 +30,7 @@ class SmartphoneController extends Controller
      */
     public function index()
     {
-        $products = $this->product->findByFilter([],[],['*'],['smartphones']);
+        $products = $this->product->setPerPage(16)->findByFilter([],[],['*'],['smartphones']);
         $brands = $this->brand->setPerPage(0)->findByFilter([],[],['*'],['smartphones']);
         $attributes = $this->attribute->setPerPage(0)->findByFilter(['values'], [], ['*'], ['smartphones']);
 

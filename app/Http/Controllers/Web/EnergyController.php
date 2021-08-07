@@ -30,7 +30,7 @@ class EnergyController extends Controller
      */
     public function index()
     {
-        $products = $this->product->findByFilter([],[],['*'],['energyPlans']);
+        $products = $this->product->setPerPage(12)->findByFilter([],[],['*'],['energyPlans']);
         $brands = $this->brand->setPerPage(0)->findByFilter([],[],['*'],['energyPlans']);
         $attributes = $this->attribute->setPerPage(0)->findByFilter(['values'], [], ['*'], ['energyPlans']);
 

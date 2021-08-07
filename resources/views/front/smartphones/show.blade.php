@@ -59,7 +59,7 @@
                         <li>RAM: {{$product->ram}}</li>
                         <li>Battery: {{$product->battery}}</li>
                     </ul>
-                    <div>{{$product->description}}</div>
+                    <div>{!! $product->description !!}</div>
                     <div class="small mt-3">
                         <a href="#details" class="text-decoration-none text-secondary">
                             More product details

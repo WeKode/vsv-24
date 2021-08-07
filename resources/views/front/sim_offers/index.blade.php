@@ -22,7 +22,7 @@
                     <div class="card rounded-0">
                         <div class="card-body">
                             <div class="row">
-                                <form class="row" action="{{route('smartphones.index')}}">
+                                <form class="row" >
                                     <div class="fw-bold mb-2">Price range in $</div>
                                     <input type="hidden" value="{{request()->get('attribute')}}" name="attribute">
                                     <input type="hidden" value="{{request()->get('brand')}}" name="brand">
@@ -55,7 +55,7 @@
                                         <input type="hidden" value="{{request()->get('brand')}}" name="brand">
                                         <input class="form-check-input" type="checkbox"
                                                value="true"
-                                               {{request()->has('available') ? 'checked' : ''}}
+                                               {{request()->get('available') ? 'checked' : ''}}
                                                id="deliveryTime" name="available">
                                         <label class="form-check-label" for="deliveryTime">
                                             Immediately available
@@ -112,7 +112,7 @@
                                         <div class="row g-0">
                                             <div class="col-5 d-flex align-items-center justify-content-center bg-warning p-1">
                                                 <div class="text-center text-light">
-                                                    <h2 class="mb-0">50 Gb</h2>
+                                                    <h2 class="mb-0">{{$sim->data_volume}}</h2>
                                                     <div class="small">
                                                         Data Volume
                                                     </div>
@@ -126,7 +126,7 @@
                                                         <span class="small">from</span> <span class="fw-bold">{{$p->price}} $</span>
                                                     </div>
                                                     <div class="text-end text-capitalize small text-secondary">
-                                                        e-sim available
+                                                        {{$sim->sim_card_options}}
                                                     </div>
                                                 </div>
                                             </div>

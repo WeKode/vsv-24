@@ -18,7 +18,7 @@ class Product extends Model
     protected $fillable = [
         'name',
         'meta',
-        'short_description',
+//        'short_description',
         'old_price',
         'description',
         'brand_id',
@@ -115,7 +115,7 @@ class Product extends Model
     {
         $value = $this->attribute_values()->whereHas('attribute', function ($q)
         {
-            $q->where('name', 'Os');
+            $q->where('name', 'Operating system');
         })->first();
         if ($value)
         {
@@ -180,6 +180,161 @@ class Product extends Model
             return 'Not specified';
         }
     }
+
+    public function getDataVolumeAttribute()
+    {
+        $value = $this->attribute_values()->whereHas('attribute', function ($q)
+        {
+            $q->where('name', 'Data volume');
+        })->first();
+        if ($value)
+        {
+            return $value->name;
+        }else{
+            return 'Not specified';
+        }
+    }
+
+    public function getSimCardOptionsAttribute()
+    {
+        $value = $this->attribute_values()->whereHas('attribute', function ($q)
+        {
+            $q->where('name', 'Sim card options');
+        })->first();
+        if ($value)
+        {
+            return $value->name;
+        }else{
+            return 'Not specified';
+        }
+    }
+
+    public function getNumberPortabilityAttribute()
+    {
+        $value = $this->attribute_values()->whereHas('attribute', function ($q)
+        {
+            $q->where('name', 'Number portability');
+        })->first();
+        if ($value)
+        {
+            return $value->name;
+        }else{
+            return 'Not specified';
+        }
+    }
+
+    public function getTariffTypeAttribute()
+    {
+        $value = $this->attribute_values()->whereHas('attribute', function ($q)
+        {
+            $q->where('name', 'Tariff type');
+        })->first();
+        if ($value)
+        {
+            return $value->name;
+        }else{
+            return 'Not specified';
+        }
+    }
+
+    public function getDataSpeedAttribute()
+    {
+        $value = $this->attribute_values()->whereHas('attribute', function ($q)
+        {
+            $q->where('name', 'Data speed');
+        })->first();
+        if ($value)
+        {
+            return $value->name;
+        }else{
+            return 'Not specified';
+        }
+    }
+
+    public function getContractDurationAttribute()
+    {
+        $value = $this->attribute_values()->whereHas('attribute', function ($q)
+        {
+            $q->where('name', 'Contract duration');
+        })->first();
+        if ($value)
+        {
+            return $value->name;
+        }else{
+            return 'Not specified';
+        }
+    }
+
+    public function getAnnualConsumptionAttribute()
+    {
+        $value = $this->attribute_values()->whereHas('attribute', function ($q)
+        {
+            $q->where('name', 'Annual consumption');
+        })->first();
+        if ($value)
+        {
+            return $value->name;
+        }else{
+            return 'Not specified';
+        }
+    }
+
+    public function getDownPaymentAttribute()
+    {
+        $value = $this->attribute_values()->whereHas('attribute', function ($q)
+        {
+            $q->where('name', 'Down payment');
+        })->first();
+        if ($value)
+        {
+            return $value->name;
+        }else{
+            return 'Not specified';
+        }
+    }
+
+    public function getRenewalAttribute()
+    {
+        $value = $this->attribute_values()->whereHas('attribute', function ($q)
+        {
+            $q->where('name', 'Renewal');
+        })->first();
+        if ($value)
+        {
+            return $value->name;
+        }else{
+            return 'Not specified';
+        }
+    }
+
+    public function getNoticePeriodAttribute()
+    {
+        $value = $this->attribute_values()->whereHas('attribute', function ($q)
+        {
+            $q->where('name', 'Notice period
+');
+        })->first();
+        if ($value)
+        {
+            return $value->name;
+        }else{
+            return 'Not specified';
+        }
+    }
+
+//    public function getRomAttribute()
+//    {
+//        $value = $this->attribute_values()->whereHas('attribute', function ($q)
+//        {
+//            $q->where('name', 'Rom');
+//        })->first();
+//        if ($value)
+//        {
+//            return $value->name;
+//        }else{
+//            return 'Not specified';
+//        }
+//    }
 
     public function scopeLatest($query)
     {
