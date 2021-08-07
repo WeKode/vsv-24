@@ -48,9 +48,21 @@ class AttributeSeeder extends Seeder
             new AttributeValue(['name' => 'No']),
         ]);
 
-        Attribute::create(['name' => 'Display', 'type' => 1, 'is_editable' => false]);
-        Attribute::create(['name' => 'Resolution', 'type' => 1, 'is_editable' => false]);
-        Attribute::create(['name' => 'Battery', 'type' => 1, 'is_editable' => false]);
+        Attribute::create(['name' => 'Display', 'type' => 1, 'is_editable' => false])->values()->saveMany([
+            new AttributeValue(['name' => '6.1 Inch']),
+            new AttributeValue(['name' => '6.3 Inch']),
+        ]);
+
+        ;
+        Attribute::create(['name' => 'Resolution', 'type' => 1, 'is_editable' => false])->values()->saveMany([
+            new AttributeValue(['name' => '6.1 Inch']),
+            new AttributeValue(['name' => '6.3 Inch']),
+        ]);
+
+        Attribute::create(['name' => 'Battery', 'type' => 1, 'is_editable' => false])->values()->saveMany([
+            new AttributeValue(['name' => '6.1 Inch']),
+            new AttributeValue(['name' => '6.3 Inch']),
+        ]);;
 
 
     }
