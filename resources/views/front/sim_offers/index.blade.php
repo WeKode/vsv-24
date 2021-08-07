@@ -112,7 +112,7 @@
                                         <div class="row g-0">
                                             <div class="col-5 d-flex align-items-center justify-content-center bg-warning p-1">
                                                 <div class="text-center text-light">
-                                                    <h2 class="mb-0">{{$sim->data_volume}}</h2>
+                                                    <h2 class="mb-0">{{$p->data_volume}}</h2>
                                                     <div class="small">
                                                         Data Volume
                                                     </div>
@@ -126,7 +126,7 @@
                                                         <span class="small">from</span> <span class="fw-bold">{{$p->price}} $</span>
                                                     </div>
                                                     <div class="text-end text-capitalize small text-secondary">
-                                                        {{$sim->sim_card_options}}
+                                                        {{$p->sim_card_options}}
                                                     </div>
                                                 </div>
                                             </div>
