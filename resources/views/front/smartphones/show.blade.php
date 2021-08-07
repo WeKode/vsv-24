@@ -245,7 +245,7 @@
                                         @endif
                                     </h6>
                                     <div class="text-secondary small">
-                                        @if($s->is_available)
+                                        @if($latest_product->is_available)
                                             Immediately available
                                         @else
                                             Unavailable
