@@ -60,6 +60,7 @@ class AttributeSeeder extends Seeder
 
         Attribute::create(['name' => 'Colour', 'type' => 1, 'is_editable' => false])->values()->saveMany([
             new AttributeValue(['name' => 'Black']),
+            new AttributeValue(['name' => 'White']),
         ]);
 
         Attribute::create(['name' => 'Display', 'type' => 1, 'is_editable' => false])->values()->saveMany([
@@ -69,18 +70,19 @@ class AttributeSeeder extends Seeder
 
         ;
         Attribute::create(['name' => 'Resolution', 'type' => 1, 'is_editable' => false])->values()->saveMany([
-            new AttributeValue(['name' => '6.1 Inch']),
-            new AttributeValue(['name' => '6.3 Inch']),
+            new AttributeValue(['name' => '1920*1080px']),
+            new AttributeValue(['name' => '1920*1080px']),
         ]);
 
         Attribute::create(['name' => 'Battery', 'type' => 1, 'is_editable' => false])->values()->saveMany([
-            new AttributeValue(['name' => '2000']),
-            new AttributeValue(['name' => '4000']),
+            new AttributeValue(['name' => '2000 mah']),
+            new AttributeValue(['name' => '4000 mah']),
         ]);
 
 
         Attribute::create(['name' => 'Data volume', 'type' => 2, 'is_editable' => false])->values()->saveMany([
             new AttributeValue(['name' => '50 Gb']),
+            new AttributeValue(['name' => '100 Gb']),
         ]);
 
         Attribute::create(['name' => 'Sim card options', 'type' => 2, 'is_editable' => false])->values()->saveMany([
