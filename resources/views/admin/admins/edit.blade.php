@@ -17,7 +17,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">{{__("labels.dashboard")}}</a></li>
+{{--                            <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">{{__("labels.dashboard")}}</a></li>--}}
                             <li class="breadcrumb-item"><a href="{{route('admin.admins.index')}}">{{trans_choice("labels.admin",3)}}</a></li>
                             <li class="breadcrumb-item active">{{__("actions.update")}}</li>
                         </ol>

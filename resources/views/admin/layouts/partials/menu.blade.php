@@ -5,15 +5,15 @@
             {{trans_choice('labels.overview',3)}}
         </li>
 
-        <li class="nav-item">
-            <a href="{{route('admin.dashboard')}}" data-link="/admin/dashboard"
-               class="nav-link {{request()->routeIs('admin.dashboard*') ? 'active' : ''}}">
-                <i class="nav-icon fas fa-tachometer-alt"></i>
-                <p>
-                    {{__('labels.dashboard')}}
-                </p>
-            </a>
-        </li>
+{{--        <li class="nav-item">--}}
+{{--            <a href="{{route('admin.dashboard')}}" data-link="/admin/dashboard"--}}
+{{--               class="nav-link {{request()->routeIs('admin.dashboard*') ? 'active' : ''}}">--}}
+{{--                <i class="nav-icon fas fa-tachometer-alt"></i>--}}
+{{--                <p>--}}
+{{--                    {{__('labels.dashboard')}}--}}
+{{--                </p>--}}
+{{--            </a>--}}
+{{--        </li>--}}
 
         <li class="nav-header text-muted">
             {{trans_choice('labels.manage',3)}}

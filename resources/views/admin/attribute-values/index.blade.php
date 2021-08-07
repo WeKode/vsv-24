@@ -23,7 +23,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">{{__("labels.dashboard")}}</a></li>
+{{--                            <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">{{__("labels.dashboard")}}</a></li>--}}
                             <li class="breadcrumb-item active">{{__("labels.list",['name' => trans_choice('labels.value',3)])}}</li>
                         </ol>
                     </div>
