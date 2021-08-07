@@ -4,6 +4,7 @@
         <li class="nav-header text-muted">
             {{trans_choice('labels.overview',3)}}
         </li>
+
         <li class="nav-item">
             <a href="{{route('admin.dashboard')}}" data-link="/admin/dashboard"
                class="nav-link {{request()->routeIs('admin.dashboard*') ? 'active' : ''}}">
@@ -36,7 +37,7 @@
         <li class="nav-item">
             <a href="{{route('admin.orders.index')}}" data-link="/admin/orders"
                class="nav-link {{request()->routeIs('admin.orders*') ? 'active' : ''}}">
-                <i class="nav-icon fas fa-orders"></i>
+                <i class="nav-icon fas fa-shopping-cart"></i>
                 <p>{{trans_choice('labels.order',2)}}</p>
             </a>
         </li>
@@ -47,7 +48,7 @@
         <li class="nav-item ">
             <a href="{{route('admin.products.index')}}" data-link="/admin/products"
                class="nav-link {{request()->routeIs('admin.products*') ? 'active' : ''}}">
-                <i class="nav-icon fas fa-mobile"></i>
+                <i class="nav-icon fas fa-fire"></i>
                 <p>
                     {{trans_choice('labels.off',3)}}
                 </p>
