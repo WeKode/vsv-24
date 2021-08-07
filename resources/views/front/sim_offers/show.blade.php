@@ -46,8 +46,8 @@
                     </h6>
                     <ul class="mt-4">
                         <li>Tariff: {{$product->price}}</li>
-                        <li>Sim card options: {{$product->tarif_type}}</li>
-                        <li>Tariff type: {{$product->tarif_type}}</li>
+                        <li>Sim card options: {{$product->sim_card_options}}</li>
+                        <li>Tariff type: {{$product->tariff_type}}</li>
                     </ul>
                     <div>{!!$product->description!!}</div>
                     <div class="small mt-3">
