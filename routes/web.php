@@ -63,6 +63,21 @@ Route::middleware('auth')->group(function(){
 
     Route::get('/notifications', [\App\Http\Controllers\Web\NotificationController::class, 'index'])->name('notifications.index');
 
+    Route::post('/offer-checkout/step-0', [\App\Http\Controllers\Web\OfferCheckoutController::class, 'store'])->name('offer-checkout.store');
+
+    Route::get('/offer-checkout/step-1', [\App\Http\Controllers\Web\OfferCheckoutController::class, 'index1'])->name('offer-checkout.index1');
+    Route::post('/offer-checkout/step-1', [\App\Http\Controllers\Web\OfferCheckoutController::class, 'store1'])->name('offer-checkout.store1');
+
+    Route::get('/offer-checkout/step-2', [\App\Http\Controllers\Web\OfferCheckoutController::class, 'index2'])->name('offer-checkout.index2');
+    Route::post('/offer-checkout/step-2', [\App\Http\Controllers\Web\OfferCheckoutController::class, 'store2'])->name('offer-checkout.store2');
+
+    Route::get('/offer-checkout/step-3', [\App\Http\Controllers\Web\OfferCheckoutController::class, 'index3'])->name('offer-checkout.index3');
+    Route::get('/offer-checkout/step-3/confirm', [\App\Http\Controllers\Web\OfferCheckoutController::class, 'store3'])->name('offer-checkout.store3');
+
+    Route::post('/offer-checkout/confirm', [\App\Http\Controllers\Web\OfferCheckoutController::class, 'store'])->name('offer-checkout.store');
+
+
+
 
 });
 

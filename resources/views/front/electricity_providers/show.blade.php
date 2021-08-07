@@ -56,9 +56,11 @@
                             Compare with similar offers
                         </a>
                     </div>
-                    <div class="text-end">
-                        <a href="" class="btn bg-blue text-light px-5 py-3 text-capitalize">further</a>
-                    </div>
+                    <form class="text-end" action="{{route('offer-checkout.store')}}" method="post">
+                        @csrf
+                        <input type="hidden" value="{{$product->id}}" name="product_id">
+                        <button href="{{route('offer-checkout.index1')}}" class="btn bg-blue text-light px-5 py-3 text-capitalize">further</button>
+                    </form>
                 </div>
             </div>
 
