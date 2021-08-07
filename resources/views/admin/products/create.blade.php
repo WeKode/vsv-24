@@ -36,19 +36,21 @@
         </section>
 
         <!-- Main content -->
-        <section class="content">
-            <div class="row">
-                <!-- Default box -->
-                <div class="card card-primary col-md-8">
-                    <div class="card-header">
-                        <h3 class="card-title">{{__('actions.create')}}</h3>
-                    </div>
-                    <!-- /.card-header -->
-                    <!-- form start -->
-                    <form method="post" action="{{route('admin.products.store')}}" enctype="multipart/form-data">
-                        @csrf
-                        <div class="card-body">
-                            <div class="form-group">
+        <section class="container-fluid">
+
+            <!-- Default box -->
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">{{__('actions.create')}}</h3>
+                </div>
+                <!-- /.card-header -->
+                <!-- form start -->
+                <form method="post" action="{{route('admin.products.store')}}" enctype="multipart/form-data">
+                    @csrf
+                    <div class="card-body">
+
+                        <div class="row">
+                            <div class="col-lg-6 mb-3">
                                 <label for="type">{{__('labels.type')}}</label>
                                 <select class="form-control @error('type') is-invalid @enderror"
                                         required name="type" id="type" data-placeholder="{{__('labels.type')}}">
@@ -63,7 +65,7 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group">
+                            <div class="col-lg-6 mb-3">
                                 <label for="name">{{__('labels.name')}}</label>
                                 <input type="text"
                                        class="form-control @error('name') is-invalid @enderror"
@@ -74,17 +76,7 @@
                                 @enderror
                             </div>
 
-{{--                            <div class="form-group">--}}
-{{--                                <label for="short_description">{{__('labels.short_description')}}</label>--}}
-{{--                                <textarea name="short_description"--}}
-{{--                                          class="form-control @error('short_description') is-invalid @enderror"--}}
-{{--                                          id="short_description" rows="4">{{old('short_description')}}</textarea>--}}
-{{--                                @error('short_description')--}}
-{{--                                <div class="text-danger">{{$message}}</div>--}}
-{{--                                @enderror--}}
-{{--                            </div>--}}
-
-                            <div class="form-group">
+                            <div class="col-lg-6 mb-3">
                                 <label for="price">{{__('labels.price')}}</label>
                                 <input type="text"
                                        class="form-control @error('price') is-invalid @enderror"
@@ -95,7 +87,7 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group">
+                            <div class="col-lg-6 mb-3">
                                 <label for="old_price">{{__('labels.old_price')}}</label>
                                 <input type="text"
                                        class="form-control @error('old_price') is-invalid @enderror"
@@ -106,7 +98,7 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group">
+                            <div class="col-lg-6 mb-3">
                                 <label>{{__('available')}}</label>
                                 <select class=" form-control @error('is_available') is-invalid @enderror"
                                         name="is_available" data-placeholder="{{__('available')}}"
@@ -119,7 +111,7 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group">
+                            <div class="col-lg-6 mb-3">
                                 <label for="images">{{trans_choice('labels.image',3)}}</label>
                                 <div class="input-group">
                                     <div class="custom-file">
@@ -134,7 +126,7 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group">
+                            <div class="col-lg-6 mb-3">
                                 <label>{{trans_choice('labels.brand',1)}}</label>
                                 <select class="select2 form-control @error('brand_id') is-invalid @enderror"
                                         name="brand_id" data-placeholder="{{trans_choice('labels.brand',1)}}"
@@ -145,7 +137,7 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group">
+                            <div class="col-lg-6 mb-3">
                                 <label for="description">{{__('labels.description')}}</label>
                                 <textarea name="description" id="description" >{{old('short_description')}}</textarea>
                                 @error('description')
@@ -154,13 +146,13 @@
                             </div>
 
                             @foreach($attributes as $attribute)
-                                <div class="form-group {{$attribute->type_name}} d-none">
+                                <div class="col-lg-4 {{$attribute->type_name}} d-none">
                                     <label for="values">{{$attribute->name}}</label>
                                     <select class="form-control  @error('values') is-invalid @enderror {{$attribute->type_name}}-input"
                                             name="values[]" id="values" data-placeholder="{{__('labels.value')}}">
                                         @foreach($attribute->values as $value)
-                                        <option value="{{$value->id}}"
-                                            {{in_array($value->id, old('values') ?? []) ? 'selected' : ''}}>{{$value->name}}</option>
+                                            <option value="{{$value->id}}"
+                                                {{in_array($value->id, old('values') ?? []) ? 'selected' : ''}}>{{$value->name}}</option>
                                         @endforeach
                                     </select>
                                     @error('values')
@@ -168,17 +160,16 @@
                                     @enderror
                                 </div>
                             @endforeach
-
-
-                            <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">{{__('labels.submit')}}</button>
-                            </div>
                         </div>
-                    </form>
-                </div>
-                <!-- /.card -->
-            </div>
 
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">{{__('labels.submit')}}</button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <!-- /.card -->
 
         </section>
         <!-- /.content -->
