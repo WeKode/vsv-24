@@ -26,7 +26,7 @@
                                             @if($s->is_available)
                                             Immediately available
                                             @else
-                                                Immediately unavailable
+                                                Unavailable
                                             @endif
                                         </div>
 
@@ -78,7 +78,7 @@
                                         @if($s->is_available)
                                             Immediately available
                                         @else
-                                            Immediately unavailable
+                                            Unavailable
                                         @endif
                                     </div>
                                 </div>

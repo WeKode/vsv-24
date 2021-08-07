@@ -98,12 +98,24 @@ class AttributeSeeder extends Seeder
             new AttributeValue(['name' => 'Prepaid']),
         ]);
 
+
+
         Attribute::create(['name' => 'Data speed', 'type' => 2, 'is_editable' => false])->values()->saveMany([
             new AttributeValue(['name' => '21 mbps']),
             new AttributeValue(['name' => '50 mbps']),
             new AttributeValue(['name' => '100 mbps']),
             new AttributeValue(['name' => '200 mbps']),
             new AttributeValue(['name' => '300 mbps']),
+        ]);
+
+        Attribute::create(['name' => 'Use', 'type' => 3, 'is_editable' => false])->values()->saveMany([
+            new AttributeValue(['name' => 'Private']),
+            new AttributeValue(['name' => 'Public']),
+        ]);
+
+        Attribute::create(['name' => 'Green electricity', 'type' => 3, 'is_editable' => false])->values()->saveMany([
+            new AttributeValue(['name' => 'Yes']),
+            new AttributeValue(['name' => 'No']),
         ]);
 
         Attribute::create(['name' => 'Contract duration', 'type' => 3, 'is_editable' => false])->values()->saveMany([
@@ -132,13 +144,11 @@ class AttributeSeeder extends Seeder
 
         ]);
 
-//        Attribute::create(['name' => 'Data', 'type' => 3, 'is_editable' => false])->values()->saveMany([
-//            new AttributeValue(['name' => '21']),
-//        ]);
-//
-//        Attribute::create(['name' => 'Data', 'type' => 3, 'is_editable' => false])->values()->saveMany([
-//            new AttributeValue(['name' => '21']),
-//        ]);
+        Attribute::create(['name' => 'Tariff', 'type' => 3, 'is_editable' => false])->values()->saveMany([
+            new AttributeValue(['name' => '21']),
+        ]);
+
+
 
     }
 }
