@@ -5,18 +5,18 @@
                 <img src="{{asset('front/assets/images/logo.png')}}" alt="logo" height="40">
             </div>
             <div class="col-12 col-lg-auto text-center mt-4 mt-lg-0">
-                <a href="javascript:void(0)" class="text-decoration-none text-light me-3">
+                <a href="{{$setting->where('key', 'social_facebook')->first()->value}}" class="text-decoration-none text-light me-3">
                     <i class="fab fa-facebook-square fa-2x"></i>
                 </a>
-                <a href="javascript:void(0)" class="text-decoration-none text-light me-3">
+                <a href="{{$setting->where('key', 'social_twitter')->first()->value}}" class="text-decoration-none text-light me-3">
                     <i class="fab fa-twitter-square fa-2x"></i>
                 </a>
-                <a href="javascript:void(0)" class="text-decoration-none text-light me-3">
+                <a href="{{$setting->where('key', 'social_instagram')->first()->value}}" class="text-decoration-none text-light me-3">
                     <i class="fab fa-instagram fa-2x"></i>
                 </a>
-                <a href="javascript:void(0)" class="text-decoration-none text-light">
-                    <i class="fab fa-youtube fa-2x"></i>
-                </a>
+{{--                <a href="{{$setting->where('key', 'social_facebook')->first()->value}}" class="text-decoration-none text-light">--}}
+{{--                    <i class="fab fa-youtube fa-2x"></i>--}}
+{{--                </a>--}}
             </div>
         </div>
     </div>

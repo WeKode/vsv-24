@@ -183,10 +183,8 @@
 
     </script>
     <script>
-        deliveryTime
         $('#deliveryTime').change(function() {
             $('#deliveryTime-form').submit()
         })
-    </script>
     </script>
 @endpush

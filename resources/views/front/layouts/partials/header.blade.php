@@ -50,8 +50,8 @@
 
                             @else
                                 <li class="nav-item me-0 me-lg-3">
-                                    <a class="nav-link text-light" href="tel:+213560030151"><i
-                                            class="fas fa-phone-alt me-2"></i>+213 560 03 01 51</a>
+                                    <a class="nav-link text-light" href="tel:{{$setting->where('key', 'phone')->first()->value}}"><i
+                                            class="fas fa-phone-alt me-2"></i>{{$setting->where('key', 'phone')->first()->value}}</a>
                                 </li>
                                 <li class="nav-item me-0 me-lg-3">
                                     <a class="nav-link text-light" href="{{route('login')}}"><i

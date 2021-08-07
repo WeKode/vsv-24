@@ -164,4 +164,9 @@
 
 
     </script>
+    <script>
+        $('#deliveryTime').change(function() {
+            $('#deliveryTime-form').submit()
+        })
+    </script>
 @endpush

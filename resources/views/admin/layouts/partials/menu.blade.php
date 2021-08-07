@@ -89,7 +89,7 @@
             {{trans_choice('labels.account',3)}}
         </li>
         <li class="nav-item">
-            <a href="" class="nav-link">
+            <a href="{{route('admin.setting.index')}}" class="nav-link  {{request()->routeIs('admin.setting*') ? 'active' : ''}}">
                 <i class="nav-icon fas fa-cog"></i>
                 <p>
                     {{trans_choice('labels.settings',3)}}

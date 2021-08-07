@@ -115,7 +115,7 @@
                                         name="is_available" data-placeholder="{{__('available')}}"
                                         style="width: 100%;">
                                     <option value="1" {{old('is_available', $product->is_available) == 1 ? 'selected' : ''}}>Yes</option>
-                                    <option value="0" {{old('is_available', $product->is_available) == 1 ? 'selected' : ''}}>No</option>
+                                    <option value="0" {{old('is_available', $product->is_available) == 0 ? 'selected' : ''}}>No</option>
                                 </select>
                                 @error('is_available')
                                 <div class="invalid-feedback">{{$message}}</div>

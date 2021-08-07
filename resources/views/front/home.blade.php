@@ -57,13 +57,13 @@
                         <div class="card rounded-0 h-100">
                             <div class="row g-0">
                                 <div class="col-6 image"
-                                     style="background-image: url('https://3vffxhfy5ah3clou11dg4jhd-wpengine.netdna-ssl.com/wp-content/uploads/AdobeStock_195603050.jpeg');"></div>
+                                     style="background-image: url('{{asset($energy->img_url)}}');"></div>
                                 <div class="col-6">
                                     <div class="card-body">
 
-                                        <h4 class="text-black text-capitalize text-truncate mb-2">{{$energy->name}}</h4>
-                                        <h6 class="text-secondary text-truncate mb-1">2500 kWh</h6>
-                                        <h6 class="text-secondary text-truncate">Lorem ipsum dolor sit amet</h6>
+                                        <h4 class="text-black text-capitalize text-truncate mb-2">{{$energy->brand->name}}</h4>
+                                        <h6 class="text-secondary text-truncate mb-1">{{$energy->name}}</h6>
+                                        <h6 class="text-secondary text-truncate">{{$energy->description}}</h6>
                                         <div class="text-end mt-3 text-black">
                                             <span class="small">From :</span> <span class="fw-bold">{{$energy->price}} $</span>
                                         </div>
@@ -105,7 +105,7 @@
                             <div class="row g-0">
                                 <div class="col-5 d-flex align-items-center justify-content-center bg-warning p-1">
                                     <div class="text-center text-light">
-                                        <h2 class="mb-0">50 Gb</h2>
+                                        <h2 class="mb-0">{{$sim->data}}</h2>
                                         <div class="small">
                                             Data Volume
                                         </div>
@@ -113,13 +113,13 @@
                                 </div>
                                 <div class="col-7">
                                     <div class="card-body">
-                                        <h6 class="text-secondary text-truncate mb-1">Orange</h6>
-                                        <h4 class="text-black text-truncate">50 gb data limited offer</h4>
+                                        <h6 class="text-secondary text-truncate mb-1">{{$sim->brand->name}}</h6>
+                                        <h4 class="text-black text-truncate">{{$sim->name}}</h4>
                                         <div class="text-end mt-3 text-black">
-                                            <span class="small">from</span> <span class="fw-bold">32,45 $</span>
+                                            <span class="small">from</span> <span class="fw-bold">{{$sim->price}} $</span>
                                         </div>
                                         <div class="text-end text-capitalize small text-secondary">
-                                            e-sim available
+                                            {{$sim->e_sim}}
                                         </div>
                                     </div>
                                 </div>

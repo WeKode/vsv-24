@@ -22,7 +22,8 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">{{__("labels.dashboard")}}</a></li>
+                            <li class="breadcrumb-item"><a
+                                    href="{{route('admin.dashboard')}}">{{__("labels.dashboard")}}</a></li>
                             <li class="breadcrumb-item active">{{__("labels.list",['name' => trans_choice('labels.product',3)])}}</li>
                         </ol>
                     </div>
@@ -42,11 +43,11 @@
 
                             <!-- /.card-header -->
                             <div class="card-body">
-                                    <div class="card-tools">
-                                        <a class="btn btn-sm btn-info" href="{{route('admin.products.create')}}">
-                                            <i class="fas fa-plus"></i>
-                                        </a>
-                                    </div>
+                                <div class="card-tools">
+                                    <a class="btn btn-sm btn-info" href="{{route('admin.products.create')}}">
+                                        <i class="fas fa-plus"></i>
+                                    </a>
+                                </div>
                                 <table id="datatable" class="table table-bordered table-hover">
                                     <thead>
                                     <tr>
@@ -54,6 +55,7 @@
                                         <th>{{trans_choice('labels.image',1)}}</th>
                                         <th>{{__('labels.name')}}</th>
                                         <th>{{__('labels.price')}}</th>
+                                        <th>{{__('labels.type')}}</th>
                                         <th>{{trans_choice('labels.brand',1)}}</th>
                                         <th>{{__('labels.created_at')}}</th>
                                         <th>{{__('actions.actions')}}</th>
@@ -61,27 +63,46 @@
                                     </thead>
                                     <tbody>
                                     @foreach($products as $key => $p)
-                                    <tr>
-                                        <td>{{$key + 1 }}</td>
-                                        <td>
-                                            <img src="{{asset($p->img_url)}}" width="60" height="60" class="img-circle elevation-1" alt="Product Image">
-                                        </td>
-                                        <td>{{$p->name}}</td>
-                                        <td>{{$p->price}}</td>
-                                        <td>{{$p->brand ? $p->brand->name : '/'}}</td>
-                                        <td>{{$p->created_at->format('m-d-Y')}}</td>
-                                        <td>
-                                            <a href="{{route('admin.products.edit',$p->id)}}" class="btn btn-sm btn-warning">
-                                                <i class="fas fa-edit"></i>
-                                            </a>
-                                            <a href="{{route('admin.products.show',$p->id)}}" class="btn btn-sm btn-warning">
-                                                <i class="fas fa-eye"></i>
-                                            </a>
-                                            <button type="button" onclick="deleteItem({{$p->id}})" class="btn btn-sm btn-danger">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
+                                        <tr>
+                                            <td>{{$key + 1 }}</td>
+                                            <td>
+                                                <img src="{{asset($p->img_url)}}" width="60" height="60"
+                                                     class="img-circle elevation-1" alt="Product Image">
+                                            </td>
+                                            <td>{{$p->name}}</td>
+                                            <td>{{$p->price}}</td>
+                                            <td>
+                                                @switch($p->type)
+                                                    @case(1)
+                                                    {{__('labels.smartphone')}}
+                                                    @break
+                                                    @case(2)
+                                                    {{__('labels.phone-plan')}}
+                                                    @break
+                                                    @case(3)
+                                                    {{__('labels.energy-plan')}}
+                                                    @break
+                                                    @default
+                                                    {{__('labels.smartphone')}}
+                                                @endswitch
+                                            </td>
+                                            <td>{{$p->brand ? $p->brand->name : '/'}}</td>
+                                            <td>{{$p->created_at->format('m-d-Y')}}</td>
+                                            <td>
+                                                <a href="{{route('admin.products.edit',$p->id)}}"
+                                                   class="btn btn-sm btn-warning">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <a href="{{route('admin.products.show',$p->id)}}"
+                                                   class="btn btn-sm btn-warning">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                                <button type="button" onclick="deleteItem({{$p->id}})"
+                                                        class="btn btn-sm btn-danger">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
                                     @endforeach
                                     </tbody>
 
@@ -156,18 +177,18 @@
         }
         const createForm = id => {
             let f = document.createElement("form");
-            f.setAttribute('method',"post");
-            f.setAttribute('action',`/admin/products/${id}`);
+            f.setAttribute('method', "post");
+            f.setAttribute('action', `/admin/products/${id}`);
 
             let i1 = document.createElement("input"); //input element, text
-            i1.setAttribute('type',"hidden");
-            i1.setAttribute('name','_token');
-            i1.setAttribute('value','{{csrf_token()}}');
+            i1.setAttribute('type', "hidden");
+            i1.setAttribute('name', '_token');
+            i1.setAttribute('value', '{{csrf_token()}}');
 
             let i2 = document.createElement("input"); //input element, text
-            i2.setAttribute('type',"hidden");
-            i2.setAttribute('name','_method');
-            i2.setAttribute('value','DELETE');
+            i2.setAttribute('type', "hidden");
+            i2.setAttribute('name', '_method');
+            i2.setAttribute('value', 'DELETE');
 
             f.appendChild(i1);
             f.appendChild(i2);
