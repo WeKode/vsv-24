@@ -95,7 +95,7 @@ Route::get('/', [\App\Http\Controllers\Web\HomeController::class, 'index'])->nam
 Route::get('/smartphones', [\App\Http\Controllers\Web\SmartphoneController::class, 'index'])->name('smartphones.index');
 
 
-Route::get('artisan', [\App\Http\Controllers\ArtisanController::class, 'migrate']);
-Route::get('artisan', [\App\Http\Controllers\ArtisanController::class, 'cache']);
-Route::get('artisan', [\App\Http\Controllers\ArtisanController::class, 'storage']);
+Route::get('/artisan/migrate', [\App\Http\Controllers\ArtisanController::class, 'migrate']);
+Route::get('/artisan/cache', [\App\Http\Controllers\ArtisanController::class, 'cache']);
+Route::get('/artisan/storage', [\App\Http\Controllers\ArtisanController::class, 'storage']);
 
