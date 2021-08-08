@@ -17,6 +17,8 @@ Route::middleware('auth:admin')->group(function (){
     Route::any('logout',[\App\Http\Controllers\Admin\Auth\AdminLoginController::class,'logout'])->name('logout');
     Route::get('dashboard',[\App\Http\Controllers\Admin\AdminController::class,'index'])->name('dashboard');
 
+    Route::view("order/test",'admin.orders.edit')->name("order.test");
+
     Route::resource('admins',\App\Http\Controllers\Admin\AdminController::class);
     Route::resource('users',\App\Http\Controllers\Admin\UserController::class)->except(['show', 'create', 'store']);
     Route::resource('orders',\App\Http\Controllers\Admin\OrderController::class)->except(['show', 'create', 'store', 'destroy']);
@@ -39,4 +41,6 @@ Route::middleware('auth:admin')->group(function (){
 
     Route::GET("setting",[\App\Http\Controllers\Admin\SettingsController::class,'index'])->name("setting.index");
     Route::POST("setting",[\App\Http\Controllers\Admin\SettingsController::class,'update'])->name("setting.update");
+
+
 });
